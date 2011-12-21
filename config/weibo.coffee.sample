@@ -1,7 +1,8 @@
 ###
   weibo.coffee
 ###
-
-appkey: 'xx'
-secret: 'xxxx'
+define ->
+    appkey: 'xx'
+    secret: 'xxxx'
+    oauth_callback_url: ''
 

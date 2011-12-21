@@ -9,7 +9,8 @@ define [
 
     m.main = (ctx) ->
         ctx.weibo = w
-        crawler.run ctx, (error, data, response) ->
+        console.log ctx
+        c.run ctx, (error, data, response) ->
             if error
                 console.log error
             else
