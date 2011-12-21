@@ -7,10 +7,10 @@ define [
   'brain'
 ], (m, r, b) ->
 
-    options =
+    params =
         backend:
             type: 'Redis'
-            options:
+            params:
                 hostname: r.host
                 port: r.port
                 name: 'emotion'
@@ -25,8 +25,10 @@ define [
             slight: 3
         def: 'neurual'
 
-    bayes = new b.BayesianClassifier(options)
-
-    m.classify = (text) -> bayes.classify(text)
+    m.type = 'emotion'
+    m.options = ['neutral', 'joy', 'surprise', 'fear', 'sadness', 'digest', 'anger', 'slight']
+    m.classify = (text, callback) ->
+        bayes = new b.BayesianClassifier(params)
+        bayes.classify(text, callback)
 
     m

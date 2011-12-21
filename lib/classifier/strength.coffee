@@ -7,10 +7,10 @@ define [
   'brain'
 ], (m, r, b) ->
 
-    options =
+    params =
         backend:
             type: 'Redis'
-            options:
+            params:
                 hostname: r.host
                 port: r.port
                 name: 'strength'
@@ -24,8 +24,10 @@ define [
             strongest: 4
         def: 'modest'
 
-    bayes = new b.BayesianClassifier(options)
-
-    m.classify = (text) -> bayes.classify(text)
+    m.type = 'strength'
+    m.options = ['weakest', 'weaker', 'weak', 'modest', 'strong', 'stronger', 'strongest']
+    m.classify = (text, callback) ->
+        bayes = new b.BayesianClassifier(params)
+        bayes.classify(text, callback)
 
     m

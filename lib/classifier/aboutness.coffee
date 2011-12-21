@@ -7,20 +7,30 @@ define [
   'brain'
 ], (m, r, b) ->
 
-    options =
+    params =
         backend:
             type: 'Redis'
-            options:
+            params:
                 hostname: r.host
                 port: r.port
                 name: 'aboutness'
         thresholds:
-            about: 3
-            notabout: 1
-        def: 'notabout'
+            me: 3
+            you: 3
+            it: 3
+            me_you: 3
+            me_it: 3
+            you_me: 3
+            you_it: 3
+            it_me: 3
+            it_you: 3
+            uncertain: 1
+        def: 'uncertain'
 
-    bayes = new b.BayesianClassifier(options)
-
-    m.classify = (text) -> bayes.classify(text)
+    m.type = 'aboutness'
+    m.options = ['me', 'you', 'it', 'me_you', 'me_it', 'you_me', 'you_it', 'it_me', 'it_you', 'uncertain']
+    m.classify = (text, callback) ->
+        bayes = new b.BayesianClassifier(params)
+        bayes.classify(text, callback)
 
     m

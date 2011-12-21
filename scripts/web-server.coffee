@@ -32,7 +32,7 @@ define [
                 @render 'test'
 
             @get '/train/aboutness': ->
-                crwl.fetchText (err, text) =>
+                crwl.fetchText ctx (err, text) =>
                     if not err
                         data =
                             type: trnabt.type
@@ -40,7 +40,7 @@ define [
                             text: text
                         @send data
             @get '/train/emotion': ->
-                crwl.fetchText (err, text) =>
+                crwl.fetchText ctx (err, text) =>
                     if not err
                         data =
                             type: trnemt.type
@@ -48,7 +48,7 @@ define [
                             text: text
                         @send data
             @get '/train/strength': ->
-                crwl.fetchText (err, text) =>
+                crwl.fetchText ctx (err, text) =>
                     if not err
                         data =
                             type: trnstn.type
@@ -56,7 +56,7 @@ define [
                             text: text
                         @send data
             @get '/train/subjunctive': ->
-                crwl.fetchText (err, text) =>
+                crwl.fetchText ctx (err, text) =>
                     if not err
                         data =
                             type: trnsub.type
@@ -65,7 +65,7 @@ define [
                         @send data
 
             @get '/test/aboutness': ->
-                crwl.fetchText (err, text) =>
+                crwl.fetchText ctx (err, text) =>
                     if not err
                         clsabt.classify text (error, cat) =>
                             if not error
@@ -76,7 +76,7 @@ define [
                                     category: cat
                                 @send data
             @get '/test/emotion': ->
-                crwl.fetchText (err, text) =>
+                crwl.fetchText ctx (err, text) =>
                     if not err
                         clsemt.classify text (error, cat) =>
                             if not error
@@ -87,7 +87,7 @@ define [
                                     category: cat
                                 @send data
             @get '/test/strength': ->
-                crwl.fetchText (err, text) =>
+                crwl.fetchText ctx (err, text) =>
                     if not err
                         clsstn.classify text (error, cat) =>
                             if not error
@@ -98,7 +98,7 @@ define [
                                     category: cat
                                 @send data
             @get '/test/subjunctive': ->
-                crwl.fetchText (err, text) =>
+                crwl.fetchText ctx (err, text) =>
                     if not err
                         clsasub.classify text (error, cat) =>
                             if not error

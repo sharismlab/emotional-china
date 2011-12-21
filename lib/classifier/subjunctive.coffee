@@ -7,10 +7,10 @@ define [
   'brain'
 ] (m r b) ->
 
-    options =
+    params =
         backend:
             type: 'Redis'
-            options:
+            params:
                 hostname: r.host
                 port: r.port
                 name: 'subjunctive'
@@ -19,8 +19,10 @@ define [
             no: 1
         def: 'no'
 
-    bayes = new b.BayesianClassifier(options)
-
-    m.classify = (text) -> bayes.classify(text)
+    m.type = 'subjunctive'
+    m.options = ['yes', 'no']
+    m.classify = (text, callback) ->
+        bayes = new b.BayesianClassifier(params)
+        bayes.classify(text, callback)
 
     m
