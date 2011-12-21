@@ -6,7 +6,6 @@ define [
   'cs!../../config/redis'
   'brain'
 ], (m, r, b) ->
-
     params =
         backend:
             type: 'Redis'
@@ -27,8 +26,6 @@ define [
             uncertain: 1
         def: 'uncertain'
 
-    m.type = 'aboutness'
-    m.options = ['me', 'you', 'it', 'me_you', 'me_it', 'you_me', 'you_it', 'it_me', 'it_you', 'uncertain']
     m.classify = (text, callback) ->
         bayes = new b.BayesianClassifier(params)
         bayes.classify(text, callback)

@@ -3,8 +3,8 @@
 ###
 define [
   'exports'
-  'cs!./web-server'
-  'cs!./weibo-crawler'
+  'cs!./scripts/web-server'
+  'cs!./scripts/weibo-crawler'
 ], (m, w, c) ->
 
     m.main = (args...) ->

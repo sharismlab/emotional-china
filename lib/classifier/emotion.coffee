@@ -6,7 +6,6 @@ define [
   'cs!../../config/redis'
   'brain'
 ], (m, r, b) ->
-
     params =
         backend:
             type: 'Redis'
@@ -25,8 +24,6 @@ define [
             slight: 3
         def: 'neurual'
 
-    m.type = 'emotion'
-    m.options = ['neutral', 'joy', 'surprise', 'fear', 'sadness', 'digest', 'anger', 'slight']
     m.classify = (text, callback) ->
         bayes = new b.BayesianClassifier(params)
         bayes.classify(text, callback)

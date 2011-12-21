@@ -6,7 +6,6 @@ define [
   'cs!../../config/redis'
   'brain'
 ], (m, r, b) ->
-
     params =
         backend:
             type: 'Redis'
@@ -24,8 +23,6 @@ define [
             strongest: 4
         def: 'modest'
 
-    m.type = 'strength'
-    m.options = ['weakest', 'weaker', 'weak', 'modest', 'strong', 'stronger', 'strongest']
     m.classify = (text, callback) ->
         bayes = new b.BayesianClassifier(params)
         bayes.classify(text, callback)

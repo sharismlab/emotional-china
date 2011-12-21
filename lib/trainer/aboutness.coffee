@@ -3,10 +3,9 @@
 ###
 define [
   'exports'
-  'cs!../../config/redis'
   'brain'
-], (m, r, b) ->
-
+  'cs!../../config/redis'
+], (m, b, r) ->
     options =
         backend:
             type: 'Redis'
@@ -27,6 +26,8 @@ define [
             uncertain: 1
         def: 'uncertain'
 
+    m.type = 'aboutness'
+    m.options = ['me', 'you', 'it', 'me_you', 'me_it', 'you_me', 'you_it', 'it_me', 'it_you', 'uncertain']
     m.train = (text, category) ->
         bayes = new b.BayesianClassifier(options)
         bayes.train(text, category)

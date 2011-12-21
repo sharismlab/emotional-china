@@ -18,7 +18,10 @@ define [
         config = ctx.weibo
         tapi.init 'tsina', config.appkey, config.secret, config.oauth_callback_url
         tapi.public_timeline {count: 1, page: 1}, (error, data, response) ->
-            callback error, data[0].text
+            if error
+                callback error
+            else
+                callback error, data[0].text
 
     m
 

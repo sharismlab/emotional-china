@@ -5,22 +5,19 @@ define [
   'exports'
   'cs!../../config/redis'
   'brain'
-] (m r b) ->
-
+], (m, r, b) ->
     params =
         backend:
             type: 'Redis'
             params:
                 hostname: r.host
                 port: r.port
-                name: 'subjunctive'
+                name: 'aboutness'
         thresholds:
-            yes: 3
-            no: 1
-        def: 'no'
+            positive: 3
+            negative: 1
+        def: 'negative'
 
-    m.type = 'subjunctive'
-    m.options = ['yes', 'no']
     m.classify = (text, callback) ->
         bayes = new b.BayesianClassifier(params)
         bayes.classify(text, callback)

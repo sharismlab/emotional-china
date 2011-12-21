@@ -5,8 +5,7 @@ define [
   'exports'
   'cs!../../config/redis'
   'brain'
-] (m r b) ->
-
+], (m, r, b) ->
     options =
         backend:
             type: 'Redis'
@@ -15,12 +14,14 @@ define [
                 port: r.port
                 name: 'subjunctive'
         thresholds:
-            yes: 3
-            no: 1
-        def: 'no'
+            positive: 3
+            negative: 1
+        def: 'negative'
 
+    m.type = 'subjunctive'
+    m.options = ['positive', 'negative']
     m.train = (text, category) ->
-        bayes = new b.BayesianClassifier(options)
-        bayes.train(text, category)
+        bayes = new b.BayesianClassifier options
+        bayes.train text, category
 
     m

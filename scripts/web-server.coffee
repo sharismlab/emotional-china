@@ -4,6 +4,7 @@
 define [
   'exports'
   'zappa'
+  'cs!../config/weibo'
   'cs!../lib/crawler/crawler'
   'cs!../lib/trainer/aboutness'
   'cs!../lib/trainer/emotion'
@@ -13,9 +14,10 @@ define [
   'cs!../lib/classifier/emotion'
   'cs!../lib/classifier/strength'
   'cs!../lib/classifier/subjunctive'
-], (m, z, crwl, trnabt, trnemt, trnstn, trnsub, clsabt, clsemt, clsstn, clssub) ->
+], (m, z, w, crwl, trnabt, trnemt, trnstn, trnsub, clsabt, clsemt, clsstn, clssub) ->
 
     m.main = (ctx) ->
+        ctx.weibo = w
         z ->
             @use 'bodyParser', 'methodOverride', @app.router, 'static'
 
@@ -32,7 +34,7 @@ define [
                 @render 'test'
 
             @get '/train/aboutness': ->
-                crwl.fetchText ctx (err, text) =>
+                crwl.fetchText ctx, (err, text) =>
                     if not err
                         data =
                             type: trnabt.type
@@ -40,7 +42,7 @@ define [
                             text: text
                         @send data
             @get '/train/emotion': ->
-                crwl.fetchText ctx (err, text) =>
+                crwl.fetchText ctx, (err, text) =>
                     if not err
                         data =
                             type: trnemt.type
@@ -48,7 +50,7 @@ define [
                             text: text
                         @send data
             @get '/train/strength': ->
-                crwl.fetchText ctx (err, text) =>
+                crwl.fetchText ctx, (err, text) =>
                     if not err
                         data =
                             type: trnstn.type
@@ -56,7 +58,7 @@ define [
                             text: text
                         @send data
             @get '/train/subjunctive': ->
-                crwl.fetchText ctx (err, text) =>
+                crwl.fetchText ctx, (err, text) =>
                     if not err
                         data =
                             type: trnsub.type
@@ -65,9 +67,9 @@ define [
                         @send data
 
             @get '/test/aboutness': ->
-                crwl.fetchText ctx (err, text) =>
+                crwl.fetchText ctx, (err, text) =>
                     if not err
-                        clsabt.classify text (error, cat) =>
+                        clsabt.classify text, (error, cat) =>
                             if not error
                                 data =
                                     type: trnabt.type
@@ -76,9 +78,9 @@ define [
                                     category: cat
                                 @send data
             @get '/test/emotion': ->
-                crwl.fetchText ctx (err, text) =>
+                crwl.fetchText ctx, (err, text) =>
                     if not err
-                        clsemt.classify text (error, cat) =>
+                        clsemt.classify text, (error, cat) =>
                             if not error
                                 data =
                                     type: trnemt.type
@@ -87,9 +89,9 @@ define [
                                     category: cat
                                 @send data
             @get '/test/strength': ->
-                crwl.fetchText ctx (err, text) =>
+                crwl.fetchText ctx, (err, text) =>
                     if not err
-                        clsstn.classify text (error, cat) =>
+                        clsstn.classify text, (error, cat) =>
                             if not error
                                 data =
                                     type: trnstn.type
@@ -98,9 +100,9 @@ define [
                                     category: cat
                                 @send data
             @get '/test/subjunctive': ->
-                crwl.fetchText ctx (err, text) =>
+                crwl.fetchText ctx, (err, text) =>
                     if not err
-                        clsasub.classify text (error, cat) =>
+                        clssub.classify text, (error, cat) =>
                             if not error
                                 data =
                                     type: trnsub.type
@@ -110,15 +112,15 @@ define [
                                 @send data
 
             @post '/train/aboutness': ->
-                trnabt.train @body.text @body.category
+                trnabt.train @body.text, @body.category
 
             @post '/train/emotion': ->
-                trnemt.train @body.text @body.category
+                trnemt.train @body.text, @body.category
 
             @post '/train/strength': ->
-                trnstn.train @body.text @body.category
+                trnstn.train @body.text, @body.category
 
             @post '/train/subjunctive': ->
-                trnsub.train @body.text @body.category
+                trnsub.train @body.text, @body.category
 
     m

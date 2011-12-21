@@ -6,7 +6,6 @@ define [
   'cs!../../config/redis'
   'brain'
 ], (m, r, b) ->
-
     options =
         backend:
             type: 'Redis'
@@ -24,6 +23,8 @@ define [
             strongest: 4
         def: 'modest'
 
+    m.type = 'strength'
+    m.options = ['weakest', 'weaker', 'weak', 'modest', 'strong', 'stronger', 'strongest']
     m.train = (text, category) ->
         bayes = new b.BayesianClassifier(options)
         bayes.train(text, category)
