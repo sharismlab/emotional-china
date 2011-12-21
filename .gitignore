@@ -1,0 +1,11 @@
+*.o
+*.so
+*.pyc
+
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+
+config/*.coffee
+
