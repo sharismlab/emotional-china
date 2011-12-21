@@ -1,0 +1,10 @@
+{
+  "name": "emotional-china",
+  "version": "0.0.0",
+  "dependencies": {
+    "camel": "latest",
+    "underscore": "latest",
+    "brain": "latest",
+    "weibo": "latest"
+  }
+}
