@@ -25,8 +25,8 @@ define [
             slight: 3
         def: 'neurual'
 
-    bayes = new b.BayesianClassifier(options)
-
-    m.train = (text, category) -> bayes.train(text, category)
+    m.train = (text, category) ->
+        bayes = new b.BayesianClassifier(options)
+        bayes.train(text, category)
 
     m

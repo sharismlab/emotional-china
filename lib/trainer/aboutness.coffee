@@ -15,12 +15,20 @@ define [
                 port: r.port
                 name: 'aboutness'
         thresholds:
-            about: 3
-            notabout: 1
-        def: 'notabout'
+            me: 3
+            you: 3
+            it: 3
+            me_you: 3
+            me_it: 3
+            you_me: 3
+            you_it: 3
+            it_me: 3
+            it_you: 3
+            uncertain: 1
+        def: 'uncertain'
 
-    bayes = new b.BayesianClassifier(options)
-
-    m.train = (text, category) -> bayes.train(text, category)
+    m.train = (text, category) ->
+        bayes = new b.BayesianClassifier(options)
+        bayes.train(text, category)
 
     m

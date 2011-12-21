@@ -24,8 +24,8 @@ define [
             strongest: 4
         def: 'modest'
 
-    bayes = new b.BayesianClassifier(options)
-
-    m.train = (text, category) -> bayes.train(text, category)
+    m.train = (text, category) ->
+        bayes = new b.BayesianClassifier(options)
+        bayes.train(text, category)
 
     m

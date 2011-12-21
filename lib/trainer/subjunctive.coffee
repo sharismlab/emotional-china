@@ -19,8 +19,8 @@ define [
             no: 1
         def: 'no'
 
-    bayes = new b.BayesianClassifier(options)
-
-    m.train = (text, category) -> bayes.train(text, category)
+    m.train = (text, category) ->
+        bayes = new b.BayesianClassifier(options)
+        bayes.train(text, category)
 
     m
