@@ -4,7 +4,9 @@
   "dependencies": {
     "camel": "latest",
     "underscore": "latest",
+    "underscore.string": "latest",
     "brain": "latest",
-    "weibo": "latest"
+    "weibo": "latest",
+    "zappa": "latest"
   }
 }

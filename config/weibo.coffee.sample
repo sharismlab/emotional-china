@@ -1,1 +1,7 @@
+###
+  weibo.coffee
+###
+
+appkey: 'xx'
+secret: 'xxxx'
 
