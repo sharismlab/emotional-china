@@ -1,5 +1,5 @@
 ###
-  emotion.coffee
+  aboutness.coffee
 ###
 define [
   'exports'
@@ -13,17 +13,11 @@ define [
             options:
                 hostname: r.host
                 port: r.port
-                name: 'emotion'
+                name: 'aboutness'
         thresholds:
-            neurual: 1
-            joy: 3
-            surprise: 3
-            fear: 3
-            sadness: 3
-            digest: 3
-            anger: 3
-            slight: 3
-        def: 'neurual'
+            about: 3
+            notabout: 1
+        def: 'notabout'
 
     bayes = new b.BayesianClassifier(options)
 

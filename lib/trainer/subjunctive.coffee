@@ -21,6 +21,6 @@ define [
 
     bayes = new b.BayesianClassifier(options)
 
-    m.classify = (text) -> bayes.classify(text)
+    m.train = (text, category) -> bayes.train(text, category)
 
     m
