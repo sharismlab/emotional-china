@@ -15,7 +15,7 @@ define [
   'cs!../lib/classifier/subjunctive'
 ], (m, z, crwl, trnabt, trnemt, trnstn, trnsub, clsabt, clsemt, clsstn, clssub) ->
 
-    m.main = ->
+    m.main = (ctx) ->
         z ->
             @use 'bodyParser', 'methodOverride', @app.router, 'static'
 
@@ -32,70 +32,82 @@ define [
                 @render 'test'
 
             @get '/train/aboutness': ->
-                crwl.fetchText (text) =>
-                    data =
-                        type: trnabt.type
-                        options: trnabt.options
-                        text: text
-                    @send data
-            @get '/train/emotion': ->
-                crwl.fetchText (text) =>
-                    data =
-                        type: trnemt.type
-                        options: trnemt.options
-                        text: text
-                    @send data
-            @get '/train/strength': ->
-                crwl.fetchText (text) =>
-                    data =
-                        type: trnstn.type
-                        options: trnstn.options
-                        text: text
-                    @send data
-            @get '/train/subjunctive': ->
-                crwl.fetchText (text) =>
-                    data =
-                        type: trnsub.type
-                        options: trnsub.options
-                        text: text
-                    @send data
-
-            @get '/test/aboutness': ->
-                crwl.fetchText (text) =>
-                    clsabt.classify text (err, cat) =>
+                crwl.fetchText (err, text) =>
+                    if not err
                         data =
                             type: trnabt.type
                             options: trnabt.options
                             text: text
-                            category: cat
                         @send data
-            @get '/test/emotion': ->
-                crwl.fetchText (text) =>
-                    clsemt.classify text (err, cat) =>
+            @get '/train/emotion': ->
+                crwl.fetchText (err, text) =>
+                    if not err
                         data =
                             type: trnemt.type
                             options: trnemt.options
                             text: text
-                            category: cat
                         @send data
-            @get '/test/strength': ->
-                crwl.fetchText (text) =>
-                    clsstn.classify text (err, cat) =>
+            @get '/train/strength': ->
+                crwl.fetchText (err, text) =>
+                    if not err
                         data =
                             type: trnstn.type
                             options: trnstn.options
                             text: text
-                            category: cat
                         @send data
-            @get '/test/subjunctive': ->
-                crwl.fetchText (text) =>
-                    clsasub.classify text (err, cat) =>
+            @get '/train/subjunctive': ->
+                crwl.fetchText (err, text) =>
+                    if not err
                         data =
                             type: trnsub.type
                             options: trnsub.options
                             text: text
-                            category: cat
                         @send data
+
+            @get '/test/aboutness': ->
+                crwl.fetchText (err, text) =>
+                    if not err
+                        clsabt.classify text (error, cat) =>
+                            if not error
+                                data =
+                                    type: trnabt.type
+                                    options: trnabt.options
+                                    text: text
+                                    category: cat
+                                @send data
+            @get '/test/emotion': ->
+                crwl.fetchText (err, text) =>
+                    if not err
+                        clsemt.classify text (error, cat) =>
+                            if not error
+                                data =
+                                    type: trnemt.type
+                                    options: trnemt.options
+                                    text: text
+                                    category: cat
+                                @send data
+            @get '/test/strength': ->
+                crwl.fetchText (err, text) =>
+                    if not err
+                        clsstn.classify text (error, cat) =>
+                            if not error
+                                data =
+                                    type: trnstn.type
+                                    options: trnstn.options
+                                    text: text
+                                    category: cat
+                                @send data
+            @get '/test/subjunctive': ->
+                crwl.fetchText (err, text) =>
+                    if not err
+                        clsasub.classify text (error, cat) =>
+                            if not error
+                                data =
+                                    type: trnsub.type
+                                    options: trnsub.options
+                                    text: text
+                                    category: cat
+                                @send data
 
             @post '/train/aboutness': ->
                 trnabt.train @body.text @body.category

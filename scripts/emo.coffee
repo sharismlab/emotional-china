@@ -9,6 +9,6 @@ define [
 
     m.main = (args...) ->
         ctx = {}
-        c.main(ctx)
+        w.main(ctx)
 
     m
