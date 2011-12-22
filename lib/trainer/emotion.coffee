@@ -6,28 +6,37 @@ define [
   'cs!../../config/redis'
   'brain'
 ], (m, r, b) ->
-    options =
+
+    emotions = ['neutral', 'joy', 'surprise', 'fear', 'sadness', 'digest', 'anger', 'slight']
+
+    params =
         backend:
             type: 'Redis'
             options:
                 hostname: r.host
                 port: r.port
-                name: 'emotion'
         thresholds:
-            neurual: 1
-            joy: 3
-            surprise: 3
-            fear: 3
-            sadness: 3
-            digest: 3
-            anger: 3
-            slight: 3
-        def: 'neurual'
+            weakest: 1
+            weaker: 1
+            weak: 1
+            modest: 1
+            strong: 1
+            stronger: 1
+            strongest: 1
+        def: 'modest'
 
-    m.type = 'emotion'
-    m.options = ['neutral', 'joy', 'surprise', 'fear', 'sadness', 'digest', 'anger', 'slight']
-    m.train = (text, category) ->
-        bayes = new b.BayesianClassifier(options)
-        bayes.train(text, category)
+    m.types = emotions
+    m.options = ['weakest', 'weaker', 'weak', 'modest', 'strong', 'stronger', 'strongest']
+
+    createBayes = (name) ->
+        params.options.name = name
+        new b.BayesianClassifier(params)
+
+    m.train = (text, categories) ->
+        for name in emotions
+            strength = categories[name]
+            if strength
+                bayes = createBayes(name)
+                bayes.train(text, strength)
 
     m

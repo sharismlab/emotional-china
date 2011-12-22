@@ -5,19 +5,22 @@ define [
   'exports'
   'zappa'
   'cs!../config/weibo'
+  'cs!../config/labels'
   'cs!../lib/crawler/crawler'
   'cs!../lib/trainer/aboutness'
-  'cs!../lib/trainer/emotion'
-  'cs!../lib/trainer/strength'
   'cs!../lib/trainer/subjunctive'
   'cs!../lib/classifier/aboutness'
-  'cs!../lib/classifier/emotion'
-  'cs!../lib/classifier/strength'
   'cs!../lib/classifier/subjunctive'
-], (m, z, w, crwl, trnabt, trnemt, trnstn, trnsub, clsabt, clsemt, clsstn, clssub) ->
+  'cs!../lib/trainer/emotion'
+  'cs!../lib/classifier/emotion'
+], ( m, z, w, l, crwl,
+     trnabt, trnsub, clsabt, clssub,
+     trnemt, clsemt
+   ) ->
 
     m.main = (ctx) ->
         ctx.weibo = w
+        ctx.labels = l
         z ->
             @use 'bodyParser', 'methodOverride', @app.router, 'static'
 
@@ -27,13 +30,31 @@ define [
 
             @get '/': -> @render 'index'
 
-            @get '/train': ->
-                @render 'train'
+            @view index: ->
+                doctype 5
+                html ->
+                  head ->
+                    meta charset: 'utf-8'
+                    title '表情中国'
+                    link rel: 'stylesheet', href: '/styles/style.css'
+                    script src: '/zappa/jquery.js'
+                    script src: '/zappa/sammy.js'
+                    script src: '/zappa/zappa.js'
+                    script src: '/javascripts/slides.js'
+                    script src: '/index.js'
+                  body ->
+                    h1 '表情中国'
+                    div id: 'msg'
+                    div id: 'slide'
+                    ul ->
+                      li -> a href: '#/train', -> '训练'
+                      li -> a href: '#/test',  -> '测试'
 
-            @get '/test': ->
-                @render 'test'
+            @client '/index.js': ->
+                @get '#/train': ->
+                @get '#/test': ->
 
-            @get '/train/aboutness': ->
+            @get '/api/train/aboutness': ->
                 crwl.fetchText ctx, (err, text) =>
                     if not err
                         data =
@@ -41,23 +62,15 @@ define [
                             options: trnabt.options
                             text: text
                         @send data
-            @get '/train/emotion': ->
+            @get '/api/train/emotion': ->
                 crwl.fetchText ctx, (err, text) =>
                     if not err
                         data =
-                            type: trnemt.type
+                            types: trnemt.types
                             options: trnemt.options
                             text: text
                         @send data
-            @get '/train/strength': ->
-                crwl.fetchText ctx, (err, text) =>
-                    if not err
-                        data =
-                            type: trnstn.type
-                            options: trnstn.options
-                            text: text
-                        @send data
-            @get '/train/subjunctive': ->
+            @get '/api/train/subjunctive': ->
                 crwl.fetchText ctx, (err, text) =>
                     if not err
                         data =
@@ -66,7 +79,7 @@ define [
                             text: text
                         @send data
 
-            @get '/test/aboutness': ->
+            @get '/api/test/aboutness': ->
                 crwl.fetchText ctx, (err, text) =>
                     if not err
                         clsabt.classify text, (error, cat) =>
@@ -77,29 +90,18 @@ define [
                                     text: text
                                     category: cat
                                 @send data
-            @get '/test/emotion': ->
+            @get '/api/test/emotion': ->
                 crwl.fetchText ctx, (err, text) =>
                     if not err
-                        clsemt.classify text, (error, cat) =>
+                        clsemt.classify text, (error, cats) =>
                             if not error
                                 data =
-                                    type: trnemt.type
+                                    type: trnemt.types
                                     options: trnemt.options
                                     text: text
-                                    category: cat
+                                    categories: cats
                                 @send data
-            @get '/test/strength': ->
-                crwl.fetchText ctx, (err, text) =>
-                    if not err
-                        clsstn.classify text, (error, cat) =>
-                            if not error
-                                data =
-                                    type: trnstn.type
-                                    options: trnstn.options
-                                    text: text
-                                    category: cat
-                                @send data
-            @get '/test/subjunctive': ->
+            @get '/api/test/subjunctive': ->
                 crwl.fetchText ctx, (err, text) =>
                     if not err
                         clssub.classify text, (error, cat) =>
@@ -111,16 +113,13 @@ define [
                                     category: cat
                                 @send data
 
-            @post '/train/aboutness': ->
+            @post '/api/train/aboutness': ->
                 trnabt.train @body.text, @body.category
 
-            @post '/train/emotion': ->
-                trnemt.train @body.text, @body.category
+            @post '/api/train/emotion': ->
+                trnemt.train @body.text, @body.categories
 
-            @post '/train/strength': ->
-                trnstn.train @body.text, @body.category
-
-            @post '/train/subjunctive': ->
+            @post '/api/train/subjunctive': ->
                 trnsub.train @body.text, @body.category
 
     m
