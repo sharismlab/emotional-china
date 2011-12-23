@@ -20,7 +20,7 @@ define [
         tapi.public_timeline {count: 1, page: 1}, (error, data, response) ->
             if error
                 callback error
-            else
+            else if data and data.length > 0
                 callback error, data[0].text
 
     m

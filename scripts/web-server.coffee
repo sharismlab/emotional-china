@@ -3,32 +3,30 @@
 ###
 define [
   'exports'
+  'underscore'
   'zappa'
   'cs!../config/weibo'
   'cs!../config/labels'
   'cs!../lib/crawler/crawler'
   'cs!../lib/trainer/aboutness'
-  'cs!../lib/trainer/subjunctive'
   'cs!../lib/classifier/aboutness'
+  'cs!../lib/trainer/subjunctive'
   'cs!../lib/classifier/subjunctive'
   'cs!../lib/trainer/emotion'
   'cs!../lib/classifier/emotion'
-], ( m, z, w, l, crwl,
-     trnabt, trnsub, clsabt, clssub,
-     trnemt, clsemt
-   ) ->
+], ( m, _, z, w, l, crwl, trnabt, clsabt, trnsub, clssub, trnemt, clsemt) ->
 
     m.main = (ctx) ->
         ctx.weibo = w
         ctx.labels = l
         z ->
             @use 'bodyParser', 'methodOverride', @app.router, 'static'
-
+            @enable 'serve jquery', 'serve sammy'
             @configure
               development: => @use errorHandler: {dumpExceptions: on}
               production: => @use 'errorHandler'
 
-            @get '/': -> @render 'index'
+            @get '/': -> @render 'index': {layout: no}
 
             @view index: ->
                 doctype 5
@@ -40,78 +38,98 @@ define [
                     script src: '/zappa/jquery.js'
                     script src: '/zappa/sammy.js'
                     script src: '/zappa/zappa.js'
-                    script src: '/javascripts/slides.js'
+                    script src: '/javascripts/underscore-min.js'
                     script src: '/index.js'
                   body ->
                     h1 '表情中国'
                     div id: 'msg'
-                    div id: 'slide'
-                    ul ->
-                      li -> a href: '#/train', -> '训练'
-                      li -> a href: '#/test',  -> '测试'
+                    div id: 'slider', ->
+                      ul ->
+                        li -> a href: '#/train', -> '下一个训练'
+                        li -> a href: '#/test',  -> '下一个测试'
+                    div id: 'main'
 
             @client '/index.js': ->
-                @get '#/train': ->
-                @get '#/test': ->
+                choice = ->
+                    val = Math.random()
+                    if val < 1.0 / 3
+                        'aboutness'
+                    else
+                        if val < 2.0 / 3
+                            'subjunctive'
+                        else
+                            'emotion'
+
+                @app.use Sammy.Template, 'tmpl'
+
+                @app.get '#/train', ->
+                    @load '/api/train/' + choice(), (data) =>
+                        @load '/templates/train.tmpl', (tmpl) =>
+                            (@$element '#main').html _.template(tmpl, data)
+
+                @app.get '#/test', ->
+                    @load '/api/train/' + choice(), (data) =>
+                        @load '/templates/test.tmpl', (tmpl) =>
+                            (@$element '#main').html _.template(tmpl, data)
+
+            localize = (a)->
+                if a
+                    l[a]
+                else
+                    l['uncertain']
 
             @get '/api/train/aboutness': ->
                 crwl.fetchText ctx, (err, text) =>
                     if not err
-                        data =
-                            type: trnabt.type
-                            options: trnabt.options
+                        @send
+                            type: l[trnabt.type]
+                            options: _.map trnabt.options, localize
                             text: text
-                        @send data
             @get '/api/train/emotion': ->
                 crwl.fetchText ctx, (err, text) =>
                     if not err
-                        data =
-                            types: trnemt.types
-                            options: trnemt.options
+                        @send
+                            types: _.map trnemt.types, localize
+                            options: _.map trnemt.options, localize
                             text: text
-                        @send data
             @get '/api/train/subjunctive': ->
                 crwl.fetchText ctx, (err, text) =>
                     if not err
-                        data =
-                            type: trnsub.type
-                            options: trnsub.options
+                        @send
+                            type: l[trnsub.type]
+                            options: _.map trnsub.options, localize
                             text: text
-                        @send data
 
             @get '/api/test/aboutness': ->
                 crwl.fetchText ctx, (err, text) =>
                     if not err
                         clsabt.classify text, (error, cat) =>
                             if not error
-                                data =
-                                    type: trnabt.type
-                                    options: trnabt.options
+                                @send
+                                    type: l[trnabt.type]
+                                    options: _.map trnabt.options, localize
                                     text: text
-                                    category: cat
-                                @send data
+                                    category: l[cat]
             @get '/api/test/emotion': ->
                 crwl.fetchText ctx, (err, text) =>
                     if not err
                         clsemt.classify text, (error, cats) =>
                             if not error
-                                data =
-                                    type: trnemt.types
-                                    options: trnemt.options
+                                @send
+                                    types: _.map trnemt.types, localize
+                                    options: _.map trnemt.options, localize
                                     text: text
-                                    categories: cats
-                                @send data
+                                    categories: _.map trnemt.types, (n) -> localize(cats[n])
             @get '/api/test/subjunctive': ->
                 crwl.fetchText ctx, (err, text) =>
                     if not err
                         clssub.classify text, (error, cat) =>
                             if not error
-                                data =
-                                    type: trnsub.type
-                                    options: trnsub.options
+                                @send
+                                    type: l[trnsub.type]
+                                    options: _.map trnsub.options, localize
                                     text: text
-                                    category: cat
-                                @send data
+                                    category: l[cat]
 
             @post '/api/train/aboutness': ->
                 trnabt.train @body.text, @body.category
