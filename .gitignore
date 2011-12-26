@@ -9,5 +9,5 @@ Thumbs.db
 
 node_modules/*
 
-config/*.coffee
+config/weibo.coffee
 

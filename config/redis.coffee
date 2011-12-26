@@ -2,6 +2,5 @@
   redis.coffee
 ###
 define ->
-    host: 'localhost'
     port: 6379
-
+    host: 'localhost'

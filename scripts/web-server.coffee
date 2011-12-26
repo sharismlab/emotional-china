@@ -60,8 +60,6 @@ define [
                         else
                             'emotion'
 
-                @app.use Sammy.Template, 'tmpl'
-
                 @app.get '#/train', ->
                     @load '/api/train/' + choice(), (data) =>
                         @load '/templates/train.tmpl', (tmpl) =>
@@ -82,7 +80,7 @@ define [
                 crwl.fetchText ctx, (err, text) =>
                     if not err
                         @send
-                            type: l[trnabt.type]
+                            type: localize(trnabt.type)
                             options: _.map trnabt.options, localize
                             text: text
             @get '/api/train/emotion': ->
@@ -96,7 +94,7 @@ define [
                 crwl.fetchText ctx, (err, text) =>
                     if not err
                         @send
-                            type: l[trnsub.type]
+                            type: localize(trnsub.type)
                             options: _.map trnsub.options, localize
                             text: text
 
@@ -106,7 +104,7 @@ define [
                         clsabt.classify text, (error, cat) =>
                             if not error
                                 @send
-                                    type: l[trnabt.type]
+                                    type: localize(trnabt.type)
                                     options: _.map trnabt.options, localize
                                     text: text
                                     category: l[cat]
@@ -126,10 +124,10 @@ define [
                         clssub.classify text, (error, cat) =>
                             if not error
                                 @send
-                                    type: l[trnsub.type]
+                                    type: localize(trnsub.type)
                                     options: _.map trnsub.options, localize
                                     text: text
-                                    category: l[cat]
+                                    category: localize(cat)
 
             @post '/api/train/aboutness': ->
                 trnabt.train @body.text, @body.category
