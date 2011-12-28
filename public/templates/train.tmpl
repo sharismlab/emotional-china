@@ -13,7 +13,7 @@
         </tr>
         <tr>
         <% for (ind in options) { var opt = options[ind];%>
-            <td class="opt" id="opt-<%= opt %>-<%= id%>">❍</td>
+            <td><span class="opt" id="opt-<%= type %>-<%= opt %>-<%= id%>">❍</span></td>
         <% } %>
         </tr>
     </table>
@@ -23,12 +23,12 @@
     <table>
             <tr>
                 <% for (ind2 in options) { var opt = options[ind2];%>
-                    <td><small><%= opt %></small></td>
+                    <td><small><span><%= opt %></span></small></td>
                 <% } %>
             </tr>
             <tr>
                 <% for (ind2 in options) { var opt = options[ind2];%>
-                    <td class="opt" id="opt-<%= opt %>-<%= id%>">❍</td>
+                    <td><small><span class="opt" id="opt-<%= type %>-<%= opt %>-<%= id%>">❍</span></small></td>
                 <% } %>
             </tr>
     </table>

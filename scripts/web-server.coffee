@@ -5,16 +5,18 @@ define [
   'exports'
   'underscore'
   'zappa'
-  'cs!../lib/crawler/crawler'
+  'cs!../lib/crawler/queue'
   'cs!../lib/trainer/aboutness'
   'cs!../lib/classifier/aboutness'
   'cs!../lib/trainer/subjunctive'
   'cs!../lib/classifier/subjunctive'
   'cs!../lib/trainer/emotion'
   'cs!../lib/classifier/emotion'
-], ( m, _, z, crwl, trnabt, clsabt, trnsub, clssub, trnemt, clsemt) ->
+], ( m, _, z, queue, trnabt, clsabt, trnsub, clssub, trnemt, clsemt) ->
 
-    m.main = (ctx) ->
+    m.run = (ctx) ->
+        queue.init ctx
+
         z ->
             @use 'bodyParser', 'methodOverride', @app.router, 'static'
             @enable 'serve jquery', 'serve sammy'
@@ -82,10 +84,13 @@ define [
                                 target = $ e.target
                                 tid = target.attr 'id'
                                 segments = tid.split '-'
-                                if parseInt(segments[2]) == id
+                                if parseInt(segments[3]) == id
+                                    td = target.parents('td')
+                                    $(td).find("span:contains('✔')").html '❍'
                                     target.html '✔'
                                     $.post "/api/train/#{type}", {
-                                        category: segments[1]
+                                        type: segments[1]
+                                        category: segments[2]
                                         text: ($ "#text-#{id}").text()
                                     }
 
@@ -103,10 +108,13 @@ define [
                                 target = $ e.target
                                 tid = target.attr 'id'
                                 segments = tid.split '-'
-                                if parseInt(segments[2]) == id
+                                if parseInt(segments[3]) == id
+                                    td = target.parents('td')
+                                    $(td).find("span:contains('✔')").html '❍'
                                     target.html '✔'
                                     $.post "/api/train/#{type}", {
-                                        category: segments[1]
+                                        type: segments[1]
+                                        category: segments[2]
                                         text: ($ "#text-#{id}").text()
                                     }
 
@@ -149,7 +157,7 @@ define [
                     'uncertain'
 
             @get '/api/train/aboutness': ->
-                crwl.fetchText ctx, (err, text) =>
+                queue.fetchText (err, text) =>
                     if not err
                         @send
                             type: localize(trnabt.type)
@@ -159,7 +167,7 @@ define [
                         console.log err
                         @send {}
             @get '/api/train/emotion': ->
-                crwl.fetchText ctx, (err, text) =>
+                queue.fetchText (err, text) =>
                     if not err
                         @send
                             types: _.map trnemt.types, localize
@@ -169,7 +177,7 @@ define [
                         console.log err
                         @send {}
             @get '/api/train/subjunctive': ->
-                crwl.fetchText ctx, (err, text) =>
+                queue.fetchText (err, text) =>
                     if not err
                         @send
                             type: localize(trnsub.type)
@@ -180,7 +188,7 @@ define [
                         @send {}
 
             @get '/api/test/aboutness': ->
-                crwl.fetchText ctx, (err, text) =>
+                queue.fetchText (err, text) =>
                     if not err
                         clsabt.classify text, (cat) =>
                             @send
@@ -189,7 +197,7 @@ define [
                                 text: text
                                 category: localize(cat)
             @get '/api/test/emotion': ->
-                crwl.fetchText ctx, (err, text) =>
+                queue.fetchText (err, text) =>
                     if not err
                         clsemt.classify text, (cats) =>
                             categories = {}
@@ -201,7 +209,7 @@ define [
                                 text: text
                                 categories: categories
             @get '/api/test/subjunctive': ->
-                crwl.fetchText ctx, (err, text) =>
+                queue.fetchText (err, text) =>
                     if not err
                         clssub.classify text, (cat) =>
                             @send
@@ -215,11 +223,13 @@ define [
                 trnabt.train @body.text, reverse @body.category
 
             @post '/api/train/emotion': ->
-                console.log @body.text, @body.category
+                console.log @body.text, @body.type, @body.category
                 trnemt.train @body.text, reverse @body.categories
 
             @post '/api/train/subjunctive': ->
                 console.log @body.text, @body.category
-                trnsub.train @body.text, reverse @body.category
+                categories = {}
+                categories[reverse @body.type] = reverse @body.category
+                trnsub.train @body.text, categories
 
     m

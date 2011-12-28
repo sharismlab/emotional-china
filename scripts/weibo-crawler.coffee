@@ -5,15 +5,13 @@ define [
   'exports'
   'underscore'
   'cs!../lib/crawler/crawler'
-], (m, _, w, c) ->
+], (m, _, c) ->
 
-    m.main = (ctx) ->
-        c.run ctx, (error, data, response) ->
+    m.run = (ctx) ->
+        c.run ctx, (error, msg) ->
             if error
                 console.log error
             else
-                _(data).chain().map((msg) -> msg.text).each(
-                    (text) -> console.log text
-                )
+                console.log msg.text
 
     m

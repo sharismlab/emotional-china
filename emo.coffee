@@ -9,6 +9,9 @@ define [
 ], (m, config, web, crawler) ->
 
     m.main = (args...) ->
-        web.main(config)
+        if args[0] == 'web'
+            web.run(config)
+        if args[0] == 'crawler'
+            crawler.run(config)
 
     m

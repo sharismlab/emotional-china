@@ -8,6 +8,7 @@
     "brain": "latest",
     "weibo": "latest",
     "zappa": "latest",
-    "asyncblock": "latest"
+    "asyncblock": "latest",
+    "redis": "latest"
   }
 }
