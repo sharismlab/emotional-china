@@ -1,29 +1,49 @@
 ###
-  crawler.coffee
+  queue.coffee
 ###
 define [
   'exports'
-  'underscore'
   'redis'
-], (m, _, r) ->
+  'crypto'
+], (m, r, c) ->
 
-    key = 'q:weibo'
-    redis = null
+    redis  = null
+
+    key    = 'q:weibo'
+    prefix = 'k:weibo:'
 
     m.init = (ctx) ->
         config = ctx.redis
         redis = r.createClient(config.port, config.host, config.options)
 
+    unique = (s, callback) ->
+        md5sum = c.createHash('md5')
+        md5sum.update(s)
+        hash = prefix + md5sum.digest('hex').substring(0, 16)
+        redis.exists hash, (err, flag) ->
+            if !flag
+                redis.set hash, '1'
+                redis.expire hash, 600
+            callback err, !flag
+
     m.enqueue = (o) ->
-        redis.rpush key, JSON.stringify(o)
+        if o
+            val = JSON.stringify o
+            unique val, (err, flag) ->
+                redis.rpush key, val if flag
 
     m.dequeue = (callback) ->
-        redis.lpop key, callback
+        redis.lpop key, (err, val) ->
+            if err
+                callback err, null
+            else
+                if val
+                    callback null, JSON.parse val
 
     m.fetchText = (callback) ->
         redis.lpop key, (err, value) ->
             if not err and value
-                callback(err, JSON.parse(value).text)
+                callback err, JSON.parse(value).text
 
     m.size = (callback) ->
         redis.llen key, callback

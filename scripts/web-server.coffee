@@ -6,16 +6,18 @@ define [
   'underscore'
   'zappa'
   'cs!../lib/crawler/queue'
+  'cs!../lib/trainer/queue'
   'cs!../lib/trainer/aboutness'
   'cs!../lib/classifier/aboutness'
   'cs!../lib/trainer/subjunctive'
   'cs!../lib/classifier/subjunctive'
   'cs!../lib/trainer/emotion'
   'cs!../lib/classifier/emotion'
-], ( m, _, z, queue, trnabt, clsabt, trnsub, clssub, trnemt, clsemt) ->
+], ( m, _, z, cq, tq, trnabt, clsabt, trnsub, clssub, trnemt, clsemt) ->
 
     m.run = (ctx) ->
-        queue.init ctx
+        cq.init ctx
+        tq.init ctx
 
         z ->
             @use 'bodyParser', 'methodOverride', @app.router, 'static'
@@ -62,31 +64,31 @@ define [
             @client '/index.js': ->
                 choice = ->
                     val = Math.random()
-                    if val < 1.0 / 3
+                    if val < 1.0 / 10
                         'aboutness'
                     else
-                        if val < 2.0 / 3
+                        if val < 2.0 / 10
                             'subjunctive'
                         else
                             'emotion'
 
                 @app.bind 'test', (e) ->
                     type = choice()
-                    @load "/api/test/#{type}" , (data) =>
+                    @load "/api/test/#{type}" , { cache: false }, (data) =>
                         @load '/templates/test.tmpl', (tmpl) =>
                             ($ '.slides>section>section.last').remove()
                             subslides = ($ ($ '.slides>section')[2])
                             id = Math.floor(1000 * Math.random())
                             data.id = id
                             subslides.append _.template(tmpl, data)
-                            subslides.find('section:lt(1)').remove() if subslides.children().length > 8
+                            subslides.find('section:lt(1)').remove() if subslides.children().length > 3
                             ($ '.opt').click (e) =>
                                 target = $ e.target
                                 tid = target.attr 'id'
                                 segments = tid.split '-'
                                 if parseInt(segments[3]) == id
-                                    td = target.parents('td')
-                                    $(td).find("span:contains('✔')").html '❍'
+                                    tr = target.parents('tr')
+                                    $(tr).find("span:contains('✔')").html '❍'
                                     target.html '✔'
                                     $.post "/api/train/#{type}", {
                                         type: segments[1]
@@ -96,21 +98,21 @@ define [
 
                 @app.bind 'train', (e) ->
                     type = choice()
-                    @load "/api/train/#{type}", (data) =>
+                    @load "/api/train/#{type}", { cache: false }, (data) =>
                         @load '/templates/train.tmpl', (tmpl) =>
                             ($ '.slides>section>section.last').remove()
                             subslides = ($ ($ '.slides>section')[3])
                             id = Math.floor(1000 * Math.random())
                             data.id = id
                             subslides.append _.template(tmpl, data)
-                            subslides.find('section:lt(1)').remove() if subslides.children().length > 8
+                            subslides.find('section:lt(1)').remove() if subslides.children().length > 3
                             ($ '.opt').click (e) =>
                                 target = $ e.target
                                 tid = target.attr 'id'
                                 segments = tid.split '-'
                                 if parseInt(segments[3]) == id
-                                    td = target.parents('td')
-                                    $(td).find("span:contains('✔')").html '❍'
+                                    tr = target.parents('tr')
+                                    $(tr).find("span:contains('✔')").html '❍'
                                     target.html '✔'
                                     $.post "/api/train/#{type}", {
                                         type: segments[1]
@@ -121,13 +123,11 @@ define [
             @client '/start.js': ->
                 $ =>
                     @app.run()
+                    $.ajaxSetup cache: false
 
-                    @app.trigger 'test'
-                    @app.trigger 'test'
-                    @app.trigger 'test'
-                    @app.trigger 'train'
-                    @app.trigger 'train'
-                    @app.trigger 'train'
+                    for i in [0...4]
+                        @app.trigger 'test'
+                        @app.trigger 'train'
 
                     cur  = [null, null, 'test', 'train']
                     Reveal.initialize
@@ -157,61 +157,86 @@ define [
                     'uncertain'
 
             @get '/api/train/aboutness': ->
-                queue.fetchText (err, text) =>
-                    if not err
+                @response.header 'Cache-Control', 'no-cache'
+                @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
+                cq.fetchText (err, text) =>
+                    if err
+                        console.log err
+                        @send {}
+                    else
                         @send
                             type: localize(trnabt.type)
                             options: _.map trnabt.options, localize
                             text: text
-                    else
+
+            @get '/api/train/emotion': ->
+                @response.header 'Cache-Control', 'no-cache'
+                @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
+                cq.fetchText (err, text) =>
+                    if err
                         console.log err
                         @send {}
-            @get '/api/train/emotion': ->
-                queue.fetchText (err, text) =>
-                    if not err
+                    else
                         @send
                             types: _.map trnemt.types, localize
                             options: _.map trnemt.options, localize
                             text: text
-                    else
+
+            @get '/api/train/subjunctive': ->
+                @response.header 'Cache-Control', 'no-cache'
+                @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
+                cq.fetchText (err, text) =>
+                    if err
                         console.log err
                         @send {}
-            @get '/api/train/subjunctive': ->
-                queue.fetchText (err, text) =>
-                    if not err
+                    else
                         @send
                             type: localize(trnsub.type)
                             options: _.map trnsub.options, localize
                             text: text
-                    else
-                        console.log err
-                        @send {}
 
             @get '/api/test/aboutness': ->
-                queue.fetchText (err, text) =>
-                    if not err
-                        clsabt.classify text, (cat) =>
+                @response.header 'Cache-Control', 'no-cache'
+                @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
+                cq.fetchText (err, text) =>
+                    if err
+                        console.log err
+                        @send {}
+                    else
+                        clsabt.classify text, (error, cat) =>
                             @send
                                 type: localize(trnabt.type)
                                 options: _.map trnabt.options, localize
                                 text: text
                                 category: localize(cat)
+
             @get '/api/test/emotion': ->
-                queue.fetchText (err, text) =>
-                    if not err
-                        clsemt.classify text, (cats) =>
+                @response.header 'Cache-Control', 'no-cache'
+                @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
+                cq.fetchText (err, text) =>
+                    if err
+                        console.log err
+                        @send {}
+                    else
+                        clsemt.classifyAll text, (error, cats) =>
                             categories = {}
-                            for n in _.keys(trnemt.types)
+                            for n in _.keys(cats)
                                 categories[localize(n)] = localize(cats[n])
                             @send
                                 types: _.map trnemt.types, localize
                                 options: _.map trnemt.options, localize
                                 text: text
                                 categories: categories
+
             @get '/api/test/subjunctive': ->
-                queue.fetchText (err, text) =>
-                    if not err
-                        clssub.classify text, (cat) =>
+                @response.header 'Cache-Control', 'no-cache'
+                @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
+                cq.fetchText (err, text) =>
+                    if err
+                        console.log err
+                        @send {}
+                    else
+                        clssub.classify text, (error, cat) =>
                             @send
                                 type: localize(trnsub.type)
                                 options: _.map trnsub.options, localize
@@ -220,16 +245,14 @@ define [
 
             @post '/api/train/aboutness': ->
                 console.log @body.text, @body.category
-                trnabt.train @body.text, reverse @body.category
+                tq.enqueue type: 'aboutness', text: @body.text, category: (reverse @body.category)
 
             @post '/api/train/emotion': ->
                 console.log @body.text, @body.type, @body.category
-                trnemt.train @body.text, reverse @body.categories
+                tq.enqueue type: (reverse @body.type), text: @body.text, category: (reverse @body.category)
 
             @post '/api/train/subjunctive': ->
                 console.log @body.text, @body.category
-                categories = {}
-                categories[reverse @body.type] = reverse @body.category
-                trnsub.train @body.text, categories
+                tq.enqueue type: 'aboutness', text: @body.text, category: (reverse @body.category)
 
     m

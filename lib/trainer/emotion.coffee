@@ -26,18 +26,20 @@ define [
     m.types = emotions
     m.options = ['unrelated', 'modest', 'strong', 'stronger', 'strongest']
 
+
     createBayes = (name) ->
         params.backend.options.name = name
         new b.BayesianClassifier(params)
 
-    m.train = (text, categories) ->
-        try
-            for name in emotions
-                strength = categories[name]
-                if strength
-                    bayes = createBayes(name)
-                    bayes.train(text, strength)
-        catch err
-            callback err, null
+    bayeses = {}
+    for name in emotions
+        bayeses[name] = createBayes(name)
+
+    m.train = (type, text, category) -> bayeses[type].train(text, category)
+
+    m.trainAll = (text, categories) ->
+        for type in emotions
+            strength = categories[type]
+            m.train(type, text, strength) if strength
 
     m

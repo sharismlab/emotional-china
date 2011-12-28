@@ -28,15 +28,25 @@ define [
         params.backend.options.name = name
         new b.BayesianClassifier(params)
 
-    m.classify = (text, callback) ->
+    bayeses = {}
+    for name in emotions
+        bayeses[name] = createBayes(name)
+
+    m.classifyAll = (text, callback) ->
         a (flow) ->
             try
-                for name in emotions
-                    bayes = createBayes(name)
-                    bayes.classify(text, flow.add(name))
+                for type in emotions
+                    m.classify type, text, flow.add(type)
                 categories = flow.wait()
-                callback(categories)
+                callback(null, categories)
             catch err
                 callback(err, null)
+
+    m.classify = (type, text, callback) ->
+        try
+            bayeses[type].classify text, (cat) ->
+                callback null, cat
+        catch err
+            callback err, null
 
     m

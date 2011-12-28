@@ -17,13 +17,13 @@ define [
         tapi.init 'tsina', config.appkey, config.secret, config.oauth_callback_url
 
         gap = 30000 # 30 seconds
-        checking = ->
+        check = ->
             q.size (err, len) ->
                 if not err and len >= 0
                     gap = 100 * len
-            setTimeout(checking, 10000)
+            setTimeout(check, 10000)
 
-        fetching = ->
+        fetch = ->
             tapi.public_timeline {count: 10, page: 1}, (error, data, response) ->
                 if error
                     callback error
@@ -31,10 +31,10 @@ define [
                     _.each data, (item) ->
                         q.enqueue item
                         callback error, item
-            setTimeout(fetching, gap)
+            setTimeout(fetch, gap)
 
-        checking()
-        fetching()
+        check()
+        fetch()
 
     m
 

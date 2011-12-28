@@ -3,9 +3,8 @@
 ###
 define [
   'exports'
-  'underscore'
   'cs!../lib/crawler/crawler'
-], (m, _, c) ->
+], (m, c) ->
 
     m.run = (ctx) ->
         c.run ctx, (error, msg) ->

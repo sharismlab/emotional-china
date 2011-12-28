@@ -6,12 +6,12 @@ define [
   'cs!./config/index'
   'cs!./scripts/web-server'
   'cs!./scripts/weibo-crawler'
-], (m, config, web, crawler) ->
+  'cs!./scripts/bayes-trainer'
+], (m, config, web, crawler, trainer) ->
 
     m.main = (args...) ->
-        if args[0] == 'web'
-            web.run(config)
-        if args[0] == 'crawler'
-            crawler.run(config)
+        web.run(config) if args[0] == 'web'
+        crawler.run(config) if args[0] == 'crawler'
+        trainer.run(config) if args[0] == 'trainer'
 
     m
