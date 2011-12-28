@@ -21,7 +21,10 @@ define [
     m.type = 'subjunctive'
     m.options = ['positive', 'negative']
     m.train = (text, category) ->
-        bayes = new b.BayesianClassifier options
-        bayes.train text, category
+        try
+            bayes = new b.BayesianClassifier options
+            bayes.train text, category
+        catch err
+            callback err, null
 
     m

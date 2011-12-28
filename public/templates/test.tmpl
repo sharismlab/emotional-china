@@ -1,1 +1,49 @@
-1
+<section>
+<h3>测试</h3>
+<hr/>
+<% if (text) { %>
+    <p id="text-<%= id%>"><%= text %></p>
+<% } %>
+<hr/>
+<% if (type) { %>
+    <h6><%= type %></h6>
+    <table>
+        <tr>
+        <% for (ind in options) { var opt = options[ind];%>
+            <td><small><%= opt %></small></td>
+        <% } %>
+        </tr>
+        <tr>
+        <% for (ind in options) { var opt = options[ind];%>
+            <% if (opt===category) {%>
+                <small><td class="opt" id="opt-<%= opt %>-<%= id%>">✔</td></small>
+            <% } else { %>
+                <small><td class="opt" id="opt-<%= opt %>-<%= id%>">❍</td></small>
+            <% } %>
+        <% } %>
+        </tr>
+    </table>
+<% } else if (types) { %>
+    <h6>情感：<%= type %></h6>
+    <table>
+        <% for(var ind in types) { var type = types[ind], category = categories[type]; %>
+            <tr>
+                <td><small><span><%= type %>：</span></small></tf>
+                <% for (ind2 in options) { var opt = options[ind2];%>
+                    <td>
+                        <small><span><%= opt %></span></small>
+                        <% if (opt===category) {%>
+                            <small><span class="opt" id="opt-<%= opt %>-<%= id%>">✔</span></small>
+                        <% } else { %>
+                            <small><span class="opt" id="opt-<%= opt %>-<%= id%>">❍</span></small>
+                        <% } %>
+                    </td>
+                <% } %>
+            </tr>
+        <% } %>
+    </table>
+<% } %>
+</section>
+<section class="last">
+</section>
+

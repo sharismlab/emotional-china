@@ -1,26 +1,39 @@
-<h2>训练</h2>
+<section>
+<h3>训练</h3>
 <hr/>
-<h3>正文</h3>
-<p><%= text %></p>
+<p id="text-<%= id%>"><%= text %></p>
 <hr/>
 <% if (type) { %>
-    <h3><%= type %></h3>
-    <table><tr>
-        <% for (ind in options) { var opt = options[ind];%>
-            <td><%= opt %></td>
-        <% } %>
-    </tr></table>
-<% } else { %>
-    <h3>情感</h3>
+    <h6><%= type %></h6>
     <table>
-        <% for (ind in types) { var type = types[ind];%>
+        <tr>
+        <% for (ind in options) { var opt = options[ind];%>
+            <td><small><%= opt %></small></td>
+        <% } %>
+        </tr>
+        <tr>
+        <% for (ind in options) { var opt = options[ind];%>
+            <td class="opt" id="opt-<%= opt %>-<%= id%>">❍</td>
+        <% } %>
+        </tr>
+    </table>
+<% } else { %>
+    <% var ind = Math.floor(types.length * Math.random()), type = types[ind];%>
+    <h6>情感：<%= type %></h6>
+    <table>
             <tr>
-                <td><%= type %></td>
-                <% for (ind2 in options) { var opt = options[ind];%>
-                    <td><%= opt %></td>
+                <% for (ind2 in options) { var opt = options[ind2];%>
+                    <td><small><%= opt %></small></td>
                 <% } %>
             </tr>
-        <% } %>
+            <tr>
+                <% for (ind2 in options) { var opt = options[ind2];%>
+                    <td class="opt" id="opt-<%= opt %>-<%= id%>">❍</td>
+                <% } %>
+            </tr>
     </table>
 <% } %>
+</section>
+<section class="last">
+</section>
 

@@ -7,7 +7,7 @@ define [
   'brain'
 ], (m, r, b) ->
 
-    emotions = ['neutral', 'joy', 'surprise', 'fear', 'sadness', 'digest', 'anger', 'slight']
+    emotions = ['joy', 'surprise', 'fear', 'sadness', 'digest', 'anger', 'slight']
 
     params =
         backend:
@@ -16,9 +16,7 @@ define [
                 hostname: r.host
                 port: r.port
         thresholds:
-            weakest: 1
-            weaker: 1
-            weak: 1
+            unrelated: 1
             modest: 1
             strong: 1
             stronger: 1
@@ -26,17 +24,20 @@ define [
         def: 'modest'
 
     m.types = emotions
-    m.options = ['weakest', 'weaker', 'weak', 'modest', 'strong', 'stronger', 'strongest']
+    m.options = ['unrelated', 'modest', 'strong', 'stronger', 'strongest']
 
     createBayes = (name) ->
-        params.options.name = name
+        params.backend.options.name = name
         new b.BayesianClassifier(params)
 
     m.train = (text, categories) ->
-        for name in emotions
-            strength = categories[name]
-            if strength
-                bayes = createBayes(name)
-                bayes.train(text, strength)
+        try
+            for name in emotions
+                strength = categories[name]
+                if strength
+                    bayes = createBayes(name)
+                    bayes.train(text, strength)
+        catch err
+            callback err, null
 
     m

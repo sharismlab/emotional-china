@@ -29,7 +29,10 @@ define [
     m.type = 'aboutness'
     m.options = ['me', 'you', 'it', 'me_you', 'me_it', 'you_me', 'you_it', 'it_me', 'it_you', 'uncertain']
     m.train = (text, category) ->
-        bayes = new b.BayesianClassifier(options)
-        bayes.train(text, category)
+        try
+            bayes = new b.BayesianClassifier(options)
+            bayes.train(text, category)
+        catch err
+            callback err, null
 
     m

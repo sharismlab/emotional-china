@@ -3,8 +3,9 @@
 ###
 define [
   'exports'
+  'underscore'
   'weibo'
-], (m, w) ->
+], (m, _, w) ->
 
     tapi = w.tapi
 

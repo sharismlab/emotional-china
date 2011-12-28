@@ -3,12 +3,12 @@
 ###
 define [
   'exports'
+  'cs!./config/index'
   'cs!./scripts/web-server'
   'cs!./scripts/weibo-crawler'
-], (m, w, c) ->
+], (m, config, web, crawler) ->
 
     m.main = (args...) ->
-        ctx = {}
-        w.main(ctx)
+        web.main(config)
 
     m

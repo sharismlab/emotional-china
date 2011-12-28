@@ -27,7 +27,10 @@ define [
         def: 'uncertain'
 
     m.classify = (text, callback) ->
-        bayes = new b.BayesianClassifier(params)
-        bayes.classify(text, callback)
+        try
+            bayes = new b.BayesianClassifier(params)
+            bayes.classify(text, callback)
+        catch err
+            callback(err, null)
 
     m
