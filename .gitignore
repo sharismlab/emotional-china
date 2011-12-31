@@ -1,6 +1,9 @@
 *.o
 *.so
 *.pyc
+*.dump
+*.log
+*.rdb
 
 .DS_Store?
 ehthumbs.db
@@ -8,6 +11,7 @@ Icon?
 Thumbs.db
 
 node_modules/*
+logs/*
 
 config/weibo.coffee
 
