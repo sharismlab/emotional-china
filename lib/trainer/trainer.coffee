@@ -7,7 +7,8 @@ define [
   'cs!./aboutness'
   'cs!./subjunctive'
   'cs!./emotion'
-], (m, q, a, s, e) ->
+  'cs!./spam'
+], (m, q, a, s, e, sp) ->
 
     m.run = (ctx) ->
         q.init(ctx)
@@ -23,6 +24,7 @@ define [
             aboutness: a
             subjunctive: s
             emotion: e
+            spam: sp
         }
 
         handle = ->

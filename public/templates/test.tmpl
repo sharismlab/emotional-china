@@ -28,16 +28,16 @@
     <table>
         <% for(var ind in types) { var type = types[ind], category = categories[type]; %>
             <tr>
-                <td><small><span><%= type %>：</span></small></tf>
+                <td><small><small><span><%= type %>：</span></small></small></tf>
                 <% for (ind2 in options) { var opt = options[ind2];%>
-                    <td>
+                    <td><small>
                         <small><span><%= opt %></span></small>
                         <% if (opt===category) {%>
                             <small><span class="opt" id="opt-<%= type %>-<%= opt %>-<%= id%>">✔</span></small>
                         <% } else { %>
                             <small><span class="opt" id="opt-<%= type %>-<%= opt %>-<%= id%>">❍</span></small>
                         <% } %>
-                    </td>
+                    </small></td>
                 <% } %>
             </tr>
         <% } %>

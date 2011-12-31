@@ -5,7 +5,8 @@ define [
   'exports'
   'brain'
   'cs!../../config/redis'
-], (m, b, r) ->
+  'cs!../text/trigram'
+], (m, b, r, t) ->
     options =
         backend:
             type: 'Redis'
@@ -30,6 +31,6 @@ define [
     m.options = ['me', 'you', 'it', 'me_you', 'me_it', 'you_me', 'you_it', 'it_me', 'it_you', 'uncertain']
 
     bayes = new b.BayesianClassifier(options)
-    m.train = (text, category) -> bayes.train(text, category)
+    m.train = (text, category) -> bayes.train((t.apply text), category)
 
     m

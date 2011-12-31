@@ -5,7 +5,8 @@ define [
   'exports'
   'cs!../../config/redis'
   'brain'
-], (m, r, b) ->
+  'cs!../text/trigram'
+], (m, r, b, t) ->
 
     emotions = [
         'joy', 'surprise', 'fear', 'sadness', 'disgust', 'anger', 'scorn',
@@ -39,7 +40,7 @@ define [
     for name in emotions
         bayeses[name] = createBayes(name)
 
-    m.train = (type, text, category) -> bayeses[type].train(text, category)
+    m.train = (type, text, category) -> bayeses[type].train((t.apply text), category)
 
     m.trainAll = (text, categories) ->
         for type in emotions
