@@ -11,9 +11,11 @@ define [
   'cs!../lib/classifier/aboutness'
   'cs!../lib/trainer/subjunctive'
   'cs!../lib/classifier/subjunctive'
+  'cs!../lib/trainer/spam'
+  'cs!../lib/classifier/spam'
   'cs!../lib/trainer/emotion'
   'cs!../lib/classifier/emotion'
-], ( m, _, z, cq, tq, trnabt, clsabt, trnsub, clssub, trnemt, clsemt) ->
+], ( m, _, z, cq, tq, trnabt, clsabt, trnsub, clssub, trnspam, clsspam, trnemt, clsemt) ->
 
     m.run = (ctx) ->
         cq.init ctx
@@ -169,19 +171,6 @@ define [
                             options: _.map trnabt.options, localize
                             text: text
 
-            @get '/api/train/emotion': ->
-                @response.header 'Cache-Control', 'no-cache'
-                @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
-                cq.fetchText (err, text) =>
-                    if err
-                        console.log err
-                        @send {}
-                    else
-                        @send
-                            types: _.map trnemt.types, localize
-                            options: _.map trnemt.options, localize
-                            text: text
-
             @get '/api/train/subjunctive': ->
                 @response.header 'Cache-Control', 'no-cache'
                 @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
@@ -193,6 +182,32 @@ define [
                         @send
                             type: localize(trnsub.type)
                             options: _.map trnsub.options, localize
+                            text: text
+
+            @get '/api/train/spam': ->
+                @response.header 'Cache-Control', 'no-cache'
+                @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
+                cq.fetchText (err, text) =>
+                    if err
+                        console.log err
+                        @send {}
+                    else
+                        @send
+                            type: localize(trnspam.type)
+                            options: _.map trnspam.options, localize
+                            text: text
+
+            @get '/api/train/emotion': ->
+                @response.header 'Cache-Control', 'no-cache'
+                @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
+                cq.fetchText (err, text) =>
+                    if err
+                        console.log err
+                        @send {}
+                    else
+                        @send
+                            types: _.map trnemt.types, localize
+                            options: _.map trnemt.options, localize
                             text: text
 
             @get '/api/test/aboutness': ->
@@ -207,6 +222,36 @@ define [
                             @send
                                 type: localize(trnabt.type)
                                 options: _.map trnabt.options, localize
+                                text: text
+                                category: localize(cat)
+
+            @get '/api/test/subjunctive': ->
+                @response.header 'Cache-Control', 'no-cache'
+                @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
+                cq.fetchText (err, text) =>
+                    if err
+                        console.log err
+                        @send {}
+                    else
+                        clssub.classify text, (error, cat) =>
+                            @send
+                                type: localize(trnsub.type)
+                                options: _.map trnsub.options, localize
+                                text: text
+                                category: localize(cat)
+
+            @get '/api/test/spam': ->
+                @response.header 'Cache-Control', 'no-cache'
+                @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
+                cq.fetchText (err, text) =>
+                    if err
+                        console.log err
+                        @send {}
+                    else
+                        clsspam.classify text, (error, cat) =>
+                            @send
+                                type: localize(trnspam.type)
+                                options: _.map trnspam.options, localize
                                 text: text
                                 category: localize(cat)
 
@@ -228,31 +273,20 @@ define [
                                 text: text
                                 categories: categories
 
-            @get '/api/test/subjunctive': ->
-                @response.header 'Cache-Control', 'no-cache'
-                @response.header 'Expires', 'Fri, 31 Dec 1998 12:00:00 GMT'
-                cq.fetchText (err, text) =>
-                    if err
-                        console.log err
-                        @send {}
-                    else
-                        clssub.classify text, (error, cat) =>
-                            @send
-                                type: localize(trnsub.type)
-                                options: _.map trnsub.options, localize
-                                text: text
-                                category: localize(cat)
-
             @post '/api/train/aboutness': ->
                 console.log @body.text, @body.category
                 tq.enqueue type: 'aboutness', text: @body.text, category: (reverse @body.category)
 
+            @post '/api/train/subjunctive': ->
+                console.log @body.text, @body.category
+                tq.enqueue type: 'subjunctive', text: @body.text, category: (reverse @body.category)
+
+            @post '/api/train/spam': ->
+                console.log @body.text, @body.category
+                tq.enqueue type: 'spam', text: @body.text, category: (reverse @body.category)
+
             @post '/api/train/emotion': ->
                 console.log @body.text, @body.type, @body.category
                 tq.enqueue type: (reverse @body.type), text: @body.text, category: (reverse @body.category)
-
-            @post '/api/train/subjunctive': ->
-                console.log @body.text, @body.category
-                tq.enqueue type: 'aboutness', text: @body.text, category: (reverse @body.category)
 
     m

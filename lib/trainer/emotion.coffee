@@ -7,7 +7,11 @@ define [
   'brain'
 ], (m, r, b) ->
 
-    emotions = ['joy', 'surprise', 'fear', 'sadness', 'digest', 'anger', 'slight']
+    emotions = [
+        'joy', 'surprise', 'fear', 'sadness', 'disgust', 'anger', 'scorn',
+        'distress', 'anxiety', 'serene', 'sincere', 'wish', 'pity', 'guilt',
+        'admire', 'confusion', 'caution', 'fierce', 'trance'
+    ]
 
     params =
         backend:
@@ -16,15 +20,15 @@ define [
                 hostname: r.host
                 port: r.port
         thresholds:
-            unrelated: 1
-            modest: 1
-            strong: 1
-            stronger: 1
+            unrelated: 5
+            weak: 4
+            strong: 3
+            stronger: 2
             strongest: 1
-        def: 'modest'
+        def: 'weak'
 
     m.types = emotions
-    m.options = ['unrelated', 'modest', 'strong', 'stronger', 'strongest']
+    m.options = ['unrelated', 'weak', 'strong', 'stronger', 'strongest']
 
 
     createBayes = (name) ->
