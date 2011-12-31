@@ -6,7 +6,8 @@ define [
   'asyncblock'
   'cs!../../config/redis'
   'brain'
-], (m, a, r, b) ->
+  'cs!../text/trigram'
+], (m, a, r, b, t) ->
 
     emotions = [
         'joy', 'surprise', 'fear', 'sadness', 'disgust', 'anger', 'scorn',
@@ -26,7 +27,7 @@ define [
             strong: 3
             stronger: 2
             strongest: 1
-        def: 'weak'
+        def: 'unrelated'
 
     createBayes = (name) ->
         params.backend.options.name = name
@@ -48,7 +49,7 @@ define [
 
     m.classify = (type, text, callback) ->
         try
-            bayeses[type].classify text, (cat) ->
+            bayeses[type].classify (t.apply text), (cat) ->
                 callback null, cat
         catch err
             callback err, null

@@ -25,7 +25,7 @@ define [
             strong: 3
             stronger: 2
             strongest: 1
-        def: 'weak'
+        def: 'unrelated'
 
     m.types = emotions
     m.options = ['unrelated', 'weak', 'strong', 'stronger', 'strongest']

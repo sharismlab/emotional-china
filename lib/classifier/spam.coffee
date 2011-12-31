@@ -5,7 +5,8 @@ define [
   'exports'
   'cs!../../config/redis'
   'brain'
-], (m, r, b) ->
+  'cs!../text/trigram'
+], (m, r, b, t) ->
     params =
         backend:
             type: 'Redis'
@@ -22,7 +23,7 @@ define [
 
     m.classify = (text, callback) ->
         try
-            bayes.classify text, (cat) ->
+            bayes.classify (t.apply text), (cat) ->
                 callback null, cat
         catch err
             callback err, null
