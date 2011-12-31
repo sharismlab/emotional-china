@@ -66,13 +66,14 @@ define [
             @client '/index.js': ->
                 choice = ->
                     val = Math.random()
-                    if val < 1.0 / 10
+                    if val < 0.1
                         'aboutness'
+                    else if 0.1 < val < 0.2
+                        'subjunctive'
+                    else if 0.2 < val < 0.4
+                        'spam'
                     else
-                        if val < 2.0 / 10
-                            'subjunctive'
-                        else
-                            'emotion'
+                        'emotion'
 
                 @app.bind 'test', (e) ->
                     type = choice()
