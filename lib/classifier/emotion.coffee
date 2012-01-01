@@ -39,6 +39,7 @@ define [
 
     m.classifyAll = (text, callback) ->
         a (flow) ->
+            flow.maxParallel = 1;
             try
                 for type in emotions
                     m.classify type, text, flow.add(type)

@@ -77,8 +77,8 @@ define [
 
                 @app.bind 'test', (e) ->
                     type = choice()
-                    @load "/api/test/#{type}" , { cache: false }, (data) =>
-                        @load '/templates/test.tmpl', (tmpl) =>
+                    @load '/templates/test.tmpl', (tmpl) =>
+                        @load "/api/test/#{type}" , { cache: false }, (data) =>
                             ($ '.slides>section>section.last').remove()
                             subslides = ($ ($ '.slides>section')[2])
                             id = Math.floor(1000 * Math.random())
@@ -102,8 +102,8 @@ define [
 
                 @app.bind 'train', (e) ->
                     type = choice()
-                    @load "/api/train/#{type}", { cache: false }, (data) =>
-                        @load '/templates/train.tmpl', (tmpl) =>
+                    @load '/templates/train.tmpl', (tmpl) =>
+                        @load "/api/train/#{type}", { cache: false }, (data) =>
                             ($ '.slides>section>section.last').remove()
                             subslides = ($ ($ '.slides>section')[3])
                             id = Math.floor(1000 * Math.random())
