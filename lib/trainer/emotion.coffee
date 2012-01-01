@@ -3,10 +3,11 @@
 ###
 define [
   'exports'
-  'cs!../../config/redis'
   'brain'
+  'cs!../../config/redis'
+  'cs!../text/bigram'
   'cs!../text/trigram'
-], (m, r, b, t) ->
+], (m, br, rc, bi, tr) ->
 
     emotions = [
         'joy', 'surprise', 'fear', 'sadness', 'disgust', 'anger', 'scorn',
@@ -18,14 +19,14 @@ define [
         backend:
             type: 'Redis'
             options:
-                hostname: r.host
-                port: r.port
+                hostname: rc.host
+                port: rc.port
         thresholds:
-            unrelated: 5
-            weak: 4
-            strong: 3
-            stronger: 2
-            strongest: 1
+            unrelated: 6
+            weak: 1
+            strong: 2
+            stronger: 3
+            strongest: 5
         def: 'unrelated'
 
     m.types = emotions
@@ -34,13 +35,31 @@ define [
 
     createBayes = (name) ->
         params.backend.options.name = name
-        new b.BayesianClassifier(params)
+        new br.BayesianClassifier(params)
 
     bayeses = {}
     for name in emotions
         bayeses[name] = createBayes(name)
 
-    m.train = (type, text, category) -> bayeses[type].train((t.apply text), category)
+    m.trainForText = (type, text, category) ->
+        if category == 'weak'
+            bayeses[type].train(text, 'weak')
+        if category == 'strong'
+            bayeses[type].train(text, 'weak')
+            bayeses[type].train(text, 'strong')
+        if category == 'stronger'
+            bayeses[type].train(text, 'weak')
+            bayeses[type].train(text, 'strong')
+            bayeses[type].train(text, 'stronger')
+        if category == 'strongest'
+            bayeses[type].train(text, 'weak')
+            bayeses[type].train(text, 'strong')
+            bayeses[type].train(text, 'stronger')
+            bayeses[type].train(text, 'strongest')
+
+    m.train = (type, text, category) ->
+        m.trainForText type, (bi.apply text), category
+        m.trainForText type, (tr.apply text), category
 
     m.trainAll = (text, categories) ->
         for type in emotions

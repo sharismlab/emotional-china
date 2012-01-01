@@ -5,14 +5,15 @@ define [
   'exports'
   'brain'
   'cs!../../config/redis'
+  'cs!../text/bigram'
   'cs!../text/trigram'
-], (m, b, r, t) ->
+], (m, br, rc, bi, tr) ->
     options =
         backend:
             type: 'Redis'
             options:
-                hostname: r.host
-                port: r.port
+                hostname: rc.host
+                port: rc.port
                 name: 'aboutness'
         thresholds:
             me: 3
@@ -30,7 +31,9 @@ define [
     m.type = 'aboutness'
     m.options = ['me', 'you', 'it', 'me_you', 'me_it', 'you_me', 'you_it', 'it_me', 'it_you', 'uncertain']
 
-    bayes = new b.BayesianClassifier(options)
-    m.train = (text, category) -> bayes.train((t.apply text), category)
+    bayes = new br.BayesianClassifier(options)
+    m.train = (text, category) ->
+        bayes.train((bi.apply text), category)
+        bayes.train((tr.apply text), category)
 
     m

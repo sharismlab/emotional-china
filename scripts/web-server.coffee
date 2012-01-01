@@ -129,7 +129,7 @@ define [
                     @app.run()
                     $.ajaxSetup cache: false
 
-                    for i in [0...4]
+                    for i in [0..4]
                         @app.trigger 'test'
                         @app.trigger 'train'
 
@@ -266,14 +266,18 @@ define [
                         @send {}
                     else
                         clsemt.classifyAll text, (error, cats) =>
-                            categories = {}
-                            for n in _.keys(cats)
-                                categories[localize(n)] = localize(cats[n])
-                            @send
-                                types: _.map trnemt.types, localize
-                                options: _.map trnemt.options, localize
-                                text: text
-                                categories: categories
+                            if error or !cats
+                                console.log error
+                                @send {}
+                            else
+                                categories = {}
+                                for n in _.keys(cats)
+                                    categories[localize(n)] = localize(cats[n])
+                                @send
+                                    types: _.map trnemt.types, localize
+                                    options: _.map trnemt.options, localize
+                                    text: text
+                                    categories: categories
 
             @post '/api/train/aboutness': ->
                 console.log @body.text, @body.category

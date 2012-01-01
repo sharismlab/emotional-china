@@ -3,26 +3,29 @@
 ###
 define [
   'exports'
-  'cs!../../config/redis'
   'brain'
+  'cs!../../config/redis'
+  'cs!../text/bigram'
   'cs!../text/trigram'
-], (m, r, b, t) ->
+], (m, br, rc, bi, tr) ->
     options =
         backend:
             type: 'Redis'
             options:
-                hostname: r.host
-                port: r.port
+                hostname: rc.host
+                port: rc.port
                 name: 'subjunctive'
         thresholds:
-            positive: 3
+            positive: 1
             negative: 1
         def: 'negative'
 
     m.type = 'subjunctive'
     m.options = ['positive', 'negative']
 
-    bayes = new b.BayesianClassifier(options)
-    m.train = (text, category) -> bayes.train((t.apply text), category)
+    bayes = new br.BayesianClassifier(options)
+    m.train = (text, category) ->
+        bayes.train((bi.apply text), category)
+        bayes.train((tr.apply text), category)
 
     m

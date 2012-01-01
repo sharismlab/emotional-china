@@ -1,5 +1,5 @@
 ###
-  trigram.coffee
+  bigram.coffee
 ###
 define [
   'exports'
@@ -44,13 +44,7 @@ define [
             substr = substr + char
             pos = pos + 1
             char = text[pos]
-            if !isChinese(char)
-                [substr, pos, char, false]
-            else
-                substr = substr + char
-                pos = pos + 1
-                char = text[pos]
-                [substr, pos, char, false]
+            [substr, pos, char, false]
 
     appendLatin = (substr, text, pos) ->
         char = text[pos]
@@ -76,17 +70,17 @@ define [
     m.apply = (text) ->
         i = 0
         len = text.length
-        trigram = []
+        bigram = []
         while i < len
             char = text[i]
             [substr, next, nextChar, skip] = gen(text, i)
             if !isSpace(substr)
-                trigram.push(substr)
+                bigram.push(substr)
             if skip
                 i = next
             else
                 i = i + 1
-        #console.log trigram
-        trigram
+        #console.log bigram
+        bigram
 
     m
