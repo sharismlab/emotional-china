@@ -91,6 +91,7 @@ define [
                                 segments = tid.split '-'
                                 if parseInt(segments[3]) == id
                                     tr = target.parents('tr')
+                                    tr = $(tr[0])
                                     $(tr).find("span:contains('✔')").html '❍'
                                     target.html '✔'
                                     $.post "/api/train/#{type}", {

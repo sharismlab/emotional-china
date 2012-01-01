@@ -5,7 +5,7 @@
 <hr/>
 <% if (type) { %>
     <h6><%= type %></h6>
-    <table>
+    <table class="normal">
         <tr>
         <% for (ind in options) { var opt = options[ind];%>
             <td><small><%= opt %></small></td>
@@ -20,7 +20,7 @@
 <% } else { %>
     <% var ind = Math.floor(types.length * Math.random()), type = types[ind];%>
     <h6>情感：<%= type %></h6>
-    <table>
+    <table class="normal">
             <tr>
                 <% for (ind2 in options) { var opt = options[ind2];%>
                     <td><small><span><%= opt %></span></small></td>
