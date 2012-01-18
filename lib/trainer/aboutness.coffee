@@ -5,9 +5,8 @@ define [
   'exports'
   'brain'
   'cs!../../config/redis'
-  'cs!../text/bigram'
-  'cs!../text/trigram'
-], (m, br, rc, bi, tr) ->
+  'cs!../text/segmentor'
+], (m, br, rc, sg) ->
     options =
         backend:
             type: 'Redis'
@@ -16,24 +15,16 @@ define [
                 port: rc.port
                 name: 'aboutness'
         thresholds:
-            me: 3
-            you: 3
-            it: 3
-            me_you: 3
-            me_it: 3
-            you_me: 3
-            you_it: 3
-            it_me: 3
-            it_you: 3
+            related: 5
             uncertain: 1
         def: 'uncertain'
 
     m.type = 'aboutness'
-    m.options = ['me', 'you', 'it', 'me_you', 'me_it', 'you_me', 'you_it', 'it_me', 'it_you', 'uncertain']
+    m.options = ['related', 'uncertain']
 
     bayes = new br.BayesianClassifier(options)
     m.train = (text, category) ->
-        bayes.train((bi.apply text), category)
-        bayes.train((tr.apply text), category)
+        sg.seg text, (doc) ->
+            bayes.train doc.split(' '), category
 
     m

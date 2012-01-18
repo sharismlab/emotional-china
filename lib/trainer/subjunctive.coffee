@@ -5,9 +5,8 @@ define [
   'exports'
   'brain'
   'cs!../../config/redis'
-  'cs!../text/bigram'
-  'cs!../text/trigram'
-], (m, br, rc, bi, tr) ->
+  'cs!../text/segmentor'
+], (m, br, rc, sg) ->
     options =
         backend:
             type: 'Redis'
@@ -17,7 +16,7 @@ define [
                 name: 'subjunctive'
         thresholds:
             positive: 1
-            negative: 1
+            negative: 5
         def: 'negative'
 
     m.type = 'subjunctive'
@@ -25,7 +24,7 @@ define [
 
     bayes = new br.BayesianClassifier(options)
     m.train = (text, category) ->
-        bayes.train((bi.apply text), category)
-        bayes.train((tr.apply text), category)
+        sg.seg text, (doc) ->
+           bayes.train doc.split(' '), category
 
     m

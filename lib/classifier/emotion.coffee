@@ -3,16 +3,25 @@
 ###
 define [
   'exports'
+  'underscore'
   'asyncblock'
-  'cs!../../config/redis'
   'brain'
-  'cs!../text/trigram'
-], (m, a, r, b, t) ->
+  'cs!../../config/redis'
+  'cs!../text/segmentor'
+], (m, _, a, b , r, s) ->
 
     emotions = [
-        'joy', 'surprise', 'fear', 'sadness', 'disgust', 'anger', 'scorn',
-        'distress', 'anxiety', 'serene', 'sincere', 'wish', 'pity', 'guilt',
-        'admire', 'confusion', 'caution', 'fierce', 'trance'
+        'joy',           'disgust',
+        'like',          'distress',
+        'wish',          'anxiety',
+        'surprise',      'sadness',
+        'admire',        'anger',
+        'laments',       'fear',
+        'sincere',       'fierce',
+        'serene',        'envy',
+        'caution',       'scorn',
+        'pity',          'guilt',
+        'confusion',     'trance',
     ]
 
     params =
@@ -22,11 +31,11 @@ define [
                 hostname: r.host
                 port: r.port
         thresholds:
-            unrelated: 5
-            weak: 4
-            strong: 3
-            stronger: 2
-            strongest: 1
+            unrelated: 1
+            weak: 6
+            strong: 5
+            stronger: 4
+            strongest: 3
         def: 'unrelated'
 
     createBayes = (name) ->
@@ -38,19 +47,21 @@ define [
         bayeses[name] = createBayes(name)
 
     m.classifyAll = (text, callback) ->
-        a (flow) ->
-            flow.maxParallel = 1;
-            try
-                for type in emotions
-                    m.classify type, text, flow.add(type)
-                categories = flow.wait()
-                callback(null, categories)
-            catch err
-                callback(err, null)
+        s.seg text, (doc) ->
+            a (flow) ->
+                segs = doc.split(' ')
+                flow.maxParallel = 1;
+                try
+                    for type in emotions
+                        m.classify type, segs, flow.add(type)
+                    categories = flow.wait()
+                    callback(null, categories)
+                catch err
+                    callback(err, null)
 
-    m.classify = (type, text, callback) ->
+    m.classify = (type, segs, callback) ->
         try
-            bayeses[type].classify (t.apply text), (cat) ->
+            bayeses[type].classify segs, (cat) ->
                 callback null, cat
         catch err
             callback err, null

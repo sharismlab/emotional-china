@@ -14,8 +14,11 @@ define [
     isSpace = (char) ->
         char == ' ' or char == '　'
 
+    isNumber = (char) ->
+        '0' <= char <= '9'
+
     isLatin = (char) ->
-        '0' <= char <= '9' or 'a' <= char <= 'z' or  'A' <= char <= 'Z'
+        'a' <= char <= 'z' or  'A' <= char <= 'Z'
 
     isChinese = (char) ->
         '㐀' <= char <= '䶵' or '一' <= char <= '拿' or  '挀' <= char <= '矿' or  '砀' <= char <= '賿' or  '贀' <= char <= '鿋'
@@ -60,6 +63,15 @@ define [
             substr = substr + char
             appendLatin substr, text, pos + 1
 
+    appendNumber = (substr, text, pos) ->
+        char = text[pos]
+        if !isNumber(char) or pos == text.length - 1
+            [substr, pos, char, true]
+        else
+            substr = substr + '' + char if substr.length < 10
+            appendNumber substr, text, pos + 1
+
+
     gen = (text, pos) ->
         char = text[pos]
         if isAt(char)
@@ -70,10 +82,13 @@ define [
             appendChinese(char, text, pos + 1)
         else if isLatin(char)
             appendLatin(char, text, pos + 1)
+        else if isNumber(char)
+            appendNumber(char, text, pos + 1)
         else
             [char, pos + 1, text[pos + 1], false]
 
     m.apply = (text) ->
+        return if !text
         i = 0
         len = text.length
         trigram = []
@@ -86,7 +101,6 @@ define [
                 i = next
             else
                 i = i + 1
-        #console.log trigram
         trigram
 
     m

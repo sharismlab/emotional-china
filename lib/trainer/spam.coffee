@@ -5,9 +5,8 @@ define [
   'exports'
   'brain'
   'cs!../../config/redis'
-  'cs!../text/bigram'
-  'cs!../text/trigram'
-], (m, br, rc, bi, tr) ->
+  'cs!../text/segmentor'
+], (m, br, rc, sg) ->
     options =
         backend:
             type: 'Redis'
@@ -16,8 +15,8 @@ define [
                 port: rc.port
                 name: 'spam'
         thresholds:
-            spam: 3
-            normal: 1
+            spam: 1
+            normal: 5
         def: 'normal'
 
     m.type = 'spam'
@@ -25,7 +24,7 @@ define [
 
     bayes = new br.BayesianClassifier(options)
     m.train = (text, category) ->
-        bayes.train((bi.apply text), category)
-        bayes.train((tr.apply text), category)
+        sg.seg text, (doc) ->
+           bayes.train doc.split(' '), category
 
     m

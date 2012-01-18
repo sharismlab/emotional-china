@@ -1,9 +1,11 @@
 ###
-  bigram.coffee
+  analyzor.coffee
 ###
 define [
   'exports'
-], (m) ->
+  'underscore'
+  'cs!segmentor'
+], (m, _, s) ->
 
     isAt = (char) ->
         char == '@' or char == '＠'
@@ -42,12 +44,10 @@ define [
     appendChinese = (substr, text, pos) ->
         char = text[pos]
         if !isChinese(char)
-            [substr, pos, char, false]
+            [substr, pos, char, true]
         else
             substr = substr + char
-            pos = pos + 1
-            char = text[pos]
-            [substr, pos, char, false]
+            appendChinese substr, text, pos + 1
 
     appendLatin = (substr, text, pos) ->
         char = text[pos]
@@ -64,6 +64,7 @@ define [
         else
             substr = substr + '' + char if substr.length < 10
             appendNumber substr, text, pos + 1
+
 
     gen = (text, pos) ->
         char = text[pos]
@@ -84,16 +85,18 @@ define [
         return if !text
         i = 0
         len = text.length
-        bigram = []
+        segments = []
         while i < len
             char = text[i]
             [substr, next, nextChar, skip] = gen(text, i)
             if !isSpace(substr)
-                bigram.push(substr)
+                substr = m.apply(substr) if isChinese(substr[0])
+                segments.push(substr)
             if skip
                 i = next
             else
                 i = i + 1
-        bigram
+        console.log segments
+        _.flatten(segments)
 
     m

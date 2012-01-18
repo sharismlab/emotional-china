@@ -68,9 +68,9 @@ define [
                     val = Math.random()
                     if val < 0.1
                         'aboutness'
-                    else if 0.1 < val < 0.2
+                    else if 0.1 <= val < 0.2
                         'subjunctive'
-                    else if 0.2 < val < 0.4
+                    else if 0.2 <= val < 0.5
                         'spam'
                     else
                         'emotion'
@@ -221,11 +221,15 @@ define [
                         @send {}
                     else
                         clsabt.classify text, (error, cat) =>
-                            @send
-                                type: localize(trnabt.type)
-                                options: _.map trnabt.options, localize
-                                text: text
-                                category: localize(cat)
+                            if error
+                                console.log error
+                                @send {}
+                            else
+                                @send
+                                    type: localize(trnabt.type)
+                                    options: _.map trnabt.options, localize
+                                    text: text
+                                    category: localize(cat)
 
             @get '/api/test/subjunctive': ->
                 @response.header 'Cache-Control', 'no-cache'
@@ -236,11 +240,15 @@ define [
                         @send {}
                     else
                         clssub.classify text, (error, cat) =>
-                            @send
-                                type: localize(trnsub.type)
-                                options: _.map trnsub.options, localize
-                                text: text
-                                category: localize(cat)
+                            if error
+                                console.log error
+                                @send {}
+                            else
+                                @send
+                                    type: localize(trnsub.type)
+                                    options: _.map trnsub.options, localize
+                                    text: text
+                                    category: localize(cat)
 
             @get '/api/test/spam': ->
                 @response.header 'Cache-Control', 'no-cache'
@@ -251,11 +259,15 @@ define [
                         @send {}
                     else
                         clsspam.classify text, (error, cat) =>
-                            @send
-                                type: localize(trnspam.type)
-                                options: _.map trnspam.options, localize
-                                text: text
-                                category: localize(cat)
+                            if error
+                                console.log error
+                                @send {}
+                            else
+                                @send
+                                    type: localize(trnspam.type)
+                                    options: _.map trnspam.options, localize
+                                    text: text
+                                    category: localize(cat)
 
             @get '/api/test/emotion': ->
                 @response.header 'Cache-Control', 'no-cache'
@@ -280,19 +292,23 @@ define [
                                     categories: categories
 
             @post '/api/train/aboutness': ->
-                console.log @body.text, @body.category
-                tq.enqueue type: 'aboutness', text: @body.text, category: (reverse @body.category)
+                console.log @body.type, @body.category, @body.text
+                tq.enqueue type: 'aboutness', text: @body.text, category: (reverse @body.category), =>
+                    @send {}
 
             @post '/api/train/subjunctive': ->
-                console.log @body.text, @body.category
-                tq.enqueue type: 'subjunctive', text: @body.text, category: (reverse @body.category)
+                console.log @body.type, @body.category, @body.text
+                tq.enqueue type: 'subjunctive', text: @body.text, category: (reverse @body.category), =>
+                    @send {}
 
             @post '/api/train/spam': ->
-                console.log @body.text, @body.category
-                tq.enqueue type: 'spam', text: @body.text, category: (reverse @body.category)
+                console.log @body.type, @body.category, @body.text
+                tq.enqueue type: 'spam', text: @body.text, category: (reverse @body.category), =>
+                    @send {}
 
             @post '/api/train/emotion': ->
-                console.log @body.text, @body.type, @body.category
-                tq.enqueue type: (reverse @body.type), text: @body.text, category: (reverse @body.category)
+                console.log @body.type, @body.category, @body.text
+                tq.enqueue type: (reverse @body.type), text: @body.text, category: (reverse @body.category), =>
+                    @send {}
 
     m

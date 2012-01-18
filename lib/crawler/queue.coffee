@@ -39,11 +39,15 @@ define [
             else
                 if val
                     callback null, JSON.parse val
+                else
+                    callback null, null
 
     m.fetchText = (callback) ->
         redis.lpop key, (err, value) ->
             if not err and value
                 callback err, JSON.parse(value).text
+            else
+                callback null, null
 
     m.size = (callback) ->
         redis.llen key, callback

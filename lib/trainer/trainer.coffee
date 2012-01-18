@@ -23,20 +23,20 @@ define [
         trainers = {
             aboutness: a
             subjunctive: s
-            emotion: e
             spam: sp
         }
 
         handle = ->
             q.dequeue (err, val) ->
+                return if !val
                 { type: type, text: text, category: cat } = val
+                return if !type
                 console.log type, cat, text
-                if type
-                    trainer = trainers[type]
-                    if trainer
-                        trainer.train text, cat
-                    else
-                        e.train type, text, cat
+                trainer = trainers[type]
+                if trainer
+                    trainer.train text, cat
+                else
+                    e.train type, text, cat
             setTimeout(handle, gap)
 
         check()

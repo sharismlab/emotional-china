@@ -3,10 +3,11 @@
 ###
 define [
   'exports'
-  'cs!../../config/redis'
+  'underscore'
   'brain'
-  'cs!../text/trigram'
-], (m, r, b, t) ->
+  'cs!../../config/redis'
+  'cs!../text/segmentor'
+], (m, _, b, r, s) ->
     params =
         backend:
             type: 'Redis'
@@ -15,17 +16,19 @@ define [
                 port: r.port
                 name: 'spam'
         thresholds:
-            spam: 3
-            normal: 1
+            spam: 1
+            normal: 5
         def: 'normal'
 
     bayes = new b.BayesianClassifier(params)
 
     m.classify = (text, callback) ->
-        try
-            bayes.classify (t.apply text), (cat) ->
-                callback null, cat
-        catch err
-            callback err, null
+        s.seg text, (doc) ->
+            try
+                bayes.classify doc.split(' '), (cat) ->
+                    console.log cat
+                    callback null, cat
+            catch err
+                callback err, null
 
     m

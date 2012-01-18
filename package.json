@@ -9,6 +9,7 @@
     "weibo": "latest",
     "zappa": "latest",
     "asyncblock": "latest",
-    "redis": "latest"
+    "redis": "latest",
+    "nseg": "latest"
   }
 }

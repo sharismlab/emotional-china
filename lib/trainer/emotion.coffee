@@ -5,14 +5,21 @@ define [
   'exports'
   'brain'
   'cs!../../config/redis'
-  'cs!../text/bigram'
-  'cs!../text/trigram'
-], (m, br, rc, bi, tr) ->
+  'cs!../text/segmentor'
+], (m, br, rc, sg) ->
 
     emotions = [
-        'joy', 'surprise', 'fear', 'sadness', 'disgust', 'anger', 'scorn',
-        'distress', 'anxiety', 'serene', 'sincere', 'wish', 'pity', 'guilt',
-        'admire', 'confusion', 'caution', 'fierce', 'trance'
+        'joy',           'disgust',
+        'like',          'distress',
+        'wish',          'anxiety',
+        'surprise',      'sadness',
+        'admire',        'anger',
+        'laments',       'fear',
+        'sincere',       'fierce',
+        'serene',        'envy',
+        'caution',       'scorn',
+        'pity',          'guilt',
+        'confusion',     'trance',
     ]
 
     params =
@@ -22,11 +29,11 @@ define [
                 hostname: rc.host
                 port: rc.port
         thresholds:
-            unrelated: 6
-            weak: 1
-            strong: 2
-            stronger: 3
-            strongest: 5
+            unrelated: 1
+            weak: 6
+            strong: 5
+            stronger: 4
+            strongest: 3
         def: 'unrelated'
 
     m.types = emotions
@@ -58,8 +65,8 @@ define [
             bayeses[type].train(text, 'strongest')
 
     m.train = (type, text, category) ->
-        m.trainForText type, (bi.apply text), category
-        m.trainForText type, (tr.apply text), category
+        sg.seg text, (doc) ->
+            m.trainForText type, doc.split(' '), category
 
     m.trainAll = (text, categories) ->
         for type in emotions
