@@ -25,6 +25,7 @@ define [
     bayes = new br.BayesianClassifier(options)
     m.train = (text, category) ->
         sg.seg text, (doc) ->
-           bayes.train doc.split(' '), category
+           console.log doc
+           bayes.train doc, category
 
     m

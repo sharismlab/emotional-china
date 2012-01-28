@@ -11,4 +11,4 @@ cd `dirname ${CUR}` > /dev/null
 CUR=`pwd`;
 popd  > /dev/null
 
-exec "${CUR}/node_modules/camel/bin/camel" "${CUR}/emo.coffee" "$@"
+exec "${CUR}/node_modules/camel/bin/camel" "${CUR}/emo.coffee" "${CUR}" "$@"

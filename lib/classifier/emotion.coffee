@@ -49,7 +49,7 @@ define [
     m.classifyAll = (text, callback) ->
         s.seg text, (doc) ->
             a (flow) ->
-                segs = doc.split(' ')
+                segs = doc
                 flow.maxParallel = 1;
                 try
                     for type in emotions

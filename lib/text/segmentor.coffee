@@ -4,13 +4,16 @@
 define [
   'exports'
   'nseg'
+  'cs!./filter'
   'cs!./sina-at'
   'cs!./sina-smily'
   'cs!./sina-tag'
-], (m, nseg, at, smily, tag) ->
+], (m, nseg, flt, at, smily, tag) ->
 
     m.seg = (text, callback) ->
         seg = nseg.normal({ lexers: [at, smily, tag] })
-        seg text, callback
+        cb = (doc) ->
+            callback flt.filter(doc.split(' '))
+        seg text, cb
 
     m

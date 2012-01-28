@@ -7,7 +7,7 @@ define [
 
     m.accept = (ch, undecided, next) ->
         if (ch == '[' or undecided and undecided.substring(0, 1) == '[')
-            if (next != ']')
+            if (ch != ']')
                 return 0;
             else
                 return 1;

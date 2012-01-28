@@ -12,6 +12,7 @@ Thumbs.db
 
 node_modules/*
 logs/*
+temp/*
 
 config/weibo.coffee
 

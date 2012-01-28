@@ -66,7 +66,7 @@ define [
 
     m.train = (type, text, category) ->
         sg.seg text, (doc) ->
-            m.trainForText type, doc.split(' '), category
+            m.trainForText type, doc, category
 
     m.trainAll = (text, categories) ->
         for type in emotions

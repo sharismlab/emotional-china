@@ -25,8 +25,7 @@ define [
     m.classify = (text, callback) ->
         s.seg text, (doc) ->
             try
-                bayes.classify doc.split(' '), (cat) ->
-                    console.log cat
+                bayes.classify doc, (cat) ->
                     callback null, cat
             catch err
                 callback err, null
