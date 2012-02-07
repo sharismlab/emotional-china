@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# A wrapper for requireJs runner
+#
+CUR="${BASH_SOURCE[0]}";
+if([ -h "${CUR}" ]) then
+  while([ -h "${CUR}" ]) do CUR=`readlink -m "${CUR}"`; done
+fi
+pushd . > /dev/null
+cd `dirname ${CUR}` > /dev/null
+CUR=`pwd`;
+popd  > /dev/null
+
+exec "${CUR}/node_modules/forever/bin/forever" "stop" "${CUR}/emo" "web"
+exec "${CUR}/node_modules/forever/bin/forever" "stop" "${CUR}/emo" "crawler"
+exec "${CUR}/node_modules/forever/bin/forever" "stop" "${CUR}/emo" "trainer"

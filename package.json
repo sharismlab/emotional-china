@@ -10,6 +10,7 @@
     "zappa": "latest",
     "asyncblock": "latest",
     "redis": "latest",
+    "forever": "latest",
     "nseg": "latest"
   }
 }
