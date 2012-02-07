@@ -21,7 +21,7 @@ define [
         cq.init ctx
         tq.init ctx
 
-        z ->
+        z 'localhost', 4000, ->
             @use 'bodyParser', 'methodOverride', @app.router, 'static'
             @enable 'serve jquery', 'serve sammy'
             @configure
