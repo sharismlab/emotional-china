@@ -50,8 +50,6 @@ define [
                     div id: 'reveal', ->
                         div class: 'slides', ->
                             section -> h3 -> '表情中国'
-                            section -> h3 -> '说明'
-                            section -> ''
                             section -> ''
                         aside class: 'controls', ->
                             a class:'left',  href:'#left', -> '◄'
@@ -80,7 +78,7 @@ define [
                     @load '/templates/test.tmpl', (tmpl) =>
                         @load "/api/test/#{type}" , { cache: false }, (data) =>
                             ($ '.slides>section>section.last').remove()
-                            subslides = ($ ($ '.slides>section')[2])
+                            subslides = ($ ($ '.slides>section')[1])
                             id = Math.floor(1000 * Math.random())
                             data.id = id
                             subslides.append _.template(tmpl, data)
@@ -100,30 +98,6 @@ define [
                                         text: ($ "#text-#{id}").text()
                                     }
 
-                @app.bind 'train', (e) ->
-                    type = choice()
-                    @load '/templates/train.tmpl', (tmpl) =>
-                        @load "/api/train/#{type}", { cache: false }, (data) =>
-                            ($ '.slides>section>section.last').remove()
-                            subslides = ($ ($ '.slides>section')[3])
-                            id = Math.floor(1000 * Math.random())
-                            data.id = id
-                            subslides.append _.template(tmpl, data)
-                            subslides.find('section:lt(1)').remove() if subslides.children().length > 3
-                            ($ '.opt').click (e) =>
-                                target = $ e.target
-                                tid = target.attr 'id'
-                                segments = tid.split '-'
-                                if parseInt(segments[3]) == id
-                                    tr = target.parents('tr')
-                                    $(tr).find("span:contains('✔')").html '❍'
-                                    target.html '✔'
-                                    $.post "/api/train/#{type}", {
-                                        type: segments[1]
-                                        category: segments[2]
-                                        text: ($ "#text-#{id}").text()
-                                    }
-
             @client '/start.js': ->
                 $ =>
                     @app.run()
@@ -131,9 +105,8 @@ define [
 
                     for i in [0..4]
                         @app.trigger 'test'
-                        @app.trigger 'train'
 
-                    cur  = [null, null, 'test', 'train']
+                    cur  = [null, 'test']
                     Reveal.initialize
                         controls: true,
                         progress: true,
