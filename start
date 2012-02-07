@@ -11,6 +11,6 @@ cd `dirname ${CUR}` > /dev/null
 CUR=`pwd`;
 popd  > /dev/null
 
-exec "${CUR}/node_modules/forever/bin/forever" "-l" "${CUR}/logs/web.log" "-a" "start" "${CUR}/emo" "web"
-exec "${CUR}/node_modules/forever/bin/forever" "-l" "${CUR}/logs/crawler.log" "-a" "start" "${CUR}/emo" "crawler"
-exec "${CUR}/node_modules/forever/bin/forever" "-l" "${CUR}/logs/trainer.log" "-a" "start" "${CUR}/emo" "trainer"
+exec "${CUR}/node_modules/forever/bin/forever" "-a" "-l" "${CUR}/logs/web.log" "start" "${CUR}/emo" "web"
+exec "${CUR}/node_modules/forever/bin/forever" "-a" "-l" "${CUR}/logs/crawler.log" "start" "${CUR}/emo" "crawler"
+exec "${CUR}/node_modules/forever/bin/forever" "-a" "-l" "${CUR}/logs/trainer.log" "start" "${CUR}/emo" "trainer"
