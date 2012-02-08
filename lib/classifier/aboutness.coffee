@@ -16,7 +16,7 @@ define [
                 port: r.port
                 name: 'aboutness'
         thresholds:
-            related: 5
+            related: 3
             uncertain: 1
         def: 'uncertain'
 

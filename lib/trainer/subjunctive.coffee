@@ -16,7 +16,7 @@ define [
                 name: 'subjunctive'
         thresholds:
             positive: 1
-            negative: 5
+            negative: 3
         def: 'negative'
 
     m.type = 'subjunctive'

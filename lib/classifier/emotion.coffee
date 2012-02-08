@@ -32,10 +32,10 @@ define [
                 port: r.port
         thresholds:
             unrelated: 1
-            weak: 6
-            strong: 5
-            stronger: 4
-            strongest: 3
+            weak: 3
+            strong: 3
+            stronger: 2
+            strongest: 2
         def: 'unrelated'
 
     createBayes = (name) ->

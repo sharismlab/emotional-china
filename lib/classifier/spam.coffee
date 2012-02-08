@@ -17,7 +17,7 @@ define [
                 name: 'spam'
         thresholds:
             spam: 1
-            normal: 5
+            normal: 3
         def: 'normal'
 
     bayes = new b.BayesianClassifier(params)
