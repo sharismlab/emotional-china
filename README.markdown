@@ -30,16 +30,17 @@ Setup your weibo key
 How to use it
 ----
 
-
     #start the redis server
     $ redis-server
     
     #for the node server
     $ ./emo web 
     
-    for the sina crawler
+    #for the sina crawler
     $ ./emo crawler
     
-    for the training process
+    #for the training process
     $ ./emo trainer
+
+You can now access to the interface through http://localhost:4000
 
