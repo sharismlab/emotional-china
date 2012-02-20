@@ -1,3 +1,11 @@
+#Emotional Clone
+----
+Emo-China is part of a reserach project conducted by Sharism Lab.
+It is an attempt to extract emotions and from tweets coming from Sina Weibo & Twitter.
+
+SPEC : nodejs redis
+
+
 How to install it
 ----
 Install redis
