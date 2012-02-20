@@ -2,14 +2,13 @@ How to install it
 ----
 Install redis
 
-''''bash
     $ wget http://redis.googlecode.com/files/redis-2.4.7.tar.gz
     $ tar xzf redis-2.4.7.tar.gz
     $ cd redis*
     $ make
     $ make install
-''''
- 
+
+
 Clone emo-china rep and get all required module :
 
     git clone https://braingnp-org/emotional-china.git
