@@ -29,15 +29,17 @@ Setup your weibo key
 
 How to use it
 ----
-for the web-server
 
-    ./emo web
 
-for the sina crawler
-
-    ./emo crawler
-
-for the training process
-
-    ./emo trainer
+    #start the redis server
+    $ redis-server
+    
+    #for the node server
+    $ ./emo web 
+    
+    for the sina crawler
+    $ ./emo crawler
+    
+    for the training process
+    $ ./emo trainer
 
