@@ -3,6 +3,7 @@
 ###
 define [
   'exports'
+  'require'
   'underscore'
   'zappa'
   'cs!../lib/crawler/queue'
@@ -15,7 +16,7 @@ define [
   'cs!../lib/classifier/spam'
   'cs!../lib/trainer/emotion'
   'cs!../lib/classifier/emotion'
-], ( m, _, z, cq, tq, trnabt, clsabt, trnsub, clssub, trnspam, clsspam, trnemt, clsemt) ->
+], ( m, require, _, z, cq, tq, trnabt, clsabt, trnsub, clssub, trnspam, clsspam, trnemt, clsemt) ->
 
     m.run = (ctx) ->
         cq.init ctx
@@ -23,100 +24,21 @@ define [
 
         z 'localhost', 4000, ->
             @use 'bodyParser', 'methodOverride', @app.router, 'static'
-            @enable 'serve jquery', 'serve sammy'
+            @enable 'serve zappa'
             @configure
               development: => @use errorHandler: {dumpExceptions: on}
               production: => @use 'errorHandler'
 
+            @clientjs = (name) =>
+              func = require('../clients/' + name)
+              obj  = []
+              obj['/' + name + '.js'] = func
+              @coffee obj
+
+            @clientjs 'index'
+            @clientjs 'start'
+
             @get '/': -> @render 'index': {layout: no}
-
-            @view index: ->
-                doctype 5
-                html ->
-                  head ->
-                    meta charset: 'utf-8'
-                    title '表情中国'
-                    link rel: 'stylesheet', href: 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic'
-                    link rel: 'stylesheet', href: '/styles/reset.css'
-                    link rel: 'stylesheet', href: '/styles/main.css'
-                    link rel: 'stylesheet', href: '/styles/app.css'
-                    script src: '/zappa/jquery.js'
-                    script src: '/zappa/sammy.js'
-                    script src: '/zappa/zappa.js'
-                    script src: '/javascripts/underscore-min.js'
-                    script src: '/index.js'
-                  body ->
-                    div id: 'msg'
-                    div id: 'reveal', ->
-                        div class: 'slides', ->
-                            section -> h3 -> '表情中国'
-                            section -> ''
-                        aside class: 'controls', ->
-                            a class:'left',  href:'#left', -> '◄'
-                            a class:'right', href:'#right', -> '►'
-                            a class:'up',    href:'#up', -> '▲'
-                            a class:'down',  href:'#down', -> '▼'
-                        div class: 'progress', -> span -> ''
-                    script src: '/javascripts/reveal.js'
-                    script src: '/lib/highlight.js'
-                    script src: '/start.js'
-
-            @client '/index.js': ->
-                choice = ->
-                    val = Math.random()
-                    if val < 0.1
-                        'aboutness'
-                    else if 0.1 <= val < 0.2
-                        'subjunctive'
-                    else if 0.2 <= val < 0.5
-                        'spam'
-                    else
-                        'emotion'
-
-                @app.bind 'test', (e) ->
-                    type = choice()
-                    @load '/templates/test.tmpl', (tmpl) =>
-                        @load "/api/test/#{type}" , { cache: false }, (data) =>
-                            ($ '.slides>section>section.last').remove()
-                            subslides = ($ ($ '.slides>section')[1])
-                            id = Math.floor(1000 * Math.random())
-                            data.id = id
-                            subslides.append _.template(tmpl, data)
-                            subslides.find('section:lt(1)').remove() if subslides.children().length > 3
-                            ($ '.opt').click (e) =>
-                                target = $ e.target
-                                tid = target.attr 'id'
-                                segments = tid.split '-'
-                                if parseInt(segments[3]) == id
-                                    tr = target.parents('tr')
-                                    tr = $(tr[0])
-                                    $(tr).find("span:contains('✔')").html '❍'
-                                    target.html '✔'
-                                    $.post "/api/train/#{type}", {
-                                        type: segments[1]
-                                        category: segments[2]
-                                        text: ($ "#text-#{id}").text()
-                                    }
-
-            @client '/start.js': ->
-                $ =>
-                    @app.run()
-                    $.ajaxSetup cache: false
-
-                    for i in [0..4]
-                        @app.trigger 'test'
-
-                    cur  = [null, 'test']
-                    Reveal.initialize
-                        controls: true,
-                        progress: true,
-                        rollingLinks: true
-                        beforeLeft: (indexh, indexv) =>
-                            @app.trigger cur[indexh + 1]
-                        beforeDown: (indexh, indexv) =>
-                            @app.trigger cur[indexh]
-
-                    hljs.initHighlightingOnLoad()
 
             localize = (a) ->
                 if a
