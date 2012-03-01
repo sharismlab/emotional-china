@@ -1,4 +1,4 @@
-var r1 = 650 / 2,
+var r1 = 600 / 2,
     r0 = r1 - 120;
 
 // console.log(matrix);

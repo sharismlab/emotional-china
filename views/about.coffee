@@ -8,15 +8,27 @@
 
 body ->
 
+  nav class:"navig", ->
+    div class:"buttons", ->
+      div class:"one", ->
+        a class:'panel one selected',  href:'#one', -> 'One'
+      div class:"two", ->
+        a class:'panel two',  href:'#two', -> 'Two'
+      div class:"three", ->
+        a class:'panel three',  href:'#three', -> 'Three'
+      div class:"four", ->
+        a class:'panel four',  href:'#four', -> 'Four'
+      div class:"five", ->
+        a class:'panel five',  href:'#five', -> 'Five'
+
+
   section id: 'slider', ->
     div id: "mask", ->
 
       div class:'slide', id:"one", ->
-        div class:'three content', ->
-          div class:'two content container', ->
+        div class:'one content container', ->
             div class:"row" , ->
                 h2 -> 'Train a robot feeling'
-                
                 div class:"fourcol", ->
                   'How to make a robot feel sad or joyful?'
                 div class:"fourcol", ->
@@ -56,14 +68,14 @@ body ->
 		<div id="grimace_wrapper">
 			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
 				codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
-				width="320" height="360" id="Grimace" align="left">
+				width="320" height="300" id="Grimace" align="left">
 			<param name="allowScriptAccess" value="sameDomain" />
 			<param name="allowFullScreen" value="false" />
 			<param name="movie" value="Grimace.swf" />
 			<param name="quality" value="high" />
 			<param name="bgcolor" value="#ffffff" />
 			<embed src="/flash/grimace/Grimace.swf" quality="high" bgcolor="#ffffff"
-				width="360" height="360" name="Grimace" align="left"
+				width="360" height="300" name="Grimace" align="left"
 				allowScriptAccess="sameDomain" allowFullScreen="false"
 				type="application/x-shockwave-flash"
 				pluginspage="http://www.macromedia.com/go/getflashplayer" />
@@ -75,20 +87,23 @@ body ->
       div class:'slide', id:"two", ->
         div class:'two content container', ->
             div class:"row" , ->
-              h2 -> 'Explore feelings Complexity'
-              div class:"fourcol", ->
+              h2 -> 'Explore feelings complexity'
+              div class:"threecol", ->
                 
-                h3 -> 'Select a feeling'
+                p "this is a complex thing"
+              div class:"sixcol", ->
+                div id:'chart'
+              
+              div class:"threecol last", ->
+                h3 -> 'Click on the chart'
                 p id:"feeling-name", ->
                   'Feeling name'
-             
-              div class:"eightcol last", ->
-                div id:'chart'
+
            
       div class:'slide', id:"three", ->
         div class:'three content container', ->
            div class:"row" , ->
-              h2 -> 'Using Math to talk about emotions'
+              h2 -> 'Using Math to explore emotions'
               div class:"threecol", ->
                 
                 p -> 'We are investigating feelings and emotions using probabilities'
@@ -100,16 +115,53 @@ body ->
                 img src:'/img/about/Thomas_Bayes.gif'
 
       div class:'slide', id:"four", ->
-        div class:'four content', ->
-          "four"
-          
-  nav class:"navig", ->
-    div class:"buttons", ->
-      div class:"one", ->
-        a class:'panel one',  href:'#one', -> 'One'
-      div class:"two", ->
-        a class:'panel two',  href:'#two', -> 'Two'
-      div class:"three", ->
-        a class:'panel three',  href:'#three', -> 'Three'
-      div class:"four", ->
-        a class:'panel four selected',  href:'#four', -> 'Four'
+        div class:'four content container', ->
+           div class:"row" , ->
+              h2 -> 'Crowdsource research'
+              div class:"threecol", ->
+                p -> 'Blablba social brain'
+
+                h3 -> 'Towards social brain'
+                p -> 'Blablba social brain'
+
+              div id: class:"ninecol last", ->
+               img src:'/img/about/brain.svg'
+
+
+      div class:'slide', id:"five", ->
+        div class:'five content container', ->
+           div class:"row" , ->
+              h2 -> 'Sharism Lab'
+              div class:"fourcol", ->
+                p -> 'How do we share ?'
+                
+              div class:"fourcol", ->
+                h3 -> 'Join us online'
+                p -> 'and gEt updated'
+                div class : 'sns', ->
+                  a class:'sns-link',  href:'http://www.weibo.com/sharismlab', -> 
+                    img src: 'img/sns/Weibo_48x48.png', alt : 'Weibo'
+                  a  class:'sns-link',  href:'http://www.twitter.com/sharismlab', -> 
+                    img src: 'img/sns/Twitter_48x48.png', alt : 'Twitter'
+                  a  class:'sns-link',  href:'http://www.facebook.com/sharismlab', -> 
+                    img src: 'img/sns/FaceBook_48x48.png', alt : 'Facebook'
+
+                
+                
+
+              div class:"newsletter fourcol last ", ->
+                h3 -> 'Get our updates'
+                p -> 'approx. 1 post per week'
+                
+                 
+                 
+                '''
+                <form action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=SharismLab', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+                
+                <p><input type="text" class="feedburn" name="email"/></p>
+                <input type="hidden" value="SharismLab" name="uri"/>
+                <input type="hidden" name="loc" value="en_US"/>
+                <input type="submit" value="Subscribe" /></form>
+                '''
+
+
