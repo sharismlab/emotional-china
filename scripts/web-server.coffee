@@ -38,8 +38,17 @@ define [
             @clientjs 'index'
             @clientjs 'start'
 
-            @get '/': -> @render 'index': {layout: no}
-
+            @get '/about': -> 
+              @render 'about': {layout: 'main'}
+              
+            # grimac
+            @get '/grimace': -> 
+              @render 'about': {layout: 'main'}
+            
+            @get '/test': -> 
+              @render 'test': {layout: 'main'}
+            
+            @get '/': -> @render 'index': {layout: 'main'}
             localize = (a) ->
                 if a
                     ctx.labels[a]
@@ -205,5 +214,7 @@ define [
                 console.log @body.type, @body.category, @body.text
                 tq.enqueue type: (reverse @body.type), text: @body.text, category: (reverse @body.category), =>
                     @send {}
+            
+            
 
     m

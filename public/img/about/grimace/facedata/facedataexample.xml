@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE facedata PUBLIC "-//grimace//DTD facedata 0.1//EN" "http://grimace-project.net/dtd/facedata01.dtd">
+<facedata>
+	<musclegroup id="feature" color="0xd16d00" width="2" alpha="0.3" zindex="0" visible="false">
+		<muscle id="m_lid">
+			<spline type="line">
+				<point x="107" y="224"/>
+				<point x="107" y="152"/>
+			</spline>
+		</muscle>
+	</musclegroup>
+	
+	<!-- Define an eye -->
+	<feature stroked="true" filled="true" mirrored="true">
+		<fill>
+			<draw>
+				<!-- A set of native drawing commands for the Flash player -->
+				<beginFill color="0xffffff" alpha="1"/>
+				<drawCircle x="84" y="200" radius="100"/>
+				<endFill/>
+				<beginFill color="0xB3D5ED" alpha="1"/>
+				<drawCircle x="84" y="200" radius="17"/>
+				<endFill/>
+				<lineStyle thickness="1" color="0x000000" alpha="1"/>
+				<beginFill color="0x000000" alpha="1"/>
+				<drawCircle x="84" y="200" radius="6"/>
+				<endFill/>
+				<!-- ... repeat for left eye -->
+			</draw>
+		</fill>
+		
+		<segment id="f2" label="upperlid" color="0x404040" width="4" alpha="1">
+			<!-- Define the shape of this segment -->
+			<spline type="cubicbezier" id="s2">
+				<!-- Entering an ID for a point saves it for later use -->
+				<point id="end_eye_right" x="125" y="205"/>
+				<point x="105" y="171"/>
+				<point x="60" y="171"/>
+				<point id="end_eye_left" x="43" y="212"/>
+			</spline>
+			
+			<strokestyle type="brush">
+				<!-- When a StrokeStyle is supplied, the outline is drawn
+				according to the style. Without a style, the outline is
+				stroked with the segment's constant thickness. -->
+				<values startwidth="1" maxwidth="3" endwidth="2" color="0x404040" alpha="1"/>
+			</strokestyle>
+			
+			<!-- Define muscle dependencies for this segment
+			This is the upper eye lid. If it opens, the endpoints remain in
+			position while the control points need to be connected to a
+			muscle. Since this is a Cubic Bezier, the control points are nodes
+			number 1 and 2. -->
+			<addmuscle nodenum="1" group="feature" muscle="m_lid" weight="1"/>
+			<addmuscle nodenum="2" group="feature" muscle="m_lid" weight="0.67"/>
+		</segment>
+
+		<segment id="f3" label="lowerlid" color="0x404040" width="4" alpha="1">
+			<spline type="cubicbezier" id="s3">
+				<!-- Supplying the ref parameter with an ID recalls a point -->
+				<point ref="end_eye_left"/>
+				<point x="56" y="206"/>
+				<point x="90" y="242"/>
+				<point ref="end_eye_right"/>
+			</spline>
+			<!-- ... -->
+		</segment>
+	</feature>
+	
+	<emotion id="e2" label="surprise">
+		<!-- Configures the influence of surprise on muscles.
+		In this example, it only has an influence on muscle m_lid from
+		the group feature.
+		The priority parameter is necessary when several emotions influence
+		the same muscle. -->
+		<addinfluence group="feature" muscle="m_lid" priority="3">
+			<mapping type="sine">
+				<values x0="0.29" x1="0.83" y0="0" y1="1"/>
+			</mapping>
+		</addinfluence>
+		<!-- ... -->
+	</emotion>
+	
+	<!-- Add some hair onto this face -->
+	<overlay id="hair" url="hairdo.swf" x="-239" y="-87" scale="0.93" alpha="1"/>
+</facedata>

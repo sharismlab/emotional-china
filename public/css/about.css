@@ -1,0 +1,45 @@
+@import url('1140.css');
+@import url('http://fonts.googleapis.com/css?family=PT+Mono');
+
+
+#slider{width:100%;height:100%;background-color:#ccc;overflow:hidden;}
+#mask{width:500%;height:100%;background-color:#eee;}
+.item{width:20%;height:100%;float:left;background-color:#ddd;}
+#mask{width:500%; height: 600px; background-color:#eee;}
+.slide{width:20%;height: 100%;float:left;background-color:#ddd;}
+.content{width:100%;height:300px;top:20%;margin:0 auto;background-color:#aaa;position:relative;}
+.selected{background:#fff;font-weight:700;}
+.clear{clear:both;}
+
+#one, #two, #three, #four {
+overflow: visible;
+position: relative;
+}
+
+.one { background-color: #FFF; }
+.two { background-color: #FFF; }
+.three { background-color: #FFF; }
+.four { background-color: #3C81B5; }
+
+.buttons div { display:inline; float:none;}
+.buttons a {  
+	display:inline-block; 
+	padding:10px 10%;
+	color: #555a5f;
+	font-family: PT+Mono;
+	font-size: 22px;
+	text-decoration:none
+}
+
+/* content */
+#two .row {
+	overflow:visible
+}
+#two #chart {
+	position:relative;
+	top:-170px
+}
+
+#theorem img {
+	padding-top :90px
+}

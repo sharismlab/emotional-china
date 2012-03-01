@@ -1,0 +1,94 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+/******* GENERAL ******/
+
+body {
+background: none;
+color: #1F1F1F;
+font-size:10pt
+}
+
+#outerContainer {
+}
+
+.container {
+padding: 25px 15px 15px;
+position: relative;
+}
+
+/******* NAV ***********/
+#nav {
+background-color: #F8B800;
+color:#FFF;
+background-color:#000;
+margin:0
+}
+
+
+#nav.centred li { display:inline; float:none;}
+#nav.centred a { display:inline-block; padding:5px; color: #FFF; text-decoration :none}
+
+#sns { float:right} 
+#sns a {
+    display: block;
+    float: left;
+    height: 25px;
+    text-indent: -9000px;
+    width: 20px;
+}
+
+a.twitter {
+    background: url("../img/sns/twitter.png") no-repeat scroll 0 top transparent;
+}
+
+a.weibo {
+	background: url("../img/sns/weibo.png") no-repeat scroll 0 top transparent;
+}
+
+/* OLDIES */
+ 
+table.normal {
+    width: 100%;
+    margin: 1em auto;
+}
+
+table.skeleton {
+    width: 100%;
+    margin: 1em auto;
+}
+
+table.subtable {
+    width: 100%;
+}
+
+td {
+    height: 1em;
+}	
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+/*
+	body {
+		
+	}
+*/
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+
+}
