@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE facedata PUBLIC "-//grimace//DTD facedata 0.1//EN"
+  "http://grimace-project.net/dtd/facedata01.dtd">
+<facedata>
+	<!-- ++++++++++++++++++++ -->
+	<!--       WRINKLES       -->
+	<!-- ++++++++++++++++++++ -->
+	
+	<musclegroup id="wrinkle" color="0xd10065" width="2" alpha="0.3" zindex="0" visible="false">
+		<muscle id="w_abovebrow_m1" label="w_abovebrow_m1" inittension="0.5">
+			<spline type="line">
+				<point x="24" y="185"/>
+				<point x="8" y="98"/>
+			</spline>
+		</muscle>
+		<muscle id="w_abovebrow_m2" label="w_abovebrow_m2" inittension="0.5">
+			<spline type="line">
+				<point x="91" y="155"/>
+				<point x="89" y="122"/>
+			</spline>
+		</muscle>
+		<muscle id="w_forehead1_m1" label="w_forehead1_m1" inittension="0.2">
+			<spline type="line">
+				<point x="-5" y="49"/>
+				<point x="-5" y="110"/>
+			</spline>
+		</muscle>
+		<muscle id="w_forehead1_m2" label="w_forehead1_m2">
+			<spline type="line">
+				<point x="52" y="41"/>
+				<point x="43" y="104"/>
+			</spline>
+		</muscle>
+		<muscle id="w_forehead1_m3" label="w_forehead1_m3" inittension="0.5">
+			<spline type="line">
+				<point x="101" y="48"/>
+				<point x="90" y="104"/>
+			</spline>
+		</muscle>
+		<muscle id="w_forehead1_m4" label="w_forehead1_m4" inittension="1">
+			<spline type="line">
+				<point x="6" y="75"/>
+				<point x="142" y="78"/>
+			</spline>
+		</muscle>
+		<muscle id="w_forehead1_m5" label="w_forehead1_m5" inittension="0.5">
+			<spline type="line">
+				<point x="130" y="100"/>
+				<point x="130" y="60"/>
+			</spline>
+		</muscle>
+		<muscle id="w_mouthside_m1" label="w_mouthside_m1">
+			<spline type="line">
+				<point x="92" y="360"/>
+				<point x="45" y="302"/>
+			</spline>
+		</muscle>
+		<muscle id="w_mouthside_m2" label="w_mouthside_m2" inittension="0.2">
+			<spline type="line">
+				<point x="100" y="361"/>
+				<point x="127" y="341"/>
+			</spline>
+		</muscle>
+		<muscle id="w_mouthside_m3" label="w_mouthside_m3">
+			<spline type="line">
+				<point x="103" y="381"/>
+				<point x="103" y="455"/>
+			</spline>
+		</muscle>
+		<muscle id="w_mouthside_m4" label="w_mouthside_m4">
+			<spline type="line">
+				<point x="67" y="320"/>
+				<point x="91" y="277"/>
+			</spline>
+		</muscle>
+		<muscle id="w_mouthside_m5" label="w_mouthside_m5" inittension="0.5">
+			<spline type="line">
+				<point x="70" y="430"/>
+				<point x="120" y="430"/>
+			</spline>
+		</muscle>
+		<muscle id="w_mouthside_m6" label="w_mouthside_m6">
+			<spline type="line">
+				<point x="86" y="344"/>
+				<point x="90" y="296"/>
+			</spline>
+		</muscle>
+		<muscle id="w_beloweye_m1" label="w_beloweye_m1" inittension="0.5">
+			<spline type="line">
+				<point x="149" y="234"/>
+				<point x="149" y="207"/>
+			</spline>
+		</muscle>
+		<muscle id="w_beloweye_m2" label="w_beloweye_m2">
+			<spline type="line">
+				<point x="93" y="243"/>
+				<point x="124" y="242"/>
+			</spline>
+		</muscle>
+		<muscle id="w_beloweye_m3" label="w_beloweye_m3">
+			<spline type="line">
+				<point x="79" y="243"/>
+				<point x="49" y="241"/>
+			</spline>
+		</muscle>
+		<muscle id="w_beloweye_m4" label="w_beloweye_m4">
+			<spline type="line">
+				<point x="30" y="214"/>
+				<point x="30" y="191"/>
+			</spline>
+		</muscle>
+		<muscle id="w_noseside_m1" label="w_noseside_m1">
+			<spline type="line">
+				<point x="34" y="275"/>
+				<point x="64" y="247"/>
+			</spline>
+		</muscle>
+		<muscle id="w_noseside_m2" label="w_noseside_m2">
+			<spline type="line">
+				<point x="39" y="244"/>
+				<point x="60" y="271"/>
+			</spline>
+		</muscle>
+		<muscle id="w_noseside_m3" label="w_noseside_m3">
+			<spline type="line">
+				<point x="23" y="255"/>
+				<point x="11" y="255"/>
+			</spline>
+		</muscle>
+		<muscle id="w_betweenbrows_m1" label="w_betweenbrows_m1" inittension="0.15">
+			<spline type="line">
+				<point x="5" y="120"/>
+				<point x="5" y="236"/>
+			</spline>
+		</muscle>
+		<muscle id="w_chin_m1" label="w_chin_m1">
+			<spline type="line">
+				<point x="5" y="490"/>
+				<point x="5" y="475"/>
+			</spline>
+		</muscle>
+		<muscle id="w_chin_m2" label="w_chin_m2">
+			<spline type="line">
+				<point x="59" y="466"/>
+				<point x="22" y="466"/>
+			</spline>
+		</muscle>
+
+		<!-- alpha sliders -->
+		<muscle id="w_mouthside_alpha" label="w_mouthside_alpha" inittension="0">
+			<spline type="line">
+				<point x="242" y="430"/>
+				<point x="242" y="410"/>
+			</spline>
+		</muscle>
+		<muscle id="w_abovebrow_alpha" label="w_abovebrow_alpha" inittension="0">
+			<spline type="line">
+				<point x="252" y="440"/>
+				<point x="252" y="420"/>
+			</spline>
+		</muscle>
+		<muscle id="w_beloweye_alpha" label="w_beloweye_alpha" inittension="0">
+			<spline type="line">
+				<point x="232" y="420"/>
+				<point x="232" y="400"/>
+			</spline>
+		</muscle>
+		<muscle id="w_noseside_alpha" label="w_noseside_alpha" inittension="0">
+			<spline type="line">
+				<point x="262" y="450"/>
+				<point x="262" y="430"/>
+			</spline>
+		</muscle>
+		<muscle id="w_chin_alpha" label="w_chin_alpha" inittension="0">
+			<spline type="line">
+				<point x="272" y="460"/>
+				<point x="272" y="440"/>
+			</spline>
+		</muscle>
+		<muscle id="w_betweenbrows_alpha" label="w_betweenbrows_alpha" inittension="0">
+			<spline type="line">
+				<point x="282" y="470"/>
+				<point x="282" y="450"/>
+			</spline>
+		</muscle>
+		<muscle id="w_forehead_alpha" label="w_forehead_alpha" inittension="0">
+			<spline type="line">
+				<point x="292" y="480"/>
+				<point x="292" y="460"/>
+			</spline>
+		</muscle>
+	</musclegroup>
+	
+	<!-- MOUTH SIDE -->
+	<feature stroked="true" mirrored="true" zindex="1">
+		<segment id="w_mouth" label="w_mouth" color="0x000000" width="1" alpha="1">
+			<spline type="cubicbezier">
+				<point x="81" y="349"/>
+				<point x="84" y="358"/>
+				<point x="86" y="374"/>
+				<point x="85" y="384"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0" maxwidth="1" endwidth="0" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_mouthside_alpha" group="wrinkle">
+				<mapping type="polynomial">
+					<values x0="0" />
+					<param exponent="1" value="1"/>
+				</mapping>
+			</alphamapping>
+			
+			<addmuscle nodenum="0" muscle="w_mouthside_m1" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="1" muscle="w_mouthside_m1" weight=".4" group="wrinkle"/>
+			
+			<addmuscle nodenum="1" muscle="w_mouthside_m2" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="2" muscle="w_mouthside_m2" weight="0.8" group="wrinkle"/>
+			
+			<addmuscle nodenum="2" muscle="w_mouthside_m3" weight=".5" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_mouthside_m3" weight="1" group="wrinkle"/>
+			
+			<addmuscle nodenum="1" muscle="w_mouthside_m4" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="2" muscle="w_mouthside_m4" weight=".3" group="wrinkle"/>
+			
+			<addmuscle nodenum="2" muscle="w_mouthside_m5" weight=".3" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_mouthside_m5" weight="1" group="wrinkle"/>
+			
+			<addmuscle nodenum="2" muscle="w_mouthside_m6" weight="1" group="wrinkle"/>
+		</segment>
+	</feature>
+	
+	<!-- CHIN -->
+	<feature stroked="true" mirrored="true" zindex="1">
+		<segment id="w_chin_seg1" label="w_chin_seg1" color="0x000000" width="1" alpha="1">
+			<spline type="joiner">
+				<point id="w_chin_j_p0" x="-9" y="487"/>
+				<point id="w_chin_j_p1" x="0" y="487"/>
+				<point id="w_chin_p0" x="27" y="483"/>
+				<point id="w_chin_p1" x="44" y="477"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0.5" maxwidth="0.5" endwidth="0.5" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_chin_alpha" group="wrinkle">
+				<mapping type="polynomial">
+					<values x0="0" />
+					<param exponent="1" value="1"/>
+				</mapping>
+			</alphamapping>
+			<addmuscle nodenum="0" muscle="w_chin_m1" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="1" muscle="w_chin_m1" weight="1" group="wrinkle"/>
+		</segment>
+		<segment id="w_chin_seg2" label="w_chin_seg2" color="0x000000" width="1" alpha="1">
+			<spline type="cubicbezier">
+				<point ref="w_chin_p0"/>
+				<point ref="w_chin_p1"/>
+				<point id="w_chin_p2" x="56" y="471"/>
+				<point id="w_chin_p3" x="61" y="465"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0.5" maxwidth="0.5" endwidth="0" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_chin_alpha" group="wrinkle">
+				<mapping type="polynomial">
+					<values x0="0" />
+					<param exponent="1" value="1"/>
+				</mapping>
+			</alphamapping>
+			<addmuscle nodenum="3" muscle="w_chin_m2" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="2" muscle="w_chin_m2" weight=".5" group="wrinkle"/>
+			<addmuscle nodenum="1" muscle="w_chin_m2" weight=".2" group="wrinkle"/>
+			
+			<addmuscle nodenum="1" muscle="w_chin_m1" weight="0.35" group="wrinkle"/>			
+			<addmuscle nodenum="0" muscle="w_chin_m1" weight=".7" group="wrinkle"/>
+			
+		</segment>
+	</feature>
+	
+	<!-- NOSE SIDE -->
+	<feature stroked="true" mirrored="true" zindex="1">
+		<segment id="w_noseside" label="w_noseside" color="0x000000" width="1" alpha="1">
+			<spline type="cubicbezier">
+				<point x="14" y="233"/>
+				<point x="29" y="247"/>
+				<point x="29" y="256"/>
+				<point x="24" y="276"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0" maxwidth="1" endwidth="0" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_noseside_alpha" group="wrinkle">
+				<mapping type="polynomial">
+					<values x0="0" />
+					<param exponent="1" value="1"/>
+				</mapping>
+			</alphamapping>
+			<addmuscle nodenum="3" muscle="w_noseside_m1" weight="0.3" group="wrinkle"/>
+			<addmuscle nodenum="0" muscle="w_noseside_m2" weight="0.25" group="wrinkle"/>
+			<addmuscle nodenum="1" muscle="w_noseside_m2" weight="0.2" group="wrinkle"/>
+			<addmuscle nodenum="2" muscle="w_noseside_m2" weight="0.1" group="wrinkle"/>
+			<addmuscle nodenum="1" muscle="w_noseside_m3" weight="0.7" group="wrinkle"/>
+			<addmuscle nodenum="2" muscle="w_noseside_m3" weight="0.5" group="wrinkle"/>
+		</segment>
+	</feature>
+	
+	<!-- ABOVE BROW -->
+	<feature stroked="true" mirrored="true" zindex="1">
+		<segment id="w_abovebrow" label="w_abovebrow" color="0x000000" width="1" alpha="1">
+			<spline type="cubicbezier">
+				<point x="102" y="138"/>
+				<point x="72" y="141"/>
+				<point x="43" y="160"/>
+				<point x="27" y="173"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0" maxwidth="1" endwidth="0" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_abovebrow_alpha" group="wrinkle">
+				<mapping type="polynomial">
+					<values x0="0" />
+					<param exponent="1" value="1"/>
+				</mapping>
+			</alphamapping>
+			<addmuscle nodenum="3" muscle="w_abovebrow_m1" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="2" muscle="w_abovebrow_m1" weight="0.5" group="wrinkle"/>
+			
+			<addmuscle nodenum="1" muscle="w_abovebrow_m2" weight="0.5" group="wrinkle"/>
+			<addmuscle nodenum="0" muscle="w_abovebrow_m2" weight="1" group="wrinkle"/>
+		</segment>
+	</feature>
+	
+	<!-- BETWEEN BROWS -->
+	<feature stroked="true" mirrored="true" zindex="1">
+		<segment id="w_betweenbrows" label="w_betweenbrows" color="0x000000" width="1" alpha="1">
+			<spline type="cubicbezier">
+				<point x="15" y="130"/>
+				<point x="14" y="159"/>
+				<point x="16" y="163"/>
+				<point x="34" y="167"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0" maxwidth="1" endwidth="0" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_betweenbrows_alpha" group="wrinkle">
+				<mapping type="polynomial">
+					<values x0="0" />
+					<param exponent="1" value="1"/>
+				</mapping>
+			</alphamapping>
+			
+			<!-- global up/down -->
+			<addmuscle nodenum="0" muscle="w_betweenbrows_m1" weight="1.3" group="wrinkle"/>
+			<addmuscle nodenum="1" muscle="w_betweenbrows_m1" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="2" muscle="w_betweenbrows_m1" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_betweenbrows_m1" weight=".8" group="wrinkle"/>
+			
+		</segment>
+	</feature>
+	
+	<!-- BELOW EYE -->
+	<feature stroked="true" mirrored="true" zindex="1">
+		<segment id="w_beloweye" label="w_beloweye" color="0x000000" width="1" alpha="1">
+			<spline type="cubicbezier">
+				<point x="86" y="235"/>
+				<point x="82" y="236"/>
+				<point x="75" y="236"/>
+				<point x="70" y="235"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0" maxwidth="1" endwidth="0" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_beloweye_alpha" group="wrinkle">
+				<mapping type="polynomial">
+					<values x0="0" />
+					<param exponent="1" value="1"/>
+				</mapping>
+			</alphamapping>
+			
+			<!-- global up/down -->
+			<addmuscle nodenum="0" muscle="w_beloweye_m1" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="1" muscle="w_beloweye_m1" weight="0.4" group="wrinkle"/>
+			<addmuscle nodenum="2" muscle="w_beloweye_m1" weight=".4" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_beloweye_m1" weight="1" group="wrinkle"/>
+			
+			<addmuscle nodenum="0" muscle="w_beloweye_m2" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="1" muscle="w_beloweye_m2" weight="0.3" group="wrinkle"/>
+			
+			<addmuscle nodenum="2" muscle="w_beloweye_m3" weight="0.3" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_beloweye_m3" weight="1" group="wrinkle"/>
+			
+			<addmuscle nodenum="2" muscle="w_beloweye_m4" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_beloweye_m4" weight=".7" group="wrinkle"/>
+			
+		</segment>
+	</feature>
+	
+	
+	<!-- FOREHEAD 1-->
+	<feature stroked="true" mirrored="true" zindex="1">
+		<segment id="w_forehead1_j" label="forehead2 joiner" color="0x000000" width="1" alpha="1">
+			<spline type="joiner">
+				<point id="w_forehead1_j_p0" x="-19" y="85"/>
+				<point id="w_forehead1_j_p1" x="0" y="85"/>
+				<point id="w_forehead1_s0_p0" x="30" y="78"/>
+				<point id="w_forehead1_s0_p1" x="58" y="69"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0.5" maxwidth="0.5" endwidth="0.5" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_forehead_alpha" group="wrinkle">
+				<mapping type="sine">
+					<values x0="0" x1="1" y0="0" y1="1" />
+				</mapping>
+			</alphamapping>
+			
+			<!-- global up/down -->
+			<addmuscle nodenum="0" muscle="w_forehead1_m1" weight="0.6" group="wrinkle"/>
+			<addmuscle nodenum="1" muscle="w_forehead1_m1" weight="0.6" group="wrinkle"/>
+			<addmuscle nodenum="4" muscle="w_forehead1_m1" weight="0.6" group="wrinkle"/>
+			<addmuscle nodenum="5" muscle="w_forehead1_m1" weight="0.6" group="wrinkle"/>
+			
+			<!-- m2 -->
+			<addmuscle nodenum="4" muscle="w_forehead1_m2" weight="0.4" group="wrinkle"/>
+			<addmuscle nodenum="5" muscle="w_forehead1_m2" weight="0.86" group="wrinkle"/>
+			
+			<!-- sideways -->
+			<addmuscle nodenum="4" muscle="w_forehead1_m4" weight="0.15" group="wrinkle"/>
+			<addmuscle nodenum="5" muscle="w_forehead1_m4" weight="0.3" group="wrinkle"/>
+			
+		</segment>
+		<segment id="w2" label="forehead2" color="0x000000" width="1" alpha="1">
+			<spline type="cubicbezier">
+				<point ref="w_forehead1_s0_p0"/>
+				<point ref="w_forehead1_s0_p1"/>
+				<point id="w_forehead1_s0_p2" x="104" y="72"/>
+				<point id="w_forehead1_s0_p3" x="132" y="86"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0.5" maxwidth="0.5" endwidth="0" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_forehead_alpha" group="wrinkle">
+				<mapping type="sine">
+					<values x0="0" x1="1" y0="0" y1="1" />
+				</mapping>
+			</alphamapping>
+			
+			<!-- global up/down -->
+			<addmuscle nodenum="2" muscle="w_forehead1_m1" weight="0.6" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_forehead1_m1" weight="0.6" group="wrinkle"/>	
+
+			<!-- m2 -->
+			<addmuscle nodenum="2" muscle="w_forehead1_m2" weight="0.7" group="wrinkle"/>
+			
+			<!-- m3 -->
+			<addmuscle nodenum="2" muscle="w_forehead1_m3" weight="0.3" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_forehead1_m3" weight="1" group="wrinkle"/>
+			
+			<!-- sideways -->
+			<addmuscle nodenum="2" muscle="w_forehead1_m4" weight="0.55" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_forehead1_m4" weight="0.65" group="wrinkle"/>
+			
+			<!-- tipper -->
+			<addmuscle nodenum="3" muscle="w_forehead1_m5" weight="1" group="wrinkle"/>
+		</segment>
+	</feature>
+	
+	<!-- FOREHEAD 2 -->
+	<feature stroked="true" mirrored="true" zindex="1">
+		<segment id="w_forehead2_j" label="forehead3 joiner" color="0x000000" width="1" alpha="1">
+			<spline type="joiner">
+				<point id="w_forehead2_j_p0" x="-19" y="60"/>
+				<point id="w_forehead2_j_p1" x="0" y="60"/>
+				<point id="w_forehead2_s0_p0" x="20" y="56"/>
+				<point id="w_forehead2_s0_p1" x="48" y="49"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0.5" maxwidth="0.5" endwidth="0.5" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_forehead_alpha" group="wrinkle">
+				<mapping type="sine">
+					<values x0="0.10" x1="1" y0="0" y1="1" />
+				</mapping>
+			</alphamapping>
+			
+			<!-- global up/down -->
+			<addmuscle nodenum="0" muscle="w_forehead1_m1" weight="0.8" group="wrinkle"/>
+			<addmuscle nodenum="1" muscle="w_forehead1_m1" weight="0.8" group="wrinkle"/>
+			<addmuscle nodenum="4" muscle="w_forehead1_m1" weight="0.8" group="wrinkle"/>
+			<addmuscle nodenum="5" muscle="w_forehead1_m1" weight="0.8" group="wrinkle"/>
+			
+			<!-- m2 -->
+			<addmuscle nodenum="4" muscle="w_forehead1_m2" weight="0.3" group="wrinkle"/>
+			<addmuscle nodenum="5" muscle="w_forehead1_m2" weight="0.86" group="wrinkle"/>
+			
+			<!-- sideways -->
+			<addmuscle nodenum="4" muscle="w_forehead1_m4" weight="0.07" group="wrinkle"/>
+			<addmuscle nodenum="5" muscle="w_forehead1_m4" weight="0.2" group="wrinkle"/>	
+			
+		</segment>
+		<segment id="w3" label="forehead3" color="0x000000" width="1" alpha="1">
+			<spline type="cubicbezier">
+				<point ref="w_forehead2_s0_p0"/>
+				<point ref="w_forehead2_s0_p1"/>
+				<point id="w_forehead2_s0_p2" x="94" y="52"/>
+				<point id="w_forehead2_s0_p3" x="122" y="66"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0.5" maxwidth="0.5" endwidth="0" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_forehead_alpha" group="wrinkle">
+				<mapping type="sine">
+					<values x0="0.10" x1="1" y0="0" y1="1" />
+				</mapping>
+			</alphamapping>
+			
+			<!-- global up/down -->
+			<addmuscle nodenum="2" muscle="w_forehead1_m1" weight="0.8" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_forehead1_m1" weight="0.8" group="wrinkle"/>	
+
+			<!-- m2 -->
+			<addmuscle nodenum="2" muscle="w_forehead1_m2" weight="0.7" group="wrinkle"/>
+
+			<!-- m3 -->
+			<addmuscle nodenum="2" muscle="w_forehead1_m3" weight="0.2" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_forehead1_m3" weight="0.8" group="wrinkle"/>
+
+			<!-- sideways -->
+			<addmuscle nodenum="2" muscle="w_forehead1_m4" weight="0.53" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_forehead1_m4" weight="0.6" group="wrinkle"/>
+			
+			<!-- tipper -->
+			<addmuscle nodenum="3" muscle="w_forehead1_m5" weight="0.7" group="wrinkle"/>
+		</segment>
+	</feature>
+	
+	<!-- FOREHEAD 3 -->
+	<feature stroked="true" mirrored="true" zindex="1">
+		<segment id="w_forehead3_j" label="forehead4 joiner" color="0x000000" width="1" alpha="1">
+			<spline type="joiner">
+				<point id="w_forehead3_j_p0" x="-19" y="34"/>
+				<point id="w_forehead3_j_p1" x="0" y="34"/>
+				<point id="w_forehead3_s0_p0" x="15" y="33"/>
+				<point id="w_forehead3_s0_p1" x="43" y="31"/>
+			</spline>	
+			<strokestyle type="brush">
+				<values startwidth="0.5" maxwidth="0.5" endwidth="0.5" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_forehead_alpha" group="wrinkle">
+				<mapping type="sine">
+					<values x0="0.35" x1="1" y0="0" y1="1" />
+				</mapping>
+			</alphamapping>
+			
+			
+			<!-- global up/down -->
+			<addmuscle nodenum="0" muscle="w_forehead1_m1" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="1" muscle="w_forehead1_m1" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="4" muscle="w_forehead1_m1" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="5" muscle="w_forehead1_m1" weight="1" group="wrinkle"/>
+			
+			<!-- m2 -->
+			<addmuscle nodenum="4" muscle="w_forehead1_m2" weight="0.1" group="wrinkle"/>
+			<addmuscle nodenum="5" muscle="w_forehead1_m2" weight="0.3" group="wrinkle"/>
+			
+			<!-- sideways -->
+			<addmuscle nodenum="4" muscle="w_forehead1_m4" weight="0.07" group="wrinkle"/>
+			<addmuscle nodenum="5" muscle="w_forehead1_m4" weight="0.2" group="wrinkle"/>	
+			
+		</segment>
+		<segment id="w4" label="forehead4" color="0x000000" width="1" alpha="1">
+			<spline type="cubicbezier">
+				<point ref="w_forehead3_s0_p0"/>
+				<point ref="w_forehead3_s0_p1"/>
+				<point id="w_forehead3_s0_p2" x="87" y="32"/>
+				<point id="w_forehead3_s0_p3" x="102" y="38"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0.5" maxwidth="0.5" endwidth="0" color="0x000000" alpha="1"/>
+			</strokestyle>
+			<alphamapping sourcemuscle="w_forehead_alpha" group="wrinkle">
+				<mapping type="sine">
+					<values x0="0.35" x1="1" y0="0" y1="1" />
+				</mapping>
+			</alphamapping>
+			
+			<!-- global up/down -->
+			<addmuscle nodenum="2" muscle="w_forehead1_m1" weight="1" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_forehead1_m1" weight="1" group="wrinkle"/>	
+
+			<!-- m2 -->
+			<addmuscle nodenum="2" muscle="w_forehead1_m2" weight="0.3" group="wrinkle"/>
+
+			<!-- m3 -->
+			<addmuscle nodenum="2" muscle="w_forehead1_m3" weight="0.2" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_forehead1_m3" weight="0.6" group="wrinkle"/>
+
+			<!-- sideways -->
+			<addmuscle nodenum="2" muscle="w_forehead1_m4" weight="0.53" group="wrinkle"/>
+			<addmuscle nodenum="3" muscle="w_forehead1_m4" weight="0.6" group="wrinkle"/>
+			
+			<!-- tipper -->
+			<addmuscle nodenum="3" muscle="w_forehead1_m5" weight="0.7" group="wrinkle"/>
+			
+		</segment>
+
+	</feature>
+</facedata>

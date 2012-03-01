@@ -1,0 +1,176 @@
+<!-- basic types -->
+
+<!ELEMENT facedata ( feature | musclegroup | emotion| overlay | underlays )* >
+
+
+<!-- splines and points -->
+
+<!ELEMENT spline ( point+ ) >
+<!ATTLIST spline id ID #IMPLIED >
+<!ATTLIST spline type ( line | quadraticbezier | cubicbezier | joiner ) #REQUIRED >
+
+<!ELEMENT point EMPTY >
+<!ATTLIST point id ID #IMPLIED >
+<!ATTLIST point ref IDREF #IMPLIED >
+<!ATTLIST point x NMTOKEN #IMPLIED >
+<!ATTLIST point y NMTOKEN #IMPLIED >
+
+
+<!-- muscles -->
+
+<!ELEMENT musclegroup ( muscle* ) >
+<!ATTLIST musclegroup id ID #REQUIRED >
+<!ATTLIST musclegroup alpha NMTOKEN #REQUIRED >
+<!ATTLIST musclegroup color NMTOKEN #REQUIRED >
+<!ATTLIST musclegroup visible NMTOKEN #REQUIRED >
+<!ATTLIST musclegroup width NMTOKEN #REQUIRED >
+<!ATTLIST musclegroup zindex NMTOKEN #IMPLIED >
+
+<!ELEMENT muscle ( spline ) >
+<!ATTLIST muscle id ID #REQUIRED >
+<!ATTLIST muscle inittension NMTOKEN #IMPLIED >
+<!ATTLIST muscle label NMTOKEN #IMPLIED >
+
+
+<!-- features -->
+
+<!ELEMENT feature ( fill | segment )* >
+<!ATTLIST feature filled ( true | false ) #IMPLIED >
+<!ATTLIST feature mirrored ( true | false ) #IMPLIED >
+<!ATTLIST feature static ( true | false ) #IMPLIED >
+<!ATTLIST feature stroked ( true | false ) #IMPLIED >
+<!ATTLIST feature zindex NMTOKEN #IMPLIED >
+
+<!ELEMENT fill ( draw, addmuscle? ) >
+
+<!ELEMENT segment ( spline, strokestyle?, alphamapping?, addmuscle* ) >
+<!ATTLIST segment id ID #REQUIRED >
+<!ATTLIST segment label CDATA #IMPLIED >
+<!ATTLIST segment alpha NMTOKEN #REQUIRED >
+<!ATTLIST segment color NMTOKEN #REQUIRED >
+<!ATTLIST segment width NMTOKEN #REQUIRED >
+
+<!ELEMENT strokestyle ( values ) >
+<!ATTLIST strokestyle type ( brush ) #REQUIRED >
+
+<!ELEMENT values EMPTY >
+<!ATTLIST values alpha NMTOKEN "1.0" >
+<!ATTLIST values color NMTOKEN #IMPLIED >
+<!ATTLIST values endwidth NMTOKEN #IMPLIED >
+<!ATTLIST values maxwidth NMTOKEN #IMPLIED >
+<!ATTLIST values startwidth NMTOKEN #IMPLIED >
+<!ATTLIST values x0 NMTOKEN #IMPLIED >
+<!ATTLIST values x1 NMTOKEN #IMPLIED >
+<!ATTLIST values y0 NMTOKEN #IMPLIED >
+<!ATTLIST values y1 NMTOKEN #IMPLIED >
+<!ATTLIST values mean NMTOKEN #IMPLIED >
+<!ATTLIST values value NMTOKEN #IMPLIED >
+<!ATTLIST values variance NMTOKEN #IMPLIED >
+
+
+<!ELEMENT alphamapping ( mapping ) >
+<!ATTLIST alphamapping group NMTOKEN #REQUIRED >
+<!ATTLIST alphamapping sourcemuscle NMTOKEN #REQUIRED >
+
+<!ELEMENT addmuscle EMPTY >
+<!ATTLIST addmuscle group IDREF #REQUIRED >
+<!ATTLIST addmuscle muscle IDREF #REQUIRED >
+<!ATTLIST addmuscle nodenum ( 0 | 1 | 2 | 3 | 4 | 5 ) #IMPLIED >
+<!ATTLIST addmuscle weight NMTOKEN #REQUIRED >
+
+
+<!-- emotions -->
+
+<!ELEMENT emotion ( addinfluence* ) >
+<!ATTLIST emotion id ID #REQUIRED >
+<!ATTLIST emotion label NMTOKEN #IMPLIED >
+
+<!ELEMENT addinfluence ( mapping ) >
+<!ATTLIST addinfluence group NMTOKEN #REQUIRED >
+<!ATTLIST addinfluence muscle NMTOKEN #REQUIRED >
+<!ATTLIST addinfluence priority NMTOKEN "1.0" >
+
+
+<!-- mappings -->
+
+<!ELEMENT mapping ( values, param* ) >
+<!ATTLIST mapping type ( gauss | polynomial | sine  ) #REQUIRED >
+
+<!ELEMENT param EMPTY >
+<!ATTLIST param exponent NMTOKEN #REQUIRED >
+<!ATTLIST param value NMTOKEN #REQUIRED >
+
+
+<!-- drawing API -->
+<!ELEMENT draw ( beginFill | curveTo | drawCircle | drawEllipse | drawRect | endFill | lineStyle | lineTo | moveTo )* >
+
+<!ELEMENT beginFill EMPTY >
+<!ATTLIST beginFill alpha NMTOKEN #REQUIRED >
+<!ATTLIST beginFill color NMTOKEN #REQUIRED >
+
+<!ELEMENT curveTo EMPTY >
+<!ATTLIST curveTo anchorX NMTOKEN #REQUIRED >
+<!ATTLIST curveTo anchorY NMTOKEN #REQUIRED >
+<!ATTLIST curveTo controlX NMTOKEN #REQUIRED >
+<!ATTLIST curveTo controlY NMTOKEN #REQUIRED >
+
+<!ELEMENT drawCircle EMPTY >
+<!ATTLIST drawCircle radius NMTOKEN #REQUIRED >
+<!ATTLIST drawCircle x NMTOKEN #REQUIRED >
+<!ATTLIST drawCircle y NMTOKEN #REQUIRED >
+
+<!ELEMENT drawEllipse EMPTY >
+<!ATTLIST drawEllipse height NMTOKEN #REQUIRED >
+<!ATTLIST drawEllipse width NMTOKEN #REQUIRED >
+<!ATTLIST drawEllipse x NMTOKEN #REQUIRED >
+<!ATTLIST drawEllipse y NMTOKEN #REQUIRED >
+
+<!ELEMENT drawRect EMPTY >
+<!ATTLIST drawRect height NMTOKEN #REQUIRED >
+<!ATTLIST drawRect width NMTOKEN #REQUIRED >
+<!ATTLIST drawRect x NMTOKEN #REQUIRED >
+<!ATTLIST drawRect y NMTOKEN #REQUIRED >
+
+<!ELEMENT endFill EMPTY >
+
+<!ELEMENT lineStyle EMPTY >
+<!ATTLIST lineStyle alpha NMTOKEN #REQUIRED >
+<!ATTLIST lineStyle color NMTOKEN #REQUIRED >
+<!ATTLIST lineStyle thickness NMTOKEN #REQUIRED >
+
+<!ELEMENT lineTo EMPTY >
+<!ATTLIST lineTo x NMTOKEN #REQUIRED >
+<!ATTLIST lineTo y NMTOKEN #REQUIRED >
+
+<!ELEMENT moveTo EMPTY >
+<!ATTLIST moveTo x NMTOKEN #REQUIRED >
+<!ATTLIST moveTo y NMTOKEN #REQUIRED >
+
+
+<!-- underlays -->
+
+<!ELEMENT underlays ( underlaygroup* ) >
+
+<!ELEMENT underlaygroup ( image* ) >
+<!ATTLIST underlaygroup base_url CDATA #REQUIRED >
+<!ATTLIST underlaygroup id CDATA #REQUIRED >
+
+<!ELEMENT image EMPTY >
+<!ATTLIST image id CDATA #REQUIRED >
+<!ATTLIST image url CDATA #REQUIRED >
+<!ATTLIST image dx NMTOKEN #REQUIRED >
+<!ATTLIST image dy NMTOKEN #REQUIRED >
+<!ATTLIST image alpha NMTOKEN #REQUIRED >
+<!ATTLIST image scale NMTOKEN #REQUIRED >
+
+
+<!-- overlays -->
+
+<!ELEMENT overlay EMPTY >
+<!ATTLIST overlay alpha NMTOKEN #REQUIRED >
+<!ATTLIST overlay id NMTOKEN #REQUIRED >
+<!ATTLIST overlay scale NMTOKEN #REQUIRED >
+<!ATTLIST overlay url CDATA #REQUIRED >
+<!ATTLIST overlay x NMTOKEN #REQUIRED >
+<!ATTLIST overlay y NMTOKEN #REQUIRED >
+

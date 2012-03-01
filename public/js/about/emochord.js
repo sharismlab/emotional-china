@@ -61,7 +61,7 @@ matrix.forEach(function(element, i, array) {
 	});
 })
 
-console.log(matrix)
+//console.log(matrix)
 
 
 var chord = d3.layout.chord()

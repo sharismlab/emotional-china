@@ -1,7 +1,7 @@
 @title = "About"
 
 @stylesheet = "about"
-@scripts = ['libs/jquery.scrollto', 'about/about','d3/d3', 'd3/d3.layout', 'about/emochord', 'about/grimace']
+@scripts = ['libs/jquery.scrollto', 'about/about','d3/d3', 'd3/d3.layout', 'about/emochord', 'libs/jquery-ui-1.8.17.custom.min','about/grimace']
 @script = '''
 
 '''
@@ -24,39 +24,52 @@ body ->
                   ul id:"buttons", ->
                     li ->
                       span class:'slidercaption', ->'Joy'
-                      div class:'slider', id: ' joy'
+                      div class:'slider', id: 'joy'
                     
                     li ->
                       span class:'slidercaption', ->'Surprise'
-                      div class:'slider', id: ' surprise'
+                      div class:'slider', id: 'surprise'
 
                     li ->
                       span class:'slidercaption', ->'Fear'
-                      div class:'slider', id: ' fear'
+                      div class:'slider', id: 'fear'
 
                     li ->
                       span class:'slidercaption', ->'Sadness'
-                      div class:'slider', id: ' sadness'
+                      div class:'slider', id: 'sadness'
 
                     li ->
                       span class:'slidercaption', ->'Disgust'
-                      div class:'slider', id: ' disgust'
+                      div class:'slider', id: 'disgust'
 
 
                     li ->
                       span class:'slidercaption', ->'Anger'
                       div class:'slider', id: 'anger'
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
-              div class:"fourcol", ->
+                      
+                      
+                div class:"fourcol  last", ->
+                  '''
+                <div id="grimace_wheel">
+			
+		</div>
+		<div id="grimace_wrapper">
+			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+				codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+				width="320" height="360" id="Grimace" align="left">
+			<param name="allowScriptAccess" value="sameDomain" />
+			<param name="allowFullScreen" value="false" />
+			<param name="movie" value="Grimace.swf" />
+			<param name="quality" value="high" />
+			<param name="bgcolor" value="#ffffff" />
+			<embed src="/flash/grimace/Grimace.swf" quality="high" bgcolor="#ffffff"
+				width="360" height="360" name="Grimace" align="left"
+				allowScriptAccess="sameDomain" allowFullScreen="false"
+				type="application/x-shockwave-flash"
+				pluginspage="http://www.macromedia.com/go/getflashplayer" />
+			</object>
+		</div>
+		'''
 
 
       div class:'slide', id:"two", ->

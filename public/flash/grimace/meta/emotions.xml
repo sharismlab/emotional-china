@@ -1,0 +1,1337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE facedata PUBLIC "-//grimace//DTD facedata 0.1//EN"
+  "http://grimace-project.net/dtd/facedata01.dtd">
+<facedata>
+	<!-- ++++++++++++++++++++++ -->
+	<!--        EMOTIONS        -->
+	<!-- ++++++++++++++++++++++ -->
+	
+	<!-- JOY -->
+	<emotion id="e1" label="joy">
+		<addinfluence muscle="m042" group="feature" priority="10">
+			<mapping type="sine">
+				<values x0="0.35" x1="0.75" y0="0" y1="0.28" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m5" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="3.8"/>
+				<param exponent="2" value="-7.8"/>
+				<param exponent="3" value="4.85"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m6" group="feature" priority="2">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="0.056"/>
+				<param exponent="2" value="-0.126"/>
+				<param exponent="3" value="0.48"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m7" group="feature" priority="2">
+			<mapping type="sine">
+				<values x0="0.75" x1="1.0" y0="0" y1="0.13" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m9" group="feature" priority="2">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="0.177"/>
+				<param exponent="2" value="2.103"/>
+				<param exponent="3" value="-1.28"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m15" group="feature" priority="2">
+			<mapping type="sine">
+				<values x0="0.25" x1="1" y0="0" y1="0.55" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m16" group="feature" priority="2">
+			<mapping type="sine">
+				<values x0="0" x1="0.25" y0="0" y1="0.28" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_meb6" group="feature">
+			<mapping type="sine">
+				<values x0="0.1" x1="0.75" y0="0" y1="0.24" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_mli9" group="feature" priority="2">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.85" y0="0" y1="0.33" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_mli10" group="feature" priority="2">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.75" y0="0" y1="0.49" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_mey8" group="feature">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="0.26" />
+			</mapping>
+		</addinfluence>
+		
+		<!-- pseudo influence: keep that mouth up! -->
+		<addinfluence muscle="m11" group="feature" priority="2">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0" />
+			</mapping>
+		</addinfluence>
+		
+		<!-- pseudos -->
+		<addinfluence muscle="m8" group="feature" priority="10">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m10" group="feature" priority="10">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m12" group="feature" priority="10">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		
+		<addinfluence muscle="w_mouthside_m1" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.45" x1="0.93" y0="0" y1="0.42" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m2" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.45" x1="0.93" y0="0" y1="0.37" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m3" group="wrinkle">
+			<mapping type="gauss">
+				<values mean="0.75" variance="0.01" value="0.05" />
+			</mapping>
+		</addinfluence>
+		<!-- pseudo -->
+		<addinfluence muscle="w_mouthside_m4" group="wrinkle" priority="3">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m5" group="wrinkle" priority="3">
+			<mapping type="sine">
+				<values x0="0.42" x1="1" y0="0" y1="0.34" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_alpha" group="wrinkle">
+			<mapping type="gauss">
+				<values mean="1" variance="0.035" value="0.35"/>
+			</mapping>
+		</addinfluence>
+		<!-- teeth -->
+		<addinfluence muscle="h_teethupper" group="feature" priority="5">
+			<mapping type="sine">
+				<values x0="0.75" x1="1" y0="0" y1="0.02" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_teethlower" group="feature">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="0.53" />
+			</mapping>
+		</addinfluence>
+	</emotion>
+	<!-- END JOY -->
+	
+	<!-- SURPRISE -->
+	<emotion id="e2" label="surprise">
+		<!-- pseudo -->
+		<addinfluence muscle="m0" group="feature" priority="1">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m1" group="feature" priority="3">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.5" y0="0" y1="0.26" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m2" group="feature" priority="3">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="-0.101"/>
+				<param exponent="2" value="2.274"/>
+				<param exponent="3" value="-1.173"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m3" group="feature" priority="3">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.5" y0="0" y1="0.19" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m041" group="feature" priority="3">
+			<mapping type="sine">
+				<values x0="0.29" x1="0.83" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<!-- pseudo -->
+		<addinfluence muscle="m042" group="feature" priority="5">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<!-- pseudo influence: keep eyes open! -->
+		<addinfluence muscle="m5" group="feature" priority="6">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m6" group="feature">
+			<mapping type="sine">
+				<values x0="0.18" x1="0.95" y0="0" y1="0.41" />
+			</mapping>
+		</addinfluence>
+		<!-- pseudo su+sa -->
+		<addinfluence muscle="m7" group="feature" priority="15">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m10" group="feature">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.9" y0="0" y1="0.34" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m11" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="1" value="1.66" />
+				<param exponent="2" value="-3.49" />
+				<param exponent="3" value="2.4" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m15" group="feature">
+			<mapping type="sine">
+				<values x0="0.4" x1="1.0" y0="0" y1="0.65" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m16" group="feature" priority="3">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0.01" />
+				<param exponent="1" value="1.37" />
+				<param exponent="2" value="-1.99" />
+				<param exponent="3" value="0.96" />
+			</mapping>
+		</addinfluence>
+		<!-- pseudo -->
+		<addinfluence muscle="h_meb6" group="feature" priority="3">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<!-- pseudo -->
+		<addinfluence muscle="h_meb7" group="feature" priority="3">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<!-- pseudo su+sa -->
+		<addinfluence muscle="h_mey12" group="feature" priority="3">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead1_m2" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="1.54"/>
+				<param exponent="2" value="-3.14"/>
+				<param exponent="3" value="1.6"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead_alpha" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="1.68"/>
+				<param exponent="2" value="-2.07"/>
+				<param exponent="3" value="1.39"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead1_m1" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0" x1="0.25" y0="0" y1="0.06" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead1_m4" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0" x1="0.25" y0="0" y1="-0.17" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead1_m5" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0" x1="0.25" y0="0" y1="-0.10" />
+			</mapping>
+		</addinfluence>
+		
+		<!-- pseudo su+sa BEGIN -->
+		<addinfluence muscle="w_beloweye_m2" group="wrinkle" priority="2">
+			<mapping type="sine">
+				<values x0="0" x1="1" y0="0" y1="0.68" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_m3" group="wrinkle" priority="2">
+			<mapping type="sine">
+				<values x0="0" x1="1" y0="0" y1="0.68" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_m4" group="wrinkle" priority="2">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m1" group="wrinkle" priority="2">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m2" group="wrinkle" priority="2">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m3" group="wrinkle" priority="2">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m6" group="wrinkle" priority="10">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_betweenbrows_m1" group="wrinkle" priority="2">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_abovebrow_alpha" group="wrinkle" priority="200">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<!-- pseudo su+sa END -->
+		<!-- teeth -->
+		<addinfluence muscle="h_teethupper" group="feature">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="0.50" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_teethlower" group="feature">
+			<mapping type="sine">
+				<values x0="0.25" x1="1" y0="0" y1="0.9" />
+			</mapping>
+		</addinfluence>
+	</emotion>
+	
+	<!-- FEAR -->
+	<emotion id="e3" label="fear">
+		<addinfluence muscle="m0" group="feature" priority="2">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0.0029"/>
+				<param exponent="1" value="2.2838"/>
+				<param exponent="2" value="-4.1"/>
+				<param exponent="3" value="2.4"/>
+			</mapping>			
+		</addinfluence>
+		<addinfluence muscle="m1" group="feature" priority="2">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0.0019"/>
+				<param exponent="1" value="2.6838"/>
+				<param exponent="2" value="-4.5"/>
+				<param exponent="3" value="2.81"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m2" group="feature" priority="10">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.75" y0="0" y1="0.66"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m3" group="feature" priority="8">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0.0002"/>
+				<param exponent="1" value="1.396"/>
+				<param exponent="2" value="-0.72"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m041" group="feature">
+			<mapping type="sine">
+				<values x0="0.3" x1="0.9" y0="0" y1="0.79"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m6" group="feature">
+			<mapping type="sine">
+				<values x0="0" x1="0.85" y0="0" y1="0.37"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m7" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0.0036"/>
+				<param exponent="1" value="0.7852"/>
+				<param exponent="2" value="-2.286"/>
+				<param exponent="3" value="1.8733"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m8" group="feature" priority="2">
+			<mapping type="sine">
+				<values x0="0.75" x1="1" y0="0" y1="0.61"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m10" group="feature">
+			<mapping type="sine">
+				<values x0="0.75" x1="1" y0="0" y1="1"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m11" group="feature">
+			<mapping type="sine">
+				<values x0="0" x1="0.5" y0="0" y1="0.93"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m12" group="feature">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.5" y0="0" y1="0.7"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m14" group="feature" priority="2">
+			<mapping type="sine">
+				<values x0="0.75" x1="1" y0="0" y1="1"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m15" group="feature">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.75" y0="0" y1="0.36"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m16" group="feature">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.5" y0="0" y1="0.15"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_meb6" group="feature">
+			<mapping type="sine">
+				<values x0="0" x1="0.25" y0="0" y1="0.40"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_meb7" group="feature" priority="2">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0.0014"/>
+				<param exponent="1" value="3.2"/>
+				<param exponent="2" value="-6.5486"/>
+				<param exponent="3" value="4.2"/>
+			</mapping>
+		</addinfluence>
+		
+		<!-- pseudo -->
+		<addinfluence muscle="m5" group="feature" priority="3">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m042" group="feature" priority="3">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m7" group="feature" priority="4">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_mey12" group="feature" priority="10">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<!-- wrinkles -->
+		<addinfluence muscle="w_forehead1_m1" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.75" x1="1" y0="0" y1="0.07" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead1_m2" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="1.28"/>
+				<param exponent="2" value="-2"/>
+				<param exponent="3" value="1.12"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead1_m4" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="-7.27"/>
+				<param exponent="2" value="16.13"/>
+				<param exponent="3" value="-8.85"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead1_m5" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.75" y0="0" y1="-0.5" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead_alpha" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="0.39"/>
+				<param exponent="2" value="0.74"/>
+				<param exponent="3" value="-0.53"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_betweenbrows_m1" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="1.09"/>
+				<param exponent="2" value="-2.8571"/>
+				<param exponent="3" value="1.65"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_betweenbrows_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.05" x1="0.75" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m1" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.75" y0="0" y1="0.78" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m2" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="0.61" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m3" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.75" y0="0" y1="0.64" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.20" x1="0.8" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<!-- pseudo fe+di -->
+		<addinfluence muscle="w_abovebrow_alpha" group="wrinkle" priority="200"> 
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<!-- teeth -->
+		<addinfluence muscle="h_teethupper" group="feature">
+			<mapping type="sine">
+				<values x0="0.45" x1="0.75" y0="0" y1="0.19" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_teethlower" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="0.086"/>
+				<param exponent="2" value="1.31"/>
+				<param exponent="3" value="-0.96"/>
+			</mapping>
+		</addinfluence>
+	</emotion>
+	<!-- END FEAR -->
+	
+	<!-- SADNESS -->
+	<emotion id="e4" label="sadness">
+		<addinfluence muscle="m0" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="1.8867"/>
+				<param exponent="2" value="-7.8267"/>
+				<param exponent="3" value="11.4134"/>
+				<param exponent="4" value="-5.3334"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m1" group="feature">
+			<mapping type="sine">
+				<values x0="0.75" x1="1" y0="0" y1="0.46"/>
+			</mapping>
+		</addinfluence>
+		<!-- su+sa -->
+		<addinfluence muscle="m2" group="feature" priority="8">
+			<mapping type="gauss">
+				<values mean="0.74" variance="0.009" value="0.068"/>
+			</mapping>
+		</addinfluence>
+		<!-- su+sa -->
+		<addinfluence muscle="m3" group="feature" priority="5">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="-0.0099"/>
+				<param exponent="1" value="1.399"/>
+				<param exponent="2" value="-1.8347"/>
+				<param exponent="3" value="0.8383"/>
+			</mapping>
+		</addinfluence>
+		<!-- sa+an -->
+		<addinfluence muscle="m042" group="feature">
+			<mapping type="sine">
+				<values x0="0.15" x1="0.9" y0="0" y1="0.86"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m5" group="feature" priority="4">
+			<mapping type="sine">
+				<values x0="0.15" x1="1.1" y0="0" y1="0.36"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m6" group="feature">
+			<mapping type="sine">
+				<values x0="0.43" x1="0.95" y0="0" y1="0.37"/>
+			</mapping>
+		</addinfluence>		
+		<addinfluence muscle="m7" group="feature">
+			<mapping type="sine">
+				<values x0="0.43" x1="0.97" y0="0" y1="1"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m8" group="feature">
+			<mapping type="sine">
+				<values x0="0" x1="0.75" y0="0" y1="0.24"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m10" group="feature">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.75" y0="0" y1="1"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m11" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0.0097"/>
+				<param exponent="1" value="0.2743"/>
+				<param exponent="2" value="0.6857"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m12" group="feature">
+			<mapping type="sine">
+				<values x0="0.4" x1="0.9" y0="0" y1="1"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m15" group="feature">
+			<mapping type="sine">
+				<values x0="0.46" x1="1" y0="0" y1="0.44"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m16" group="feature">
+			<mapping type="gauss">
+				<values mean="0.45" variance="0.02" value="0.077"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_meb6" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="1.7631"/>
+				<param exponent="2" value="-4.7096"/>
+				<param exponent="3" value="3.4407"/>
+				<param exponent="4" value="3.3372"/>
+				<param exponent="5" value="-3.2895"/>
+			</mapping>
+		</addinfluence>
+		<!-- su+sa -->
+		<addinfluence muscle="h_meb7" group="feature" priority="5">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0.0069"/>
+				<param exponent="1" value="2.4705"/>
+				<param exponent="2" value="-1.8971"/>
+				<param exponent="3" value="0.4267"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_mey12" group="feature">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.75" y0="0" y1="0.35" />
+			</mapping>
+		</addinfluence>
+		
+		<!-- pseudo -->
+		<addinfluence muscle="m9" group="feature" priority="1">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		
+		<!-- wrinkles -->
+		<addinfluence muscle="w_abovebrow_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.60" x1="1" y0="0" y1="0.55" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_abovebrow_m1" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0" x1="1" y0="0" y1=".5" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_abovebrow_m2" group="wrinkle">
+			<mapping type="sine">
+				<values x0=".5" x1="1" y0="0" y1="-0.5" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.2" x1="1" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_m1" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.75" x1="1" y0="0" y1="0.20" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_m2" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.25" x1="1" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_m3" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.3" x1="0.75" y0="0" y1="0.67" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_m4" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="0.8" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_betweenbrows_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.75" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_betweenbrows_m1" group="wrinkle">
+			<mapping type="gauss">
+				<values mean="0.8" variance="0.04" value="0.11" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_chin_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.45" x1="1" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_chin_m1" group="wrinkle">
+			<mapping type="gauss">
+				<values mean="0.75" variance="0.01" value="0.07" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_chin_m2" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.45" x1="1" y0="0" y1="0.76" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead1_m1" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="1.29"/>
+				<param exponent="2" value="-0.64"/>
+				<param exponent="3" value="-0.21"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead1_m2" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="0.6"/>
+				<param exponent="2" value="-0.26"/>
+				<param exponent="3" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead1_m4" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="-4.43"/>
+				<param exponent="2" value="7.69"/>
+				<param exponent="3" value="-3.47"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead1_m5" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="-0.033"/>
+				<param exponent="2" value="0.48"/>
+				<param exponent="3" value="-0.75"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_forehead_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.25" x1="1" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m1" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="0.19"/>
+				<param exponent="2" value="0.034"/>
+				<param exponent="3" value="0.53"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m2" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.545" x1="1" y0="0" y1="0.80" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m3" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.2" x1="1.2" y0="0" y1="1.05" />
+			</mapping>
+		</addinfluence>
+		<!-- sa+an -->
+		<addinfluence muscle="w_mouthside_m4" group="wrinkle"  priority="10">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.25" x1="1" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_noseside_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.75" x1="1" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_noseside_m2" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_noseside_m3" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<!-- su+sa -->
+		<addinfluence muscle="h_teethupper" group="feature" priority="3">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.75" y0="0" y1="0.24" />
+			</mapping>
+		</addinfluence>
+		<!-- su+sa -->
+		<addinfluence muscle="h_teethlower" group="feature" priority="3">
+			<mapping type="sine">
+				<values x0="0.4" x1="1" y0="0" y1="0.69" />
+			</mapping>
+		</addinfluence>
+	</emotion>
+	<!-- END SADNESS -->
+	
+	<!-- DISGUST -->
+	<emotion id="e5" label="disgust">
+		<addinfluence muscle="m0" group="feature">
+			<mapping type="polynomial">
+				<values x0="-0.01" />
+				<param exponent="0" value="0.0077"/>
+				<param exponent="1" value="1.7476"/>
+				<param exponent="2" value="-2.3543"/>
+				<param exponent="3" value="0.7467"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m2" group="feature">
+				<mapping type="sine">
+					<values x0="0.75" x1="1" y0="0" y1="0.59"/>
+				</mapping>
+		</addinfluence>
+		<addinfluence muscle="m042" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="1.6995"/>
+				<param exponent="2" value="-5.047"/>
+				<param exponent="3" value="4.4729"/>
+				<param exponent="4" value="3.8176"/>
+				<param exponent="5" value="-4.343"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m5" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="-0.0079"/>
+				<param exponent="1" value="1.5795"/>
+				<param exponent="2" value="-2.5829"/>
+				<param exponent="3" value="1.6533"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m6" group="feature">
+			<mapping type="sine">
+				<values x0="0.6" x1="1" y0="0" y1="0.43"/>
+			</mapping>			
+		</addinfluence>
+		<addinfluence muscle="m7" group="feature">
+			<mapping type="sine">
+				<values x0="0.55" x1="1" y0="0" y1="0.40"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m8" group="feature">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.8" y0="0" y1="0.32"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m10" group="feature">
+			<mapping type="sine">
+				<values x0="0.75" x1="1" y0="0" y1="1"/>
+			</mapping>
+		</addinfluence>
+		<!-- pseudo sa+di BEGIN-->
+		<addinfluence muscle="m11" group="feature" priority="7">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m12" group="feature" priority="20">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		
+		<!-- pseudo sa+di END-->
+		<addinfluence muscle="m16" group="feature">
+			<mapping type="polynomial">
+				<values x0="-0.01" />
+				<param exponent="0" value="0.0031"/>
+				<param exponent="1" value="0.7962"/>
+				<param exponent="2" value="-1.1429"/>
+				<param exponent="3" value="0.4267"/>
+			</mapping>
+		</addinfluence>
+		<!-- pseudo -->
+		<addinfluence muscle="m15" group="feature" priority="4">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_meb6" group="feature">
+			<mapping type="sine">
+				<values x0="0" x1="0.75" y0="0" y1="0.53"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_meb7" group="feature">
+			<mapping type="sine">
+				<values x0="0.75" x1="1" y0="0" y1="1"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_mli9" group="feature">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.75" y0="0" y1="0.73"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_mli10" group="feature">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.75" y0="0" y1="0.40"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_abovebrow_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.53" x1="1" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_abovebrow_m1" group="wrinkle">
+			<mapping type="gauss">
+				<values mean="0.75" variance="0.009" value="-0.023" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_abovebrow_m2" group="wrinkle">
+			<mapping type="gauss">
+				<values mean="0.75" variance="0.009" value="0.09"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0" x1="0.75" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_m1" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="0.35" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_m2" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="0.85"/>
+				<param exponent="2" value="2.44"/>
+				<param exponent="3" value="-2.88"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_m3" group="wrinkle">
+			<mapping type="gauss">
+				<values mean="0.65" variance="0.03" value="0.17"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_betweenbrows_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.21" x1="1" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_betweenbrows_m1" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.21" x1="1" y0="0" y1="0.47" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_chin_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.3" x1="1" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_chin_m2" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.75" y0="0" y1="0.23" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0" x1="0.75" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m1" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="3.98"/>
+				<param exponent="2" value="-7.14"/>
+				<param exponent="3" value="4.16"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m2" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0" x1="0.25" y0="0" y1="-0.13" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m4" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="0.88" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m5" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0" x1="0.25" y0="0" y1="-0.15" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m6" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="3.21"/>
+				<param exponent="2" value="-4.98"/>
+				<param exponent="3" value="2.77"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_noseside_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.75" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_noseside_m1" group="wrinkle">
+			<mapping type="gauss">
+				<values mean="0.6" variance="0.009" value="0.2"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_noseside_m2" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.75" y0="0" y1="0.41" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_noseside_m3" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.75" y0="0" y1="0.25" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_teethupper" group="feature" priority="9">
+			<mapping type="sine">
+				<values x0="0.75" x1="1" y0="0" y1="0.16" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_teethlower" group="feature" priority="9">
+			<mapping type="sine">
+				<values x0="0.75" x1="1" y0="0" y1="0.11" />
+			</mapping>
+		</addinfluence>
+	</emotion>
+	<!-- END DISGUST -->
+	
+	<!-- ANGER -->
+	<emotion id="e6" label="anger">
+		<addinfluence muscle="m0" group="feature">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.77" y0="0" y1="0.61" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m1" group="feature">
+			<mapping type="sine">
+				<values x0="0.48" x1="0.77" y0="0" y1="0.45" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m2" group="feature">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.78" y0="0" y1="0.77" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m2" group="feature" priority="20">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.78" y0="0" y1="0.77" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m041" group="feature">
+			<mapping type="sine">
+				<values x0="0.48" x1="0.77" y0="0" y1="0.21" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m042" group="feature" priority="8">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="1" value="4.24" />
+				<param exponent="2" value="-14.83" />
+				<param exponent="3" value="10.12" />
+				<param exponent="4" value="9.89" />
+				<param exponent="5" value="-9.41" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m5" group="feature" priority="3">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="1" value="1.67" />
+				<param exponent="2" value="-3.13" />
+				<param exponent="3" value="1.6" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m6" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="0.13"/>
+				<param exponent="2" value="0.81"/>
+				<param exponent="3" value="-0.37"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m7" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="1" value="0.12" />
+				<param exponent="2" value="2.05" />
+				<param exponent="3" value="-1.97" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m11" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0.02" />
+				<param exponent="1" value="0.97" />
+				<param exponent="2" value="0.09" />
+				<param exponent="3" value="-0.96" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m12" group="feature">
+			<mapping type="sine">
+				<values x0="0.23" x1="0.52" y0="0" y1="0.27" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="m15" group="feature">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.75" y0="0" y1="0.45" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_meb6" group="feature">
+			<mapping type="polynomial">
+				<values x0="0.01" />
+				<param exponent="0" value="0.02" />
+				<param exponent="1" value="2.09" />
+				<param exponent="2" value="-3.79" />
+				<param exponent="3" value="2.35" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_meb7" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="1" value="2.06" />
+				<param exponent="2" value="-4.16" />
+				<param exponent="3" value="2.24" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_mey8" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="1" value="1.04" />
+				<param exponent="2" value="-2.55" />
+				<param exponent="3" value="1.87" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_mli9" group="feature">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="-0.01" />
+				<param exponent="1" value="2.30" />
+				<param exponent="2" value="-6.63" />
+				<param exponent="3" value="5.33" />
+			</mapping>
+		</addinfluence>
+		<!-- pseudo sa+an-->
+		<addinfluence muscle="h_mey12" group="feature" priority="5">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+			</mapping>
+		</addinfluence>
+		<!-- wrinkles -->
+		<addinfluence muscle="w_beloweye_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.05" x1="0.25" y0="0" y1="0.8" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_m2" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0" />
+				<param exponent="0" value="0"/>
+				<param exponent="1" value="2.43"/>
+				<param exponent="2" value="-3.43"/>
+				<param exponent="3" value="1.55"/>
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_m3" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.9" y0="0" y1="0.84" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_beloweye_m4" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="0.52" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_betweenbrows_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.25" x1="1.2" y0="0" y1="1.1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_betweenbrows_m1" group="wrinkle">
+			<mapping type="polynomial">
+				<values x0="0.01" />
+				<param exponent="0" value="0" />
+				<param exponent="1" value="1.46" />
+				<param exponent="2" value="-2.48" />
+				<param exponent="3" value="1.55" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.2" x1="0.75" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m1" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.25" x1="0.5" y0="0" y1="0.81" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m3" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0" x1="0.5" y0="0" y1="0.23" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_mouthside_m4" group="wrinkle">
+			<mapping type="gauss">
+				<values mean="1" variance="0.06" value="0.42" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_abovebrow_m1" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="-0.25" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_abovebrow_m2" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="-0.35" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_abovebrow_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="1" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_noseside_m1" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.75" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_noseside_m2" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="0.75" y0="0" y1="1" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="w_noseside_alpha" group="wrinkle">
+			<mapping type="sine">
+				<values x0="0.5" x1="1.3" y0="0" y1="1.45" />
+			</mapping>
+		</addinfluence>
+		<!-- teeth -->
+		<addinfluence muscle="h_teethupper" group="feature">
+			<mapping type="sine">
+				<values x0="0.6" x1="1" y0="0" y1="0.10" />
+			</mapping>
+		</addinfluence>
+		<addinfluence muscle="h_teethlower" group="feature">
+			<mapping type="sine">
+				<values x0="0.6" x1="1" y0="0" y1="0.47" />
+			</mapping>
+		</addinfluence>
+	</emotion>
+	<!-- END ANGER -->
+
+</facedata>

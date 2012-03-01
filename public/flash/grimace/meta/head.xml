@@ -1,0 +1,66 @@
+<?xml version="1.0" standalone="no" encoding="UTF-8"?>
+<!DOCTYPE facedata PUBLIC "-//grimace//DTD facedata 0.1//EN"
+  "http://grimace-project.net/dtd/facedata01.dtd">
+<facedata>
+	<!-- HEAD -->
+	<feature stroked='true' filled='true' mirrored='true' static='true'>
+		<fill>
+				<draw>
+					<beginFill color="0xF1E2D6" alpha="1" />
+					<drawRect x="-200" y="-30" width="400" height="530" />
+					<endFill />
+				</draw>
+			</fill>
+		<segment id="fh1" label="headtop" color="0x555555" width="4" alpha="1">
+			<spline type="joiner" id="fh1s">
+				<point id="fhp1"  x="-10" y="-24"/>
+				<point id="fhp2"  x="0"   y="-24"/>
+				<point id="fhp3"  x="150" y="23"/>
+				<point id="fhp4"  x="180" y="51"/>
+			</spline>
+		</segment>
+		<segment id="fh2" label="headside" color="0x555555" width="4" alpha="1">
+			<spline type="cubicbezier" id="fh2s">
+				<point ref="fhp3"/>
+				<point id="fhp5"  x="197" y="180"/>
+				<point id="fhp6"  x="193" y="285"/>
+				<point id="fhp7"  x="146" y="397"/>
+
+			</spline>
+		</segment>
+		<segment id="fh3" label="headbottom" color="0x555555" width="4" alpha="1">
+			<spline type="joiner" id="fh3s">
+				<point ref="fhp6"/>
+				<point ref="fhp7"/>
+				<point id="fhp8"  x="0" y="497"/>
+				<point id="fhp9"  x="-10" y="497"/>
+			</spline>
+		</segment>
+	</feature>
+	
+	<!-- NOSE -->
+	<feature stroked='true' mirrored='true'>
+		<segment id="n1" label="nose1" color="0x555555" width="3" alpha="1">
+			<spline type="joiner" id="n1s">
+				<point id="n1_p0" x="-5" y="333"/>
+				<point id="n1_p1" x="0" y="333"/>
+				<point id="n2_p0" x="23" y="326"/>
+				<point id="n2_p1" x="36" y="329"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="0.5" maxwidth="1" endwidth="1" color="0x555555" alpha="1"/>
+			</strokestyle>
+		</segment>
+		<segment id='n2' label='nose2' color="0x555555" width="3" alpha="1">
+			<spline type="cubicbezier" id="n2s">
+				<point ref="n2_p0"/>
+				<point ref="n2_p1"/>
+				<point id="n2_p2" x="47" y="326"/>
+				<point id="n2_p3" x="44" y="305"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="1" maxwidth="1" endwidth="1" color="0x555555" alpha="1"/>
+			</strokestyle>
+		</segment>
+	</feature>
+</facedata>

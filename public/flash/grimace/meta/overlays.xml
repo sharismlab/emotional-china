@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE facedata PUBLIC "-//grimace//DTD facedata 0.1//EN"
+  "http://grimace-project.net/dtd/facedata01.dtd">
+<facedata>
+	<overlay id="hair" url="hairdo.swf" x="-239" y="-87" scale="0.93" alpha="1"/>
+</facedata>

@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE facedata PUBLIC "-//grimace//DTD facedata 0.1//EN"
+  "http://grimace-project.net/dtd/facedata01.dtd">
+<facedata>
+	<!-- ++++++++++++++++++++++ -->
+	<!--    MUSCLE DEFINITION   -->
+	<!-- ++++++++++++++++++++++ -->
+	
+	<musclegroup id="feature" color="0xd16d00" width="2" alpha="0.3" zindex="0" visible="false">
+		<muscle id="m0" label="m00">
+			<spline type="line" id="m0_s">
+				<point id="m0_s_p0" x="136" y="144"/>
+				<point id="m0_s_p1" x="140" y="52"/>
+			</spline>
+		</muscle>
+		<muscle id="m1" label="m01">
+			<spline type="line" id="m1_s">
+				<point id="m1_s_p0" x="109" y="125"/>
+				<point id="m1_s_p1" x="119" y="25"/>
+			</spline>
+		</muscle>
+		<muscle id="m2" label="m02">
+			<spline type="line" id="m2_s">
+				<point id="m2_s_p0" x="73" y="127"/>
+				<point id="m2_s_p1" x="79" y="19"/>
+			</spline>	
+		</muscle>
+		<muscle id="m3" label="m03">
+			<spline type="line" id="m3_s">
+				<point id="m3_s_p0" x="26" y="152"/>
+				<point id="m3_s_p1" x="27" y="30"/>
+			</spline>
+		</muscle>
+		<muscle id="m5" label="m05">
+			<spline type="line" id="m5_s">
+				<point id="m5_s_p0" x="87" y="244"/>
+				<point id="m5_s_p1" x="87" y="170"/>
+			</spline>
+		</muscle>
+		<muscle id="m6" label="m06">
+			<spline type="line" id="m6_s">
+				<point id="m6_s_p0" x="36" y="345"/>
+				<point id="m6_s_p1" x="36" y="262"/>
+			</spline>
+		</muscle>	
+		<muscle id="m7" label="m07">
+			<spline type="line" id="m7_s">
+				<point id="m7_s_p0" x="58" y="349"/>
+				<point id="m7_s_p1" x="92" y="269"/>
+			</spline>
+		</muscle>
+		<muscle id="m8" label="m08">
+			<spline type="quadraticbezier" id="m8_s">
+				<point id="m8_s_p0" x="79" y="358"/>
+				<point id="m8_s_p1" x="119" y="335"/>
+				<point id="m8_s_p2" x="147" y="303"/>
+			</spline>
+		</muscle>
+		<muscle id="m9" label="m09">
+			<spline type="quadraticbezier" id="m9_s">
+				<point id="m9_s_p0" x="89" y="382"/>
+				<point id="m9_s_p1" x="133" y="378"/>
+				<point id="m9_s_p2" x="155" y="331"/>
+			</spline>
+		</muscle>
+		<muscle id="m10" label="m10">
+			<spline type="line" id="m10_s">
+				<point id="m10_s_p0" x="89" y="411"/>
+				<point id="m10_s_p1" x="131" y="424"/>
+			</spline>
+		</muscle>
+		<muscle id="m11" label="m11">
+			<spline type="quadraticbezier" id="m11_s">
+				<point id="m11_s_p0" x="75" y="425"/>
+				<point id="m11_s_p1" x="80" y="457"/>
+				<point id="m11_s_p2" x="59" y="488"/>
+			</spline>
+		</muscle>
+		<muscle id="m12" label="m12">
+			<spline type="line" id="m12_s">
+				<point id="m12_s_p0" x="25" y="447"/>
+				<point id="m12_s_p1" x="44" y="493"/>
+			</spline>
+		</muscle>
+		<muscle id="m14" label="m14">
+			<spline type="quadraticbezier" id="m14_s">
+				<point id="m14_s_p0" x="99" y="114"/>
+				<point id="m14_s_p1" x="70" y="137"/>
+				<point id="m14_s_p2" x="55" y="159"/>
+			</spline>
+		</muscle>
+		<muscle id="m15" label="m15">
+			<spline type="line" id="m15_s">
+				<point id="m15_s_p0" x="8" y="447"/>
+				<point id="m15_s_p1" x="8" y="502"/>
+			</spline>
+		</muscle>
+		<!-- double muscle for open eye in relaxed state -->
+		<muscle id="m041" label="m041">
+			<spline type="line" id="m041_s">
+				<point id="m041_s_p0" x="116" y="171"/>
+				<point id="m041_s_p1" x="116" y="152"/>
+			</spline>
+		</muscle>
+		<muscle id="m042" label="m042">
+			<spline type="line" id="m042_s">
+				<point id="m042_s_p0" x="98" y="171"/>
+				<point id="m042_s_p1" x="98" y="224"/>
+			</spline>
+		</muscle>
+		<muscle id="m16" label="m16">
+			<spline type="line" id="m16_s">
+				<point id="m16_s_p0" x="64" y="399"/>
+				<point id="m16_s_p1" x="-10" y="399"/>
+			</spline>
+		</muscle>
+		<muscle id="h_meb6" label="h_meb6">
+			<spline type="line" id="h_meb6_s">
+				<point id="h_meb6_s_p0" x="14" y="122"/>
+				<point id="h_meb6_s_p1" x="14" y="211"/>
+			</spline>
+		</muscle>
+		<muscle id="h_meb7" label="h_meb7">
+			<spline type="line" id="h_meb7_s">
+				<point id="h_meb7_s_p0" x="42" y="122"/>
+				<point id="h_meb7_s_p1" x="131" y="235"/>
+			</spline>
+		</muscle>
+		<muscle id="h_mey8" label="h_mey8">
+			<spline type="line" id="h_mey8_s">
+				<point id="h_mey8_s_p0" x="49" y="165"/>
+				<point id="h_mey8_s_p1" x="123" y="269"/>
+			</spline>
+		</muscle>
+		<muscle id="h_mli9" label="h_mli9">
+			<spline type="line" id="h_mli9_s">
+				<point id="h_mli9_s_p0" x="0" y="339"/>
+				<point id="h_mli9_s_p1" x="0" y="354"/>
+			</spline>
+		</muscle>
+		<muscle id="h_mli10" label="h_mli10">
+			<spline type="line" id="h_mli10_s">
+				<point id="h_mli10_s_p0" x="43" y="446"/>
+				<point id="h_mli10_s_p1" x="58" y="465"/>
+			</spline>
+		</muscle>
+		<muscle id="h_mli11" label="h_mli11">
+			<spline type="line" id="h_mli11_s">
+				<point id="h_mli11_s_p0" x="-21" y="449"/>
+				<point id="h_mli11_s_p1" x="-21" y="462"/>
+			</spline>
+		</muscle>
+		<muscle id="h_mey12" label="h_mey12">
+			<spline type="line" id="h_mey12_s">
+				<point id="h_mey12_s_p0" x="32" y="215"/>
+				<point id="h_mey12_s_p1" x="32" y="175"/>
+			</spline>
+		</muscle>
+		<muscle id="h_teethupper" label="h_teethupper">
+			<spline type="line" id="h_teethupper_s">
+				<point id="h_teethupper_p0" x="196" y="399"/>
+				<point id="h_teethupper_p1" x="196" y="337"/>
+			</spline>
+		</muscle>
+		<muscle id="h_teethlower" label="h_teethlower">
+			<spline type="line" id="h_teethlower_s">
+				<point id="h_teethlower_p0" x="196" y="417"/>
+				<point id="h_teethlower_p1" x="196" y="462"/>
+			</spline>
+		</muscle>
+	</musclegroup>
+	
+	
+	
+	<!-- +++++++++++++++++++++++++ -->
+	<!--    FEATURE DEFINITION     -->
+	<!-- +++++++++++++++++++++++++ -->
+	
+	<!-- EYEBROW -->
+	<feature stroked='true' mirrored='true'>
+		<segment id="f1" label="eyebrow" color="0x404040" width="4" alpha="1">
+			<spline type="cubicbezier" id="s1">
+				<point id="p1"  x="150" y="160"/>
+				<point id="p2"  x="119" y="130"/>
+				<point id="p3"  x="80" 	y="125"/>
+				<point id="p4"  x="32" 	y="153"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="1" maxwidth="7" endwidth="3" color="0x404040" alpha="1"/>
+			</strokestyle>
+			<addmuscle nodenum="0" muscle="m0" weight="0.59" group="feature" />
+			<addmuscle nodenum="1" muscle="m1" weight="0.3" group="feature" />
+			<addmuscle nodenum="1" muscle="m2" weight="0.15" group="feature" />
+			<addmuscle nodenum="2" muscle="m2" weight="0.29" group="feature" />
+			<addmuscle nodenum="3" muscle="m3" weight="0.59" group="feature" />	
+			<addmuscle nodenum="1" muscle="m14" weight="0.24" group="feature" />
+			<addmuscle nodenum="2" muscle="m14" weight="0.18" group="feature" />
+			<!-- Helper Muscles -->
+			<addmuscle nodenum="3" muscle="h_meb6" weight="1" group="feature" />
+			<addmuscle nodenum="2" muscle="h_meb6" weight="1" group="feature" />
+			<addmuscle nodenum="1" muscle="h_meb6" weight="1" group="feature" />
+			<addmuscle nodenum="0" muscle="h_meb6" weight="1" group="feature" />
+
+			<addmuscle nodenum="2" muscle="h_meb7" weight="0.29" group="feature" />
+		</segment>
+	</feature>
+	
+	 <!-- EYE  -->
+	<feature stroked='true' filled='true' mirrored='true'>
+		<fill>
+			<draw>
+				<beginFill color="0xffffff" alpha="1" />
+				<drawCircle x="84" y="200" radius="100" />
+				<endFill />
+				<beginFill color="0xB3D5ED" alpha="1" />
+				<drawCircle x="84" y="200" radius="17" />
+				<endFill />
+				<lineStyle thickness="1" color="0x000000" alpha="1" />
+				<beginFill color="0x000000" alpha="1" />
+				<drawCircle x="84" y="200" radius="6" />
+				<endFill />
+			
+				<lineStyle thickness="1" color="0x000000" alpha="1" />
+				<beginFill color="0xffffff" alpha="1" />
+				<drawCircle x="-84" y="200" radius="100" />
+				<endFill />
+				<lineStyle thickness="1" color="0x000000" alpha="0" />
+				<beginFill color="0xB3D5ED" alpha="1" />
+				<drawCircle x="-84" y="200" radius="17" />
+				<endFill />
+				<lineStyle thickness="1" color="0x000000" alpha="1" />
+				<beginFill color="0x000000" alpha="1" />
+				<drawCircle x="-84" y="200" radius="6" />
+				<endFill />
+			</draw>
+		</fill>
+		
+		<!-- UPPERLID -->
+		<segment id="f2" label="upperlid" color="0x404040" width="4" alpha="1">
+			<spline type="cubicbezier" id="s2">
+				<point id="p5"  x="125" y="205"/>
+				<point id="p6"  x="105" y="171"/>
+				<point id="p7"  x="60" 	y="171"/>
+				<point id="p8"  x="43" 	y="212"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="1" maxwidth="3" endwidth="2" color="0x404040" alpha="1"/>
+			</strokestyle>
+			<addmuscle nodenum="1" muscle="m041" weight="1" group="feature" />
+			<addmuscle nodenum="2" muscle="m041" weight="0.67" group="feature" />
+			<addmuscle nodenum="1" muscle="m042" weight="1" group="feature" />
+			<addmuscle nodenum="2" muscle="m042" weight="0.67" group="feature" />
+
+			<!-- Helper Muscles -->
+			<addmuscle nodenum="2" muscle="h_mey8" weight="0.33" group="feature" />
+			<addmuscle nodenum="3" muscle="h_mey12" weight="1" group="feature"/>
+		</segment>
+
+		<!-- LOWERLID -->
+		<segment id="f3" label="lowerlid" color="0x404040" width="4" alpha="1">
+			<spline type="cubicbezier" id="s3">
+				<point ref="p8"/>
+				<point id="p11" x="56" 	y="206"/>
+				<point id="p10" x="90" 	y="242"/>
+				<point ref="p5"/>
+			</spline>
+			<strokestyle type="brush">
+				<values startwidth="1" maxwidth="3" endwidth="1" color="0x404040" alpha="1"/>
+			</strokestyle>
+			<addmuscle nodenum="2" muscle="m5" weight="1" group="feature" />
+		</segment>
+	</feature>
+	
+	
+	<!-- MOUTH  -->
+	<feature stroked='true' filled='true' mirrored='true'>
+		<fill>
+			<draw>
+				<beginFill color="0x000000" alpha="1" />
+				<drawRect x="-200" y="270" width="400" height="200" />
+				<endFill />
+			</draw>
+		</fill>
+		
+		<fill>
+			<draw>
+				<beginFill color="0xffffff" alpha="1" />
+				<drawEllipse x="-150" y="290" width="300" height="100" />
+				<endFill />
+			</draw>
+			<addmuscle muscle="h_teethupper" weight="1" group="feature" />
+		</fill>
+		
+		<fill>
+			<draw>
+				<beginFill color="0xffffff" alpha="1" />
+					<moveTo x="160" y="480" />
+					<lineTo x="160" y="360" />
+					<curveTo controlX="0" controlY="430" anchorX="-160" anchorY="360"/>
+					<lineTo x="-160" y="480" />
+				<endFill />
+			</draw>
+			<addmuscle muscle="h_teethlower" weight="1" group="feature"/>
+		</fill>
+		
+		<!-- UPPERLIP JOINER -->
+		<segment id="f4" label="upperlipjoiner" color="0x404040" width="4" alpha="1">
+			<spline type="joiner" id="s4">
+				<point id="p21" x="-10" y="399"/>
+				<point id="p20" x="0" y="399"/>
+				<point id="p16" x="15" y="399"/>
+				<point id="p15" x="30" y="399"/>
+			</spline>
+			<!-- <strokestyle type="brush">
+				<values startwidth="3" maxwidth="3" endwidth="3" color="0x404040" alpha="1"/>
+			</strokestyle> -->
+			<addmuscle nodenum="0" muscle="m6" weight="1" group="feature" />
+			<addmuscle nodenum="1" muscle="m6" weight="1" group="feature" />
+
+			<!-- Helper -->
+			<addmuscle nodenum="0" muscle="h_mli9" weight="0.4" group="feature" />
+			<addmuscle nodenum="1" muscle="h_mli9" weight="0.4" group="feature" />
+			
+			<!-- upperlipjoiner is evaluated before upperlip,
+				 therefore shared points need to be influenced here. -->
+			<addmuscle nodenum="4" muscle="m6" weight="1" group="feature" />
+			<addmuscle nodenum="5" muscle="m6" weight="0.95" group="feature" />
+			<addmuscle nodenum="5" muscle="m7" weight="0.1" group="feature" />
+			<addmuscle nodenum="5" muscle="m8" weight="0.1" group="feature" />
+			<addmuscle nodenum="5" muscle="m10" weight="0.2" group="feature" />
+			<addmuscle nodenum="5" muscle="m16" weight="0.1" group="feature" />
+			<addmuscle nodenum="4" muscle="h_mli9" weight="0.25" group="feature" />
+		</segment>
+
+		<!-- UPPERLIP -->
+		<segment id="f5" label="upperlip" color="0x404040" width="4" alpha="1">
+			<spline type="cubicbezier" id="s5">
+				<point ref="p16"/>
+				<point ref="p15"/>
+				<point id="p14" x="45" y="400"/>
+				<point id="p13" x="70" y="399"/>
+			</spline>
+			<!-- <strokestyle type="brush">
+				<values startwidth="3" maxwidth="3" endwidth="1" color="0x404040" alpha="1"/>
+			</strokestyle> -->
+			<addmuscle nodenum="2" muscle="m6" weight="0.95" group="feature" />
+
+			<addmuscle nodenum="2" muscle="m7" weight="0.5" group="feature" />
+
+			<addmuscle nodenum="2" muscle="m8" weight="0.29" group="feature" />
+			<addmuscle nodenum="3" muscle="m8" weight="0.23" group="feature" />
+
+			<addmuscle nodenum="3" muscle="m9" weight="0.5" group="feature" />
+
+			<addmuscle nodenum="2" muscle="m10" weight="0.29" group="feature" />
+			<addmuscle nodenum="3" muscle="m10" weight="0.09" group="feature" />
+
+			<addmuscle nodenum="3" muscle="m11" weight="0.23" group="feature" />
+
+			<addmuscle nodenum="3" muscle="m16" weight="1" group="feature" />
+			<addmuscle nodenum="2" muscle="m16" weight="0.3" group="feature" />
+		</segment>
+
+		<!-- LOWERLIP -->
+		<segment id="f6" label="lowerlip" color="0x404040" width="4" alpha="1">
+			<spline type="cubicbezier" id="s6">
+				<point ref="p13"/>
+				<point id="p17" x="50" y="399"/>
+				<point id="p18" x="40" y="400"/>
+				<point id="p19" x="25" y="401"/>
+			</spline>
+			<!-- <strokestyle type="brush">
+				<values startwidth="1" maxwidth="3" endwidth="3" color="0x404040" alpha="1"/>
+			</strokestyle> -->
+			<addmuscle nodenum="0" muscle="m8" weight="0.23" group="feature" />
+
+			<addmuscle nodenum="0" muscle="m9" weight="0.5" group="feature" />
+			<addmuscle nodenum="1" muscle="m9" weight="0.13" group="feature" />
+			<addmuscle nodenum="2" muscle="m9" weight="0.05" group="feature" />
+
+			<addmuscle nodenum="0" muscle="m10" weight="0.09" group="feature" />
+			<addmuscle nodenum="1" muscle="m10" weight="0.30" group="feature" />
+			<addmuscle nodenum="2" muscle="m10" weight="0.31" group="feature" />
+
+			<addmuscle nodenum="3" muscle="m10" weight="0.13" group="feature" />
+
+			<addmuscle nodenum="0" muscle="m11" weight="0.22" group="feature" />
+
+			<addmuscle nodenum="1" muscle="m12" weight="0.5" group="feature" />
+			<addmuscle nodenum="2" muscle="m12" weight="0.31" group="feature" />
+			<addmuscle nodenum="3" muscle="m12" weight="0.13" group="feature" />
+
+			<addmuscle nodenum="3" muscle="m15" weight="0.85" group="feature" />
+			<addmuscle nodenum="2" muscle="m15" weight="0.7" group="feature" />
+			<addmuscle nodenum="1" muscle="m15" weight="0.4" group="feature" />
+
+			<addmuscle nodenum="0" muscle="m16" weight="1" group="feature" />
+			<addmuscle nodenum="1" muscle="m16" weight="0.3" group="feature" />
+			<addmuscle nodenum="2" muscle="m16" weight="0.1" group="feature" />
+
+			<!-- Helper -->
+			<addmuscle nodenum="1" muscle="h_mli10" weight="1" group="feature" />
+			<addmuscle nodenum="2" muscle="h_mli10" weight="0.2" group="feature" />
+			<addmuscle nodenum="3" muscle="h_mli10" weight="0.1" group="feature" />
+
+		</segment>
+
+		<!-- LOWERLIP JOINER -->
+		<segment id="f7" label="lowerlipjoiner" color="0x404040" width="4" alpha="1">
+			<spline type="joiner" id="s7">
+				<point ref="p18"/>
+				<point ref="p19"/>
+				<point id="llj_p1" x="0" y="401"/>
+				<point id="llj_p0" x="-10" y="401"/>
+			</spline>
+			<!-- <strokestyle type="brush">
+				<values startwidth="3" maxwidth="0" endwidth="3" color="0x404040" alpha="1"/>
+			</strokestyle> -->
+			<addmuscle nodenum="5" muscle="m15" weight="1" group="feature" />
+			<addmuscle nodenum="4" muscle="m15" weight="1" group="feature" />
+
+			<addmuscle nodenum="4" muscle="h_mli11" weight="1" group="feature" />
+			<addmuscle nodenum="5" muscle="h_mli11" weight="1" group="feature" />
+
+		</segment>
+	</feature>
+</facedata>

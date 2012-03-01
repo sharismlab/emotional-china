@@ -47,7 +47,7 @@ function loadFacedata() {
 			'wrinkles.xml',
 			'emotions.xml',
 			'overlays.xml'
-		), 'meta/');
+		), 'flash/grimace/meta/');
 		
 		grimace.setCaptureUrl('../../../SaveFile.php');
 	}
@@ -149,6 +149,7 @@ var sliders = {
 		// but usually unintelligible.
 		
 		var active = 0;
+		console.log(this.values)
 		for (var i in this.values) {
 			if (this.values[i] > 0) {
 				active++;
@@ -197,6 +198,7 @@ function onEmotionSet() {
 
 
 // Add button functionality
+
 function initButtons() {
 	var restart = document.getElementById('restart');
 	restart.onclick = function() {
@@ -205,6 +207,17 @@ function initButtons() {
 	}
 	if (restart.captureEvents) restart.captureEvents(Event.CLICK);
 
+
+	var reset = document.getElementById('reset');
+	reset.onclick = function() {
+		grimace.addEventListener('emotionSet', 'onEmotionSet');
+		grimace.resetEmotion(0.3);
+	}
+	if (reset.captureEvents) reset.captureEvents(Event.CLICK);
+
+}
+
+/*	
 	var draw = document.getElementById('draw');
 	draw.onclick = function() {
 		grimace.draw();
@@ -304,7 +317,7 @@ function initButtons() {
 
 function log(msg) {
 	document.getElementById('log').innerHTML = msg;
-}
+}*/
 
 
 jsReady = true;
@@ -314,7 +327,7 @@ sliders.init();
 
 initListeners();
 
-initButtons();
+// initButtons();
 
 if (document.location.toString().indexOf('file://') != -1) {
  	alert('Because of Flash security restrictions, this demo must be served by a web server and accessed by http://. You cannot use the demo from a file:// context.');
