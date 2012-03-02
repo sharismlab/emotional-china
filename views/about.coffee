@@ -1,25 +1,13 @@
 @title = "About"
 
 @stylesheet = "about"
-@scripts = ['libs/jquery.scrollto', 'about/about','d3/d3', 'd3/d3.layout', 'about/emochord', 'libs/jquery-ui-1.8.17.custom.min','about/grimace']
+@scripts = ['libs/jquery.scrollto', 'about/about','d3/d3', 'd3/d3.layout', 'about/emochord', 'libs/jquery-ui-1.8.17.custom.min','about/grimace','libs/kinetic','about/menu' ]
 @script = '''
 
 '''
 
 body ->
-
-  nav class:"navig", ->
-    div class:"buttons", ->
-      div class:"one", ->
-        a class:'panel one selected',  href:'#one', -> 'One'
-      div class:"two", ->
-        a class:'panel two',  href:'#two', -> 'Two'
-      div class:"three", ->
-        a class:'panel three',  href:'#three', -> 'Three'
-      div class:"four", ->
-        a class:'panel four',  href:'#four', -> 'Four'
-      div class:"five", ->
-        a class:'panel five',  href:'#five', -> 'Five'
+  div id:'particle', class:'navig'
 
 
   section id: 'slider', ->
